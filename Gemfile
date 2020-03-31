@@ -97,3 +97,4 @@ end
   gem 'fog-aws' # Web上で画像の保存先の指定をする
   gem 'jp_prefecture' # 都道府県情報の追加
   gem 'impressionist' # PV数チェック
+  gem 'ancestry' #カテゴリー多階層構造
