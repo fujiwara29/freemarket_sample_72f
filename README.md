@@ -22,9 +22,9 @@
 - has_many :items
 - has_many :comments
 - has_many :orders
-- belongs_to :profile
-- belongs_to :address
-- belongs_to :credit_card
+- has_one :profile
+- has_one :addresses
+- has_one :credit_cards
 
 ---
 
@@ -39,7 +39,7 @@
 
 ### Association
 
-- has_one :user
+- belongs_to :user
 
 ---
 
@@ -129,7 +129,9 @@
 |             |           |                                |
 
 ### Association
-- has_many :items
+- belongs_to :items
+- belongs_to :category
+
 
 
 ---
