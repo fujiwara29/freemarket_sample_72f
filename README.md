@@ -23,8 +23,8 @@
 - has_many :comments
 - has_many :orders
 - has_one :profile
-- has_one :addresses
-- has_one :credit_cards
+- has_one :address
+- has_one :credit_card
 
 ---
 
