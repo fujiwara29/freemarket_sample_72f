@@ -17,19 +17,18 @@
 | phone_number     | integer | null :false, unique :true |
 |                  |         |                           |
 
- Associationas_many :comments
+### Association
+
 - has_many :items
 - has_many :comments
-- has_many :comments, through: :item
 - has_many :orders
-- has_many :orders, through: :item
-- has_one :profile
-- hes_one :address
-- has_one :credit_card
+- belongs_to :profile
+- belongs_to :address
+- belongs_to :credit_card
 
 ---
 
-## profilesテーブル(プロフィール)
+## profilesテーブル
 
 | Column  | Type       | Options                        |
 | ------- | ---------- | ------------------------------ |
@@ -58,12 +57,12 @@
 
 ### Association
 
-- has_one :user
+- belongs_to :user
 - has_many :orders
 
 ---
 
-## credit_cardテーブル(支払い方法)
+## credit_cardテーブル
 
 | Column           | Type       | Options                        |
 | ---------------- | ---------- | ------------------------------ |
@@ -76,18 +75,17 @@
 
 ### Association
 
-- has_one :user
+- belongs_to :user
 
 ---
 
-## itemsテーブル（商品関連）
+## itemsテーブル
 
 | Column          | Type       | Options                        |
 | --------------- | ---------- | ------------------------------ |
 | image_id        | references | null: false ,foreign_key :true |
 | name            | string     | null :false                    |
 | introduction    | text       | null :false                    |
-| category_id     | references | null :false ,foreign_key :true |
 | brand_id        | references | foreign_key :true              |
 | condition       | string     | null :false                    |
 | postage_payer   | string     | null :false                    |
@@ -101,12 +99,11 @@
 
 - belongs_to :user
 - has_many :comments
-- has_many :comments, through: :user
 - has_many :images
 - has_many :categorys
+- has_many :categorys, through: :items_categorys
 - belongs_to :brand
 - has_many :orders
-- has_many :orders, through: :user
 
 ---
 
@@ -123,16 +120,30 @@
 
 ---
 
-## categorysテーブル（カテゴリー用）
+## items_categorysテーブル
+
+| Column      | Type      | Options                        |
+| ----------- | --------- | ------------------------------ |
+| item_id     | reference | null :false, foreign_key :true |
+| category_id | reference | null :false, foreign_key :true |
+|             |           |                                |
+
+### Association
+- has_many :items
+
+
+---
+
+## categorysテーブル
 
 | Column  | Type      | Options                        |
 | ------- | --------- | ------------------------------ |
 | name    | string    | null :false                    |
-| item_id | reference | null :false, foreign_key :true |
 |         |           |                                |
 
 ### Association
-- belongs_to :item
+- has_many :items
+- has_many :items, through: :items_categorys
 
 ---
 
