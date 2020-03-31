@@ -83,9 +83,10 @@
 
 | Column          | Type       | Options                        |
 | --------------- | ---------- | ------------------------------ |
-| image_id        | references | null: false ,foreign_key :true |
+| image_id        | references | null :false, foreign_key :true |
 | name            | string     | null :false                    |
 | introduction    | text       | null :false                    |
+| category_id     | references | null :false, foreign_key :true |
 | brand_id        | references | foreign_key :true              |
 | condition       | string     | null :false                    |
 | postage_payer   | string     | null :false                    |
@@ -100,8 +101,7 @@
 - belongs_to :user
 - has_many :comments
 - has_many :images
-- has_many :categorys
-- has_many :categorys, through: :items_categorys
+- belongs_to :category
 - belongs_to :brand
 - has_many :orders
 
@@ -120,22 +120,6 @@
 
 ---
 
-## items_categorysテーブル (中間テーブル)
-
-| Column      | Type      | Options                        |
-| ----------- | --------- | ------------------------------ |
-| item_id     | reference | null :false, foreign_key :true |
-| category_id | reference | null :false, foreign_key :true |
-|             |           |                                |
-
-### Association
-- belongs_to :items
-- belongs_to :category
-
-
-
----
-
 ## categorysテーブル
 
 | Column  | Type      | Options                        |
@@ -145,7 +129,6 @@
 
 ### Association
 - has_many :items
-- has_many :items, through: :items_categorys
 
 ---
 
@@ -154,7 +137,6 @@
 | Column          | Type       | Options                        |
 | --------------- | ---------- | ------------------------------ |
 | name            | string     | null :false                    |
-| item_id         | reference  | null :false, foreign_key :true |
 |                 |            |                                |
 
 ### Association
@@ -183,7 +165,7 @@
 | Column  | Type      | Options                        |
 | ------- | --------- | ------------------------------ |
 | user_id | reference | null :false, foreign_key :true |
-| item_id | reference | null  :false,foreign_key :true |
+| item_id | reference | null :false,foreign_key :true  |
 | comment | text      | null :false                    |
 |         |           |                                |
 
