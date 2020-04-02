@@ -27,5 +27,6 @@
 /config/master.key
 
 # 追加
+.DS_Store
 public/uploads/*
 config/secrets.yml
