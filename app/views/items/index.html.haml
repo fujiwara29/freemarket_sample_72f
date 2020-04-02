@@ -1,0 +1,299 @@
+-# .header
+.main
+  .main_top
+    .contents
+      .contents__subtitle
+        人生を変えるフリマアプリ
+      .contents__text
+        FURIMAはだれでもかんたんに出品・購入できる
+        %br/
+        フリマアプリです
+      .contents__btns
+        .contents__btns__btn
+          = link_to "#", class:"contents__btns__btn__app_store" do
+            = image_tag "material/btn/app_store.png", class: "contents__btns__btn__app_store--btn"
+        .contents__btns__btn
+          = link_to "#", class:"contents__btns__btn__google_play" do
+            = image_tag "material/btn/google_play.png", class: "contents__btns__btn__google_play--btn"
+
+
+  .inttodactions
+    .inttodaction
+      %p.subtitle FURIMAが選ばれる3つの理由
+      .inttodaction__green_bar
+      .inttodaction__lists
+        -# ここから繰り返し
+        .inttodaction__lists__list
+          .inttodaction__lists__list__image
+            %span.number 1
+            = image_tag "material/pict/pict-reason-01.jpg"
+          %a.inttodaction__lists__list__text
+            %span 3分
+            ですぐに出品
+          %p.inttodaction__lists__list__explamation
+            スマホで入力するだけで簡単に出品できる！
+          -# ここまで繰り返し
+        -# ここから繰り返し
+        .inttodaction__lists__list
+          .inttodaction__lists__list__image
+            %span.number 2
+            = image_tag "material/pict/pict-reason-02.jpg"
+          %p.inttodaction__lists__list__text
+            %span シンプル
+            で使いやすい
+          %p.inttodaction__lists__list__explamation
+            めんどくさい入力は必要なく、検索も購入もスムーズ！
+          -# ここまで繰り返し
+        -# ここから繰り返し
+        .inttodaction__lists__list
+          .inttodaction__lists__list__image
+            %span.number 3
+            = image_tag "material/pict/pict-reason-03.jpg"
+          %p.inttodaction__lists__list__text
+            手数料
+            %span 業界最安
+          %p.inttodaction__lists__list__explamation
+            最大3%でお得に出品&amp;購入！
+          -# ここまで繰り返し
+
+
+  .download
+    .download__inside
+      %p.download__inside__text-top
+      会員数日本一位
+      %p.download__inside__text-bottom
+        FURIMAは、フリマアプリで最も人気。
+        %br/
+        出品・購入回数も業界最多です！
+        %br/
+        ほしかったあの商品に出会えるかもしれません。
+      .download__inside__btns
+        .download__inside__btns__btn
+          = link_to "#", class:"download__inside__btns__btn__app_store" do
+            = image_tag "material/btn/app_store.png", class: "download__inside__btns__btn__app_store--btn"
+        .download__inside__btns__btn
+          = link_to "#", class:"download__inside__btns__btn__google_play" do
+            = image_tag "material/btn/google_play.png", class: "download__inside__btns__btn__google_play--btn" 
+
+
+
+  .features
+    .feature
+      %p.subtitle
+        FURIMAの特徴
+      .feature__green_bar
+      %ul.feature__lists
+        -# ここから繰り返し
+        %li.feature__lists__list
+          = image_tag "material/icon/icon-01.png" ,class:"feature__lists__list__imge"
+          %p.feature__lists__list__text 簡単に売り買いできる
+          %p.feature__lists__list__explamation
+            スマホひとつで、いつでもどこでも簡単に出品・購入が可能！
+          -# ここまで繰り返し
+        -# ここから繰り返し
+        %li.feature__lists__list
+          = image_tag "material/icon/icon-02.png" ,class:"feature__lists__list__imge"
+          %p.feature__lists__list__text 売上金は即日振込みに対応
+          %p.feature__lists__list__explamation
+            午前9時までに振込を依頼いただければ、翌日に指定の口座に入金いたします!
+          -# ここまで繰り返し
+        -# ここから繰り返し
+        %li.feature__lists__list
+          = image_tag "material/icon/icon-04.png" ,class:"feature__lists__list__imge"
+          %p.feature__lists__list__text 様々な支払いに対応
+          %p.feature__lists__list__explamation
+            お支払いは、クレジットカードだけでなく、ポイントや売上金など多彩な方法があります。
+          -# ここまで繰り返し
+
+
+  .new-items
+    %p.subtitle ピックアップカテゴリー
+    = link_to "新規投稿商品", "#", class:"new_items"
+    .new-item_inside
+      .new-item_lists
+        -# ここから繰り返し
+        .new-item_list
+          %label.new-item_label
+            = link_to "/", class:"new-item_list__link", class:"new-item_list" do
+              = image_tag "test_image/S__25346051.jpg" ,class:"new-item_imge" 
+              .new-item_body
+                %p.new-item_body__name product3
+                .new-item_body__data
+                  %p.new-item_body__data__price 30000円
+                  .new-item_body__data__like-box
+                    .new-item_body__data__like-box
+                      %i.fa.fa-star.new-item_body__data__like-box__icon
+                      %p.new-item_body__data__like-box__like
+                        0
+                %p.new-item_body__tax (税込)
+                -# ここまで繰り返し
+        -# ここから繰り返し
+        .new-item_list
+          %label.new-item_label
+            = link_to "/", class:"new-item_list__link", class:"new-item_list" do
+              = image_tag "test_image/S__25346051.jpg" ,class:"new-item_imge" 
+              .new-item_body
+                %p.new-item_body__name product3
+                .new-item_body__data
+                  %p.new-item_body__data__price 30000円
+                  .new-item_body__data__like-box
+                    .new-item_body__data__like-box
+                      %i.fa.fa-star.new-item_body__data__like-box__icon
+                      %p.new-item_body__data__like-box__like
+                        0
+                %p.new-item_body__tax (税込)
+                -# ここまで繰り返し
+        -# ここから繰り返し
+        .new-item_list
+          %label.new-item_label
+            = link_to "/", class:"new-item_list__link", class:"new-item_list" do
+              = image_tag "test_image/S__25346051.jpg" ,class:"new-item_imge" 
+              .new-item_body
+                %p.new-item_body__name product3
+                .new-item_body__data
+                  %p.new-item_body__data__price 30000円
+                  .new-item_body__data__like-box
+                    .new-item_body__data__like-box
+                      %i.fa.fa-star.new-item_body__data__like-box__icon
+                      %p.new-item_body__data__like-box__like
+                        0
+                %p.new-item_body__tax (税込)
+                -# ここまで繰り返し
+        -# ここから繰り返し
+        .new-item_list
+          %label.new-item_label
+            = link_to "/", class:"new-item_list__link", class:"new-item_list" do
+              = image_tag "test_image/S__25346051.jpg" ,class:"new-item_imge" 
+              .new-item_body
+                %p.new-item_body__name product3
+                .new-item_body__data
+                  %p.new-item_body__data__price 30000円
+                  .new-item_body__data__like-box
+                    .new-item_body__data__like-box
+                      %i.fa.fa-star.new-item_body__data__like-box__icon
+                      %p.new-item_body__data__like-box__like
+                        0
+                %p.new-item_body__tax (税込)
+                -# ここまで繰り返し
+
+  .pickup_categorys
+    %p.subtitle ピックアップカテゴリー
+    = link_to "新規投稿商品", "#", class:"new_items"
+    .category_inside
+      .category_lists
+        -# ここから繰り返し
+        .category_list
+          %label.category_label
+            = link_to "/", class:"category_list__link", class:"category_list" do
+              = image_tag "test_image/S__25346051.jpg" ,class:"category_imge" 
+              .category_body
+                %p.category_body__name product3
+                .category_body__data
+                  %p.category_body__data__price 30000円
+                  .category_body__data__like-box
+                    .category_body__data__like-box
+                      %i.fa.fa-star.category_body__data__like-box__icon
+                      %p.category_body__data__like-box__like
+                        0
+                %p.category_body__tax (税込)
+                -# ここまで繰り返し
+        -# ここから繰り返し
+        .category_list
+          %label.category_label
+            = link_to "/", class:"category_list__link", class:"category_list" do
+              = image_tag "test_image/S__25346051.jpg" ,class:"category_imge" 
+              .category_body
+                %p.category_body__name product3
+                .category_body__data
+                  %p.category_body__data__price 30000円
+                  .category_body__data__like-box
+                    .category_body__data__like-box
+                      %i.fa.fa-star.category_body__data__like-box__icon
+                      %p.category_body__data__like-box__like
+                        0
+                %p.category_body__tax (税込)
+                -# ここまで繰り返し
+        -# ここから繰り返し
+        .category_list
+          %label.category_label
+            = link_to "/", class:"category_list__link", class:"category_list" do
+              = image_tag "test_image/S__25346051.jpg" ,class:"category_imge" 
+              .category_body
+                %p.category_body__name product3
+                .category_body__data
+                  %p.category_body__data__price 30000円
+                  .category_body__data__like-box
+                    .category_body__data__like-box
+                      %i.fa.fa-star.category_body__data__like-box__icon
+                      %p.category_body__data__like-box__like
+                        0
+                %p.category_body__tax (税込)
+                -# ここまで繰り返し
+
+
+  .pickup_brands
+    %p.subtitle ピックアップカテゴリー
+    = link_to "新規投稿商品", "#", class:"new_items"
+    .brand_inside
+      .brand_lists
+        -# ここから繰り返し
+        .brand_list
+          %label.brand_label
+            = link_to "/", class:"brand_list__link", class:"brand_list" do
+              = image_tag "test_image/S__25346051.jpg" ,class:"brand_imge" 
+              .brand_body
+                %p.brand_body__name product3
+                .brand_body__data
+                  %p.brand_body__data__price 30000円
+                  .brand_body__data__like-box
+                    .brand_body__data__like-box
+                      %i.fa.fa-star.brand_body__data__like-box__icon
+                      %p.brand_body__data__like-box__like
+                        0
+                %p.brand_body__tax (税込)
+                -# ここまで繰り返し
+        -# ここから繰り返し
+        .brand_list
+          %label.brand_label
+            = link_to "/", class:"brand_list__link", class:"brand_list" do
+              = image_tag "test_image/S__25346051.jpg" ,class:"brand_imge" 
+              .brand_body
+                %p.brand_body__name product3
+                .brand_body__data
+                  %p.brand_body__data__price 30000円
+                  .brand_body__data__like-box
+                    .brand_body__data__like-box
+                      %i.fa.fa-star.brand_body__data__like-box__icon
+                      %p.brand_body__data__like-box__like
+                        0
+                %p.brand_body__tax (税込)
+                -# ここまで繰り返し
+        -# ここから繰り返し
+        .brand_list
+          %label.brand_label
+            = link_to "/", class:"brand_list__link", class:"brand_list" do
+              = image_tag "test_image/S__25346051.jpg" ,class:"brand_imge" 
+              .brand_body
+                %p.brand_body__name product3
+                .brand_body__data
+                  %p.brand_body__data__price 30000円
+                  .brand_body__data__like-box
+                    .brand_body__data__like-box
+                      %i.fa.fa-star.brand_body__data__like-box__icon
+                      %p.brand_body__data__like-box__like
+                        0
+                %p.brand_body__tax (税込)
+                -# ここまで繰り返し
+
+
+.banner
+  .banner__inside
+    %p.banner__inside__text-top だれでもかんたん、人生を変えるフリマアプリ
+    %p.banner__inside__text-bottom 今すぐ無料ダウンロード！
+    .banner__inside__btns
+      .banner__inside__btns__app_store
+        = link_to "#", class:"banner__inside__btns__app_store--btn" do
+          = image_tag "material/btn/app_store.png"
+      .banner__inside__btns__google_play
+        = link_to "#", class:"banner__inside__btns__google_play--btn" do
+          = image_tag "material/btn/google_play.png"

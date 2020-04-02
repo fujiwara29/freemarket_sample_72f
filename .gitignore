@@ -29,3 +29,4 @@
 # 追加
 public/uploads/*
 config/secrets.yml
+assets/images/test_image/*
