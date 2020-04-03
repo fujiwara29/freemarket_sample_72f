@@ -1,6 +1,25 @@
-%h1 header記入欄
-= link_to "logo.image", "/"
-= link_to "新規登録", '#'
-= link_to "ログイン", '#'
-= link_to "マイページ", '#'
-= link_to "ログアウト", '#'
+%header.navHeader
+  .navInner
+    .mainHeader
+      .mainHeaderIcon
+        =link_to image_tag("material/logo/logo.png",class: "mainHeaderIconLogo"),root_path
+      .searchBox
+        = form_with url: "#", local: true, method: :get, class: "search-form" do |form|
+          = form.text_field :keyword, placeholder: "キーワードから探す", class: "search-input"
+          %label.search-label
+            = form.submit "" , class: "search-btn" 
+            = image_tag "material/icon/icon-search 1.png", class:"search-icon" 
+    .navNavi
+
+      %ul.listsLeft
+        %li.category
+          = link_to "カテゴリー",'#', class: "nav-category"
+
+        %li.brand
+          = link_to "ブランド",'#', class: "nav-brand"
+
+      %ul.listsRight
+        %li.login
+          = link_to "ログイン",'#',class: "nav-login"
+        %li.sign_up
+          = link_to "新規会員登録",'#', class: "nav-login"
