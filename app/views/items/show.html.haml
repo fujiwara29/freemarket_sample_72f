@@ -1,23 +1,17 @@
 %nav.breadCrumbs
-  %ul
-    %li
-      = link_to 'FURIMA', '/' ,class: "select-btn"
-    %li
-      %i.fa >
-    %li
-      = link_to 'ベビー・キッズ', '#' ,class: "select-btn"
-    %li
-      %i.fa >
-    %li
-      = link_to 'ベビー服(男女兼用) ~95cm', '#' ,class: "select-btn"
-    %li
-      %i.fa >
-    %li
-      = link_to 'アウター', '#' ,class: "select-btn"
-    %li
-      %i.fa >
-    %li
-      product3
+  .bread
+    %ul
+      %li
+        %a{:href => "#"} FURIMA
+      %li
+        %a{:href => "#"} ベビー・キッズ
+      %li
+        %a{:href => "#"} ベビー服(男女兼用) ~95cm
+      %li
+        %a{:href => "#"} アウター
+      %li
+        product3     
+
 .main
   .main__snow
     .contentLeftqq
@@ -87,25 +81,16 @@
         .commentBox
           %ul.commentContents
             = form_with url: "#", local: true, method: :get, class: "search-form" do |form|
-              = form.text_area :name, class: "hoge", size: "30x10"
+              .form-box
+                = form.text_area :name, class: "hoge"
               %p.noticeMsg 相手のことを考え丁寧なコメントを心がけましょう。<br>不快な言葉遣いなどは利用制限や退会処分となることがあります。
               %br
               = form.submit "コメントする" , class: "search-btn"
       %ul.links
         %li.left
           = link_to '前の商品へ', '#'
-          -# %i.fa.fa-angele-left
-          -# %span
-          -# 前の商品へ
         %li.right
           = link_to '後ろの商品へ', '#'
-          -# %i.fa.fa-angele-left
-          -# %span
-          -#  後ろの商品へ
-          -# %i.fa.fa-angele-right
       .relatedItems
         = link_to 'ベビーキッズをもっと見る', '#'
-        -# .productLists  ::after
-        
-          
 
