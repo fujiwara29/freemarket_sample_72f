@@ -2,11 +2,13 @@
 %html
   %head
     %meta{content: "text/html; charset=UTF-8", "http-equiv": "Content-Type"}/
-    %title チーム開発
+    %title FURIMA
     = csrf_meta_tags
+    = csp_meta_tag
     = stylesheet_link_tag    'application', media: 'all'
     = javascript_include_tag 'application'
   %body
-    -# = render 'layouts/nav'
+    = render 'layouts/nav'
     = yield
-    -# = render 'layouts/footer'
+    = render 'layouts/banner'
+    = render 'layouts/footer'
