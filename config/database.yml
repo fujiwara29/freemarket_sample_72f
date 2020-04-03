@@ -20,6 +20,7 @@ default: &default
 development:
   <<: *default
   database: freemarket_sample_72f_development
+  
 
 # Warning: The database defined as "test" will be erased and
 # re-generated from your development database when you run "rake".
@@ -49,6 +50,8 @@ test:
 #
 production:
   <<: *default
-  database: freemarket_sample_72f_production
-  username: freemarket_sample_72f
-  password: <%= ENV['FREEMARKET_SAMPLE_72F_DATABASE_PASSWORD'] %>
+  database: freemarket_sample_72f
+  username: root
+  password: <%= ENV['DATABASE_PASSWORD'] %>
+  socket: /var/lib/mysql/mysql.sock
+  # username: freemarket_sample_72f
