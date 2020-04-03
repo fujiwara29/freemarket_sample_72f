@@ -1,9 +1,15 @@
 class User < ApplicationRecord
-  # Include default devise modules. Others available are:
-  # :confirmable, :lockable, :timeoutable, :trackable and :omniauthable
+
   devise :database_authenticatable, :registerable,
-         :recoverable, :rememberable, :validatable
-  validates :phone_number, presence: true,             format: { with: /\A\d{10}$|^\d{11}\z/ }
-  # validates :first_name, format: {/^[ぁ-んァ-ン一-龥]/}
-  # validates :family_name, format: {/^[ぁ-んァ-ン一-龥]/}  
+
+  validates :phone_number, presence: true, format: { with: /\A\d{10}$|^\d{11}\z/ }
+            :recoverable, :rememberable, :validatable
+
+  has_many :items
+  has_many :orders
+  has_many :comments
+  has_one :profile
+  has_one :address
+  has_one :credit_card
+
 end
