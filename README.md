@@ -19,12 +19,12 @@
 
 ### Association
 
-- has_many: items
-- has_many: comments
-- has_many: orders
-- has_one: profile
-- has_one: address
-- has_one: credit_card
+- has_many :items
+- has_many :comments
+- has_many :orders
+- has_one :profile
+- has_one :address
+- has_one :credit_card
 
 ---
 
@@ -57,8 +57,8 @@
 
 ### Association
 
-- belongs_to: user
-- has_many: orders
+- belongs_to :user
+- has_many :orders
 
 ---
 
@@ -75,7 +75,7 @@
 
 ### Association
 
-- belongs_to: user
+- belongs_to :user
 
 ---
 
@@ -98,12 +98,12 @@
 
 ### Association
 
-- belongs_to: user
-- has_many: comments
-- has_many: images
-- belongs_to: category
-- belongs_to: brand
-- has_many: orders
+- belongs_to :user
+- has_many :comments
+- has_many :images
+- belongs_to :category
+- belongs_to :brand
+- has_many :orders
 
 ---
 
@@ -116,7 +116,7 @@
 |                 |            |                                |
 
 ### Association
-- belongs_to: item
+- belongs_to :item
 
 ---
 
@@ -128,7 +128,7 @@
 |         |           |                                |
 
 ### Association
-- has_many: items
+- has_many :items
 
 ---
 
@@ -140,7 +140,7 @@
 |                 |            |                                |
 
 ### Association
-- belongs_to: item
+- belongs_to :item
 
 ---
 
@@ -155,8 +155,8 @@
 
 ### Association
 
-- belongs_to: user
-- belongs_to: item
+- belongs_to :user
+- belongs_to :item
 
 ---
 
@@ -171,5 +171,5 @@
 
 ### Association
 
-- belongs_to: user
-- belongs_to: item
+- belongs_to :user
+- belongs_to :item
