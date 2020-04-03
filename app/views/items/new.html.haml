@@ -1,0 +1,184 @@
+.sell
+  %header.sell-header
+    = link_to root_path do
+      = image_tag 'material/logo/logo.png', alt: 'Furima', height: '49', width: '185'
+  -#メイン
+  %main
+    %section.sell-container
+      = form_with model: @item do |f|
+
+        -# 画像
+        .sell-container__content
+          .sell-title
+            %h3.sell-title__text
+              出品画像
+              %span.sell-title__required
+                必須
+          .sell-container__content__max-sheet 最大10枚までアップロードできます
+          .sell-container__content__upload
+            .sell-container__content__upload__items
+              .sell-container__content__upload__items__box
+                %ul#output-box
+                  %div#image-input{tabindex:"0"}
+                    = f.label :images, for: "material/icon/icon_camera.png", class: 'sell-container__content__upload__items__box__label', data: {label_id: 0 } do
+                      = f.file_field :image, multiple: true, class: "sell-container__content__upload__items__box__input", style: 'display: none;'
+                      %pre
+                        %i.fas.fa-camera.fa-lg
+                        ドラッグアンドドロップ
+                        またはクリックしてファイルをアップロード
+          .error-messages
+
+
+
+
+        -#商品名
+        .sell-container__content
+          .sell-title
+            %h3.sell-title__text
+              商品名
+              %span.sell-title__required
+                必須
+          = f.text_field :name, {class:'sell-container__content__text', required: "required", placeholder: '商品名 (必須 40文字まで)'}
+          .error-messages
+
+          .sell-title
+            %h3.sell-title__text
+              商品の説明
+              %span.sell-title__required
+                必須
+          = f.text_area :text,{class: 'sell-container__content__text', required: "required", placeholder: '商品の説明 (必須 1,000文字以内)(色、素材、重さ、定価、注意点など) 例) 2010年頃に1万円で購入したジャケットです。ライトグレーで傷はありません。あわせやすいのでおすすめです', rows: '6', maxlength: '1000'}
+          -# placeholderでitems_helperを呼び出す
+          .sell-container__content__word-count
+            %span#word-count
+              0
+            &#47;1000
+          .error-messages
+
+        -# 詳細
+        .sell-container__content
+          %h3.sell-sub-head 商品の詳細
+          .sell-container__content__details
+            .sell-title
+              %h3.sell-title__text
+                カテゴリー
+                %span.sell-title__required
+                  必須
+            .sell-collection_select
+              = f.label :category, class: 'sell-collection_select__label' do
+                = f.select :name, ["選択してください","レディース", "メンズ", "ベビー・キッズ","インテリア・住まい・小物","本・音楽・ゲーム"],{}, {class: 'sell-container__content__text'}
+                %i.fas.fa-chevron-down
+            .error-messages
+
+            .sell-title
+              %h3.sell-title__text
+                商品の状態
+                %span.sell-title__required
+                  必須
+            .sell-collection_select
+              = f.label :items, class: 'sell-collection_select__label' do
+                = f.select :condition, ["選択してください","新品、未使用", "未使用に近い","目立った傷や汚れなし","やや汚れや傷あり","傷や汚れあり","全体的に状態が悪い"],{}, {class: 'sell-container__content__text'}
+                %i.fas.fa-chevron-down
+            .error-messages
+
+        -# 配送
+        .sell-container__content
+          %h3.sell-sub-head
+            %p 配送について
+            = link_to '#',target: '_blank',class: 'sell-sub-head__guides-link' do
+              %i.far.fa-question-circle
+          .sell-container__content__delivery
+            .sell-title
+              %h3.sell-title__text
+                配送料の負担
+                %span.sell-title__required
+                  必須
+            .sell-collection_select
+              = f.label :items, class: 'sell-collection_select__label' do
+                = f.select :postage_payer, ["選択してください",["送料込み(出品者負担)","1"], "着払い(購入者負担)"],{}, {class: 'sell-container__content__text'}
+                %i.fas.fa-chevron-down
+            .error-messages
+
+            .sell-title
+              %h3.sell-title__text
+                発送元の地域
+                %span.sell-title__required
+                  必須
+            .sell-collection_select
+              = f.label :items, class: 'sell-collection_select__label' do
+                = f.select :prefecture_code, ["選択してください", "北海道", "青森県","岩手県"],{}, {class: 'sell-container__content__text'}
+                %i.fas.fa-chevron-down         
+            .error-messages
+
+            .sell-title
+              %h3.sell-title__text
+                発送までの日数
+                %span.sell-title__required
+                  必須
+            .sell-collection_select
+              = f.label :items, class: 'sell-collection_select__label' do
+                = f.select :preparation_day, ["選択してください","1~2日で発送", "2~3日で発送","4~7日で発送"],{}, {class: 'sell-container__content__text'}
+                %i.fas.fa-chevron-down
+            .error-messages
+
+        -# 価格
+        .sell-container__content
+          %h3.sell-sub-head
+            %p 販売価格(300〜9,999,999)
+            = link_to '/price', class: 'sell-sub-head__guides-link' do
+              %i.far.fa-question-circle
+          .sell-container__content__price
+            .sell-title
+              %h3.sell-title__text
+                販売価格
+                %span.sell-title__required
+                  必須
+            .sell-container__content__price__form
+              = f.label :price, class: 'sell-container__content__price__form__label' do
+                ¥
+                = f.number_field :price, {placeholder: '0', value: '', class: 'sell-container__content__price__form__box', required: "required"}
+          .error-messages
+
+          .sell-container__content__commission
+            .sell-container__content__commission__left
+              販売手数料 （10%）
+            .sell-container__content__commission__right ー
+          .sell-container__content__profit
+            .sell-container__content__profit__left
+              販売利益
+            .sell-container__content__profit__right ¥ 0
+
+          .submit-btn
+            = f.submit '出品する', class: 'submit-btn__sell-btn'
+            = link_to 'もどる', root_path, class: 'submit-btn__return-btn'
+          
+          .attention-box
+            %p
+              禁止されている
+              = link_to '行為', '#', target: '_blank'
+              および
+              = link_to '出品物', '#', target: '_blank'
+              を必ずご確認ください。
+              = link_to '偽ブランド品', '#', target: '_blank'
+              や
+              = link_to '盗品物', '#', target: '_blank'
+              などの販売は犯罪であり、法律により処罰される可能性があります。また、出品をもちまして
+              = link_to '加盟店規約', '#', target: '_blank'
+              に同意したことになります。
+
+  %footer.sell-footer
+    %nav
+      %ul.clearfix
+        %li
+          = link_to '#' do
+            プライバシーポリシー
+        %li
+          = link_to '#' do
+            FURIMA利用規約
+        %li
+          = link_to '#' do
+            特定商取引に関する表記
+    = link_to root_path, class: 'footer__logo' do
+      = image_tag 'material/logo/logo-white.png', alt: 'FURIMA', height: '40', width: '150'
+    %p
+      %small
+        &copy; FURIMA
