@@ -4,12 +4,9 @@ class ItemsController < ApplicationController
   end
 
   def new
-    # @item = Item.new
-    # @category_parent =  Category.where("ancestry is null")
   end
 
-
-  
   def show
   end
+
 end
