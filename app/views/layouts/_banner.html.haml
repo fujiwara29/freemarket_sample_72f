@@ -1,0 +1,11 @@
+.banner
+  .banner__inside
+    %p.banner__inside__text-top だれでもかんたん、人生を変えるフリマアプリ
+    %p.banner__inside__text-bottom 今すぐ無料ダウンロード！
+    .banner__inside__btns
+      .banner__inside__btns__btn
+        = link_to "#", class:"banner__inside__btns__btn__app_store" do
+          = image_tag "material/btn/app_store.png", class:"banner__inside__btns__btn__app_store--btn"
+      .banner__inside__btns__btn
+        = link_to "#", class:"banner__inside__btns__btn__google_play" do
+          = image_tag "material/btn/google_play.png", class:"banner__inside__btns__btn__google_play--btn"
