@@ -7,7 +7,9 @@
     = stylesheet_link_tag    'application', media: 'all'
     = javascript_include_tag 'application'
   %body
-    = render 'layouts/nav'
-    = yield
-    = render 'layouts/banner'
-    = render 'layouts/footer'
+    %header.main
+      %h1
+        = link_to "#", class:"header__btn__furima" do
+          = image_tag "material/logo/logo.png", class: "header__btn__furima-btn"
+    
+
