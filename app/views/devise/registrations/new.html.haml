@@ -18,12 +18,9 @@
         .field
           = f.label :パスワード
           = f.label :必須, class: 'hissu'
-          - if @minimum_password_length
-            -# %em
-            -#   (#{@minimum_password_length} characters minimum)
           %br/
           = f.password_field :password, autocomplete: "new-password",placeholder: "7文字以上で入力してください", class: 'text'
-          %p.ccc ※ 英字と数字の両方を含めて設定してください
+          %p.password_supplement※ 英字と数字の両方を含めて設定してください
         .field
           = f.label :確認用パスワード
           = f.label :必須, class: 'hissu'
@@ -32,7 +29,7 @@
 
         .field
           %h2 本人確認
-          %p.aaa 安心・安全にご利用いただくために、お客さまの本人情報の登録にご協力ください。他のお客さまに公開されることはありません。
+          %p.registration_supplement 安心・安全にご利用いただくために、お客さまの本人情報の登録にご協力ください。他のお客さまに公開されることはありません。
         .field
           = f.label :お名前（全角）
           = f.label :必須, class: 'hissu'
@@ -56,15 +53,15 @@
           = f.label :月
           = f.text_field :birth_day, class: 'birth'
           = f.label :日
-          %p.bbb 生年月日を入力してください      
-          %p.ccc ※ 本人情報は正しく入力してください。会員登録後、修正するにはお時間を頂く場合があります。
+          %p.birth_supplement 生年月日を入力してください
+          %p.birtf_supplement2※ 本人情報は正しく入力してください。会員登録後、修正するにはお時間を頂く場合があります。
         .field
           = f.label :電話番号
           = f.label :必須, class: 'hissu'
           %br/
           = f.text_field :phone_number, class: 'number'
 
-        .jjj
+        .next_supplement
           %p 「次へ進む」のボタンを押すことにより、利用規約に同意したものとみなします。
         .next
           次へ進む
@@ -73,8 +70,3 @@
         .recaptcha_term
           This site is protected by reCAPTCHA and the Google Privacy Policy and Terms of Service apply.
  
-      
-
-  -#   .actions
-  -#     = f.submit "Sign up"
-  -# = render "devise/shared/links"
