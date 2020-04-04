@@ -98,3 +98,4 @@ end
   gem 'jp_prefecture' # 都道府県情報の追加
   gem 'impressionist' # PV数チェック
   gem 'ancestry' #カテゴリー多階層構造
+  gem "gretel" # パンくず機能 カテゴリー誘導表示
