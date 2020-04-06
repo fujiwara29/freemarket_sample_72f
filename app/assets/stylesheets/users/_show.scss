@@ -1,0 +1,161 @@
+.myPage{
+  width: 100%;
+  padding-top: 98px;
+  &__wrapper{
+    display: flex;
+    justify-content: center;
+    width: 100%;
+    margin: 40px;
+    .sideMenu{
+      padding-right: 50px;
+    }
+    .myMain{
+      width: 700px;
+      height: 1300px;
+      &__contents{
+        height: 200px;
+        width: 100%;
+        background-color: #f8f8f8;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        background-image: url("material/pict/bg-appBanner-pict.jpg");
+        background-size: 100%;
+        .myMain__head{
+          &__head__view{
+            height: 60px;
+            width: 60px;
+            margin: 0 auto;
+            border-radius: 30px;
+          }
+          &__name{
+            height: 20px;
+            background-color:none;
+            text-align: center;
+            font-weight: bold;
+            padding-top: 10px;
+            font-size: 15px;
+          }
+        }
+      }
+      .mySell{
+        height: 425px;
+        background-color: #f8f8f8;
+        p{
+          height: 25%;
+          background-color: #3CCACE;
+          text-align: center;
+          display: flex;
+          justify-content: center;
+          align-items: center;
+          font-weight: bold;
+          font-size: 15px;
+          border-bottom: 2px solid #eee;
+        }
+        .mySell__box{
+          height: 70%;
+          ul.mySell__box__items{
+            display: flex;
+            li{
+              height: 250px;
+              width: 220px;
+              background-color: white;
+              border: 1px solid #eee;
+              margin: 30px;
+              .mySell__box__items--img{
+                height: 150px;
+                background-color: slategrey;
+              }
+              .mySell__box__items__info{
+                line-height: 70px;
+                &--itemName{
+                  text-align: center;
+                  height: 25px;
+                }
+                &--itemPrice{
+                  text-align: center;
+                  height: 25px;
+                }
+              }
+            }
+          }
+        }
+      }
+      .myBuy{
+        margin-top: 40px;
+        width: 100%;
+        height: 525px;
+        text-align: center;
+        &__head{
+          height: 20%;
+          font-weight: bold;
+          font-size: 15px;
+          line-height: 110px;
+          background-color: #3CCACE;
+          border-bottom: 2px solid #eee;
+        }
+        .trade{
+          display: flex;
+          width: 100%;
+          height: 15%;
+          .trading{
+            background-color:#f8f8f8;
+            width: 100%;
+            height:100%;
+            font-weight: bold;
+            font-size: 15px;
+            line-height: 80px;
+            border-bottom: 2px solid #eee;
+            border-right:2px solid #eee ;
+            cursor: pointer;
+            &:hover{
+              background-color: #eee;
+            }
+          }
+          .pastTrade{
+            background-color:#f8f8f8;
+            width: 100%;
+            height: 100%;
+            font-weight: bold;
+            font-size: 15px;
+            line-height: 80px;
+            border-bottom: 2px solid #eee;
+            cursor: pointer;
+            &:hover{
+              background-color: #eee;
+            }
+          }
+        }
+        .trade__box{
+          background-color: #f8f8f8;
+          height: 60%;
+          ul.trade__box__items{
+            display: flex;
+            li{
+              height: 250px;
+              width: 220px;
+              background-color: white;
+              border: 1px solid #eee;
+              margin: 30px;
+              .trade__box__items--img{
+                height: 150px;
+                background-color: slategrey;
+              }
+              .trade__box__items__info{
+                line-height: 70px;
+                &--itemName{
+                  text-align: center;
+                  height: 25px;
+                }
+                &--itemPrice{
+                  text-align: center;
+                  height: 25px;
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}
