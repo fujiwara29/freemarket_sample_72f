@@ -19,7 +19,8 @@
     .contentRight
       .topContent
         .itemBox
-          %h2.itemBox__name product3
+          %h2.itemBox__name 
+            = @item.name
           .itemBox__body
             %ul
               %li.image-main
@@ -32,12 +33,13 @@
                   %li.image-small
                     = image_tag "material/pict/pict-reason-03.jpg",class:"item-img-small"                   
           .itemBox__price
-            %span  ¥30000    
+            %span  ¥
+            = @item.price
             .itemBox__price-detail
               %span  (税込)
               %span  送料込み
           .itemDetail
-            親譲りの無鉄砲で小供の時から損ばかりしている。小学校に居る時分学校の二階から飛び降りて一週間ほど腰を抜かした事がある。なぜそんな無闇をしたと聞く人があるかも知れぬ。別段深い理由でもない。新築の二階から首を出していたら、同級生の一人が冗談に、いくら威張っても、そこから飛び降りる事は出来まい。弱虫やーい。と囃したからである。小使に負ぶさって帰って来た時、おやじが大きな眼をして二階ぐらいから飛び降りて腰
+            =@item.introduction
 
           .table
             %table
@@ -46,22 +48,24 @@
                   %th 出品者
                   %td hoge
                 %tr
-                  %th カテゴリー
+                  %th 
                   %td
-                    = link_to 'ベビー・キッズ', '#'
+                    =@category.name
                     %br
                     = link_to 'ベビー服(男女兼用) ~95cm', '#'
                     %br                    
                     = link_to 'アウター', '#'
                 %tr
                   %th ブランド
-                  %td   
+                  %td
+                    =@item.brand
                 %tr
                   %th 商品のサイズ
                   %td
                 %tr
                   %th 商品の状態
-                  %td 未使用に近い
+                  %td 
+                    =@item.condition
                 %tr
                   %th 配送料の負担
                   %td 送料込み (出品者負担)
