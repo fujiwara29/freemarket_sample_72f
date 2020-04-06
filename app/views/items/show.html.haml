@@ -33,8 +33,7 @@
                   %li.image-small
                     = image_tag "material/pict/pict-reason-03.jpg",class:"item-img-small"                   
           .itemBox__price
-            %span  ¥
-            = @item.price
+            %span ¥  #{@item.price}
             .itemBox__price-detail
               %span  (税込)
               %span  送料込み
@@ -46,22 +45,23 @@
               %tbody
                 %tr
                   %th 出品者
-                  %td hoge
+                  %td 
+                    =@item.user.nickname
                 %tr
-                  %th 
+                  %th カテゴリー
                   %td
-                    =@category.name
+                    = link_to @item.category.name, '#'
                     %br
-                    = link_to 'ベビー服(男女兼用) ~95cm', '#'
+                    = link_to @item.category.name, '#'
                     %br                    
-                    = link_to 'アウター', '#'
+                    = link_to @item.category.name, '#'
                 %tr
                   %th ブランド
                   %td
-                    =@item.brand
+                    =@item.brand.name
                 %tr
                   %th 商品のサイズ
-                  %td
+                  %td カラムなし
                 %tr
                   %th 商品の状態
                   %td 
@@ -72,10 +72,11 @@
                 %tr
                   %th 発送料の地域
                   %td
-                    = link_to '岩手県', '#'
+                    = link_to '岩手県カラムなし', '#'
                 %tr
                   %th 発送日の目安
-                  %td 4-7日で発送
+                  %td 
+                    =@item.preparation_day
           .optionalArea
             %ul
               %li#likebtn.optionalBtn.likeBtn
