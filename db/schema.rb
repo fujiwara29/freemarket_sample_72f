@@ -26,18 +26,18 @@ ActiveRecord::Schema.define(version: 2020_04_03_093527) do
 
   create_table "images", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.string "image", null: false
-    t.bigint "item_id_id", null: false
+    t.bigint "item_id", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.index ["item_id_id"], name: "index_images_on_item_id_id"
+    t.index ["item_id"], name: "index_images_on_item_id"
   end
 
   create_table "items", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.string "name", null: false
-    t.bigint "image_id_id", null: false
+    t.bigint "image_id", null: false
     t.text "introduction", null: false
-    t.bigint "category_id_id", null: false
-    t.bigint "brand_id_id"
+    t.bigint "category_id", null: false
+    t.bigint "brand_id"
     t.string "condition", null: false
     t.string "postage_payer", null: false
     t.string "prefecture_code", null: false
@@ -46,20 +46,20 @@ ActiveRecord::Schema.define(version: 2020_04_03_093527) do
     t.string "trading", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.index ["brand_id_id"], name: "index_items_on_brand_id_id"
-    t.index ["category_id_id"], name: "index_items_on_category_id_id"
-    t.index ["image_id_id"], name: "index_items_on_image_id_id"
+    t.index ["brand_id"], name: "index_items_on_brand_id"
+    t.index ["category_id"], name: "index_items_on_category_id"
+    t.index ["image_id"], name: "index_items_on_image_id"
   end
 
   create_table "orders", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
-    t.bigint "user_id_id", null: false
-    t.bigint "item_id_id", null: false
-    t.bigint "address_id_id", null: false
+    t.bigint "user_id", null: false
+    t.bigint "item_id", null: false
+    t.bigint "address_id", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.index ["address_id_id"], name: "index_orders_on_address_id_id"
-    t.index ["item_id_id"], name: "index_orders_on_item_id_id"
-    t.index ["user_id_id"], name: "index_orders_on_user_id_id"
+    t.index ["address_id"], name: "index_orders_on_address_id"
+    t.index ["item_id"], name: "index_orders_on_item_id"
+    t.index ["user_id"], name: "index_orders_on_user_id"
   end
 
   create_table "users", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
