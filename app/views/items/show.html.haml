@@ -19,7 +19,8 @@
     .contentRight
       .topContent
         .itemBox
-          %h2.itemBox__name product3
+          %h2.itemBox__name 
+            = @item.name
           .itemBox__body
             %ul
               %li.image-main
@@ -32,46 +33,50 @@
                   %li.image-small
                     = image_tag "material/pict/pict-reason-03.jpg",class:"item-img-small"                   
           .itemBox__price
-            %span  ¥30000    
+            %span ¥  #{@item.price}
             .itemBox__price-detail
               %span  (税込)
               %span  送料込み
           .itemDetail
-            親譲りの無鉄砲で小供の時から損ばかりしている。小学校に居る時分学校の二階から飛び降りて一週間ほど腰を抜かした事がある。なぜそんな無闇をしたと聞く人があるかも知れぬ。別段深い理由でもない。新築の二階から首を出していたら、同級生の一人が冗談に、いくら威張っても、そこから飛び降りる事は出来まい。弱虫やーい。と囃したからである。小使に負ぶさって帰って来た時、おやじが大きな眼をして二階ぐらいから飛び降りて腰
+            =@item.introduction
 
           .table
             %table
               %tbody
                 %tr
                   %th 出品者
-                  %td hoge
+                  %td 
+                    =@item.user.nickname
                 %tr
                   %th カテゴリー
                   %td
-                    = link_to 'ベビー・キッズ', '#'
+                    = link_to @item.category.name, '#'
                     %br
-                    = link_to 'ベビー服(男女兼用) ~95cm', '#'
+                    = link_to @item.category.name, '#'
                     %br                    
-                    = link_to 'アウター', '#'
+                    = link_to @item.category.name, '#'
                 %tr
                   %th ブランド
-                  %td   
+                  %td
+                    =@item.brand.name
                 %tr
                   %th 商品のサイズ
-                  %td
+                  %td カラムなし
                 %tr
                   %th 商品の状態
-                  %td 未使用に近い
+                  %td 
+                    =@item.condition
                 %tr
                   %th 配送料の負担
                   %td 送料込み (出品者負担)
                 %tr
                   %th 発送料の地域
                   %td
-                    = link_to '岩手県', '#'
+                    = link_to '岩手県カラムなし', '#'
                 %tr
                   %th 発送日の目安
-                  %td 4-7日で発送
+                  %td 
+                    =@item.preparation_day
           .optionalArea
             %ul
               %li#likebtn.optionalBtn.likeBtn
