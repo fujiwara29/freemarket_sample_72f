@@ -41,6 +41,19 @@ img {
     line-height: 1.4em;
     margin: 0;
   }
+  &__any{
+    margin-left: 8px;
+    font-size: 12px;
+    padding: 0 4px;
+    background-color: rgb(191,191,191);
+    color: #fff;
+    border-radius: 2px;
+    display: inline-block;
+    font-style: normal;
+    font-weight: 600;
+    line-height: 1.4em;
+    margin: 0;
+  }
 }
 
 .sell-sub-head{
@@ -60,13 +73,10 @@ img {
 .sell-collection_select{
   box-sizing: border-box;
   margin-top: 16px;
-  
   &__label{
     display: inline-block;
     position: relative;
     width: 100%;
-    
-    
     .fas.fa-chevron-down{
       box-sizing: border-box;
       pointer-events: none;
@@ -75,7 +85,6 @@ img {
       top: 50%;
       color: rgb(136, 136, 136);
       height: 48px;
-      
     }
   }
 }
@@ -148,6 +157,23 @@ img {
               flex-wrap: wrap;
               width: 100%;
               height: auto;
+              &__input{
+                -webkit-appearance: none;
+                -moz-appearance: none;
+                appearance: none;
+                background-color: #fff;
+                border: 1px solid #ccc;
+                border-radius: 4px;
+                box-sizing: border-box;
+                color: #222;
+                font-size: 16px;
+                height: 48px;
+                line-height: 1;
+                margin: 0;
+                outline: none;
+                padding: 0 56px 0 16px;
+                width: 100%;
+              }
 
               .preview-image{
                 box-sizing: border-box;
