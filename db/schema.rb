@@ -40,8 +40,8 @@ ActiveRecord::Schema.define(version: 2020_04_03_093527) do
     t.bigint "brand_id_id"
     t.string "condition", null: false
     t.string "postage_payer", null: false
-    t.integer "prefecture_code", null: false
-    t.bigint "preparation_day_id", null: false
+    t.string "prefecture_code", null: false
+    t.string "preparation_day", null: false
     t.integer "price", null: false
     t.string "trading", null: false
     t.datetime "created_at", null: false
@@ -49,7 +49,6 @@ ActiveRecord::Schema.define(version: 2020_04_03_093527) do
     t.index ["brand_id_id"], name: "index_items_on_brand_id_id"
     t.index ["category_id_id"], name: "index_items_on_category_id_id"
     t.index ["image_id_id"], name: "index_items_on_image_id_id"
-    t.index ["preparation_day_id"], name: "index_items_on_preparation_day_id"
   end
 
   create_table "orders", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
