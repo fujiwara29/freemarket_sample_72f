@@ -1,0 +1,28 @@
+.myPage__menu__list{
+  li{
+    border-top: solid 1px #eee;
+    &:first-child{
+    border-top:none ;
+    }
+  }
+  .menu{
+    display: block;
+    width: 280px;
+    padding: 16px;
+    background:#f8f8f8;
+    font-size: 14px;
+    color: #333;
+    text-decoration: none;
+    position: relative;
+    &:hover{
+      background-color: #eee;
+      font-weight: 600;
+    }
+    &:after{
+      content: ">";
+      position: absolute;
+      color: #ccc;
+      right: 16px;
+    }
+  }
+}
