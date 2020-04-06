@@ -1,21 +1,72 @@
-%h2 Sign up
-= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f|
-  = render "devise/shared/error_messages", resource: resource
-  .field
-    = f.label :email
-    %br/
-    = f.email_field :email, autofocus: true, autocomplete: "email"
-  .field
-    = f.label :password
-    - if @minimum_password_length
-      %em
-        (#{@minimum_password_length} characters minimum)
-    %br/
-    = f.password_field :password, autocomplete: "new-password"
-  .field
-    = f.label :password_confirmation
-    %br/
-    = f.password_field :password_confirmation, autocomplete: "new-password"
-  .actions
-    = f.submit "Sign up"
-= render "devise/shared/links"
+.back
+  .box
+    .sign_in
+      %h2 会員情報登録
+    .content
+      = form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f|
+        = render "devise/shared/error_messages", resource: resource
+        .field
+          = f.label :ニックネーム
+          = f.label :必須, class: 'hissu'
+          %br/
+          = f.text_field :nickname, placeholder: "例）フリマ太郎", class: 'text'
+        .field
+          = f.label :メールアドレス
+          = f.label :必須, class: 'hissu'
+          %br/
+          = f.email_field :email, autofocus: true, autocomplete: "email", placeholder: "PC・携帯どちらでも可", class: 'text'
+        .field
+          = f.label :パスワード
+          = f.label :必須, class: 'hissu'
+          %br/
+          = f.password_field :password, autocomplete: "new-password",placeholder: "7文字以上で入力してください", class: 'text'
+          %p.password_supplement※ 英字と数字の両方を含めて設定してください
+        .field
+          = f.label :確認用パスワード
+          = f.label :必須, class: 'hissu'
+          %br/
+          = f.password_field :password_confirmation, autocomplete: "new-password",placeholder:"確認の為もう一度入力ください", class: 'text'
+
+        .field
+          %h2 本人確認
+          %p.registration_supplement 安心・安全にご利用いただくために、お客さまの本人情報の登録にご協力ください。他のお客さまに公開されることはありません。
+        .field
+          = f.label :お名前（全角）
+          = f.label :必須, class: 'hissu'
+          %br/
+          = f.text_field :first_name,class: 'name',placeholder:"例）山田"
+          = f.text_field :family_name,class: 'name',placeholder:"例）彩"
+        .field
+          = f.label :お名前カナ（全角）
+          = f.label :必須, class: 'hissu'
+          %br/
+          = f.text_field :first_name_kana, class: 'name',placeholder:"例）ヤマダ"
+          = f.text_field :family_name_kana, class: 'name',placeholder:"例））アヤ" 
+       
+        .field
+          = f.label :生年月日
+          = f.label :必須, class: 'hissu'
+          %br/
+          = f.text_field :birth_year,class: 'birth'
+          = f.label :年
+          = f.text_field :birth_month, class: 'birth'
+          = f.label :月
+          = f.text_field :birth_day, class: 'birth'
+          = f.label :日
+          %p.birth_supplement 生年月日を入力してください
+          %p.birtf_supplement2※ 本人情報は正しく入力してください。会員登録後、修正するにはお時間を頂く場合があります。
+        .field
+          = f.label :電話番号
+          = f.label :必須, class: 'hissu'
+          %br/
+          = f.text_field :phone_number, class: 'number'
+
+        .next_supplement
+          %p 「次へ進む」のボタンを押すことにより、利用規約に同意したものとみなします。
+        .next
+          次へ進む
+        .text-right
+          本人登録情報について>
+        .recaptcha_term
+          This site is protected by reCAPTCHA and the Google Privacy Policy and Terms of Service apply.
+ 

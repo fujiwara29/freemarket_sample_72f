@@ -1,0 +1,32 @@
+.sale-btn{
+  width: 90px;
+  height: 86px;
+  padding: 15px;
+  background: #3CCACE;
+  text-align: center;
+  border-radius: 15%;
+  position: fixed;
+  bottom: 32px;
+  right: 32px;
+  .new-sale{
+    text-decoration: none;
+    .sale-text{
+      color: #fff;
+      font-size: 18px;
+      margin-bottom: 5px;
+    }
+    img{
+      width: 60%;
+    }
+  }
+}
+.sale-btn:hover{
+  cursor: pointer;
+  img{
+    animation: img 1.8s linear infinite;
+  }
+  @keyframes img{
+    0%   { transform: rotateY(0deg); }
+    100% { transform: rotateY(360deg); }
+  }
+}
