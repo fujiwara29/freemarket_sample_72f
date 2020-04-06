@@ -12,7 +12,7 @@
             .buy-item-box
               %h3.buy-item-image
                 = image_tag "material/pict/pict-reason-03.jpg", class:"buy-image"
-                .buy-item-detail
+                .buy-item-box__detail
                   %p.buy-item-name アウター、パーカー
                   %p.buy-price
                     %span ¥2,800
@@ -21,9 +21,9 @@
           .single-main__item__content
             =form_with url: "#",local: true, method: :POST,class: "search-form" do |form|
               %ul.buy-price-table
-                %li.buy-price-row
+                %li.buy-price
                   .buy-price-cell-label 支払い金額
-                  .buy-price-cell
+                  .buy-price__cell
                     %span.data-buy-pay ¥2,800
 
               %ul.buy-accordion-point

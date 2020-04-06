@@ -5,7 +5,7 @@ Rails.application.routes.draw do
   root "items#index"
 
   resources :items 
-  resources :orders
+  resources :orders, only: :index
   resources :users, only: :show
 
 end
