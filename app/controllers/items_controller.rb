@@ -1,35 +1,26 @@
 class ItemsController < ApplicationController
 
-  def index
-  end
-
   def new
     @item = Item.new
-    # @item.images.new
-    # @category_parent =  Category.where("ancestry is null")
-  end
-  # 親カテゴリーが選択された後に動くアクション
-  def category_children
-    @category_children = Category.find("#{params[:parent_id]}").children
-    #親カテゴリーに紐付く子カテゴリーを取得
-  end
-
-  
-  def show
+    @image = Image.new
   end
 
   def create
-    @item = Item.new(product_params)
-    if @Item.save
+    @item = Item.create(item_params)
+    if @item.save
       redirect_to root_path
+
     else
       render :new
     end
   end
-
+  
   private
 
   def item_params
-    params.require(:item).permit(:name, :price, images_attributes: [:src])
+    params.require(:item).permit(:name, :image, :introduction, :category, :brand, :condition, :postage_payer, :prefecture_code, :preparation_day, :price, :trading []).merge(user: current_user.id)
   end
+
 end
+
+
