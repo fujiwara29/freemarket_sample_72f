@@ -1,11 +1,14 @@
 class ItemsController < ApplicationController
 
+  # before_action :set_group, onry: :index
   # before_action :move_to_index, except: [:index, :show]
   # ⬆ URL手打ち不正アクセス防止の為
   # ⬆ ユーザーログイン機能が無い間はコメントアウトにしておきます。
 
   def index
     @newitems = Item.last(3)
+    @images = Image.last
+    # binding.pry
   end
 
 
