@@ -1,33 +1,7 @@
 class ImageUploader < CarrierWave::Uploader::Base
-
-  storage :file
-
-  def store_dir
-    "uploads/#{model.class.to_s.underscore}/#{mounted_as}/#{model.id}"
-  end
-
-  def default_url
-    "/images/fallback/" + [version_name, "default.png"].compact.join('_')
-  end
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
   # Include RMagick or MiniMagick support:
   # include CarrierWave::RMagick
-  # include CarrierWave::MiniMagick
+  include CarrierWave::MiniMagick
 
   # Choose what kind of storage to use for this uploader:
   storage :file
@@ -57,7 +31,6 @@ class ImageUploader < CarrierWave::Uploader::Base
   # Create different versions of your uploaded files:
   # version :thumb do
     process resize_to_fit: [500, 500]
-
   # end
 
   # Add a white list of extensions which are allowed to be uploaded.
