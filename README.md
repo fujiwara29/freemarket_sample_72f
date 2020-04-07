@@ -1,175 +1,158 @@
 # README
 
 ## usersテーブル
-
-| Column           | Type    | Options                   |
-| ---------------- | ------- | ------------------------- |
-| nickname         | string  | null: false               |
-| email            | string  | null: false, unique: true |
-| password         | string  | null: false               |
-| first_name       | string  | null: false               |
-| family_name      | string  | null: false               |
-| first_name_kana  | string  | null: false               |
-| family_name_kana | string  | null: false               |
-| birth_year       | date    | null: false               |
-| birth_month      | date    | null: false               |
-| birth_day        | date    | null: false               |
-| phone_number     | integer | null: false, unique: true |
-|                  |         |                           |
+| Type    | Column             | Options                               |
+| ------- | ------------------ | ------------------------------------- |
+| string  | nickname           | null: false                           |
+| string  | email              | null: false, unique:true, default: "" |
+| string  | encrypted_password | null: false,              default: "" |
+| string  | first_name         | null: false                           |
+| string  | family_name        | null: false                           |
+| string  | first_name_kana    | null: false                           |
+| string  | family_name_kana   | null: false                           |
+| integer | birth_year         | null: false                           |
+| integer | birth_month        | null: false                           |
+| integer | birth_day          | null: false                           |
+| integer | phone_number       | null: false, unique:true              |
+|         |                    |                                       |
 
 ### Association
-
-- has_many :items
-- has_many :comments
-- has_many :orders
-- has_one :profile
-- has_one :address
-- has_one :credit_card
+- has_many: items
+- has_many: comments
+- has_many: orders
+- has_one: profile
+- has_one: address
+- has_one: credit_card
 
 ---
 
 ## profilesテーブル
-
-| Column  | Type       | Options                        |
-| ------- | ---------- | ------------------------------ |
-| profile | text       |                                |
-| avatar  | string     |                                |
-| user_id | references | null: false, foreign_key: true |
-|         |            |                                |
+| Type       | Column  | Options     |
+| ---------- | ------- | ----------- |
+| text       | profile |             |
+| string     | avatar  |             |
+| references | user    | null: false |
+|            |         |             |
 
 ### Association
-
 - belongs_to: user
 
 ---
 
 ## addressesテーブル
-
-| Column                       | Type       | Options                        |
-| ---------------------------- | ---------- | ------------------------------ |
-| post_code                    | integer(7) | nul  :false                    |
-| prefecture_code              | integer    | nul  :false                    |
-| city                         | string     | nul  :false                    |
-| house_number                 | string     | nul  :false                    |
-| building_name                | string     |                                |
-| user_id                      | references | null: false, foreign_ke  :true |
-|                              |            |                                |
+| Type       | Column                       | Options     |
+| ---------- | ---------------------------- | ----------- |
+| integer(7) | post_code                    | nul  :false |
+| integer    | prefecture_code              | nul  :false |
+| string     | city                         | nul  :false |
+| string     | house_number                 | nul  :false |
+| string     | building_name                |             |
+| references | user                         | null: false |
+|            |                              |             |
 
 ### Association
-
-- belongs_to :user
-- has_many :orders
+- belongs_to: user
+- has_many: orders
 
 ---
 
 ## credit_cardテーブル
-
-| Column           | Type       | Options                        |
-| ---------------- | ---------- | ------------------------------ |
-| card_number      | integer    | null: false, unique: true      |
-| expiration_year  | integer    | null: false                    |
-| expiration_month | integer    | null: false                    |
-| security_code    | integer    | null: false                    |
-| user_id          | references | null: false, foreign_key: true |
-|                  |            |                                |
+| Type       | Column           | Options                        |
+| ---------- | ---------------- | ------------------------------ |
+| integer    | card_number      | null: false, unique: true      |
+| integer    | expiration_year  | null: false                    |
+| integer    | expiration_month | null: false                    |
+| integer    | security_code    | null: false                    |
+| references | user             | null: false                    |
+|            |                  |                                |
 
 ### Association
-
-- belongs_to :user
+- belongs_to: user
 
 ---
 
 ## itemsテーブル
-
-| Column          | Type       | Options                        |
-| --------------- | ---------- | ------------------------------ |
-| image_id        | references | null: false, foreign_key: true |
-| name            | string     | null: false                    |
-| introduction    | text       | null: false                    |
-| category_id     | references | null: false, foreign_key: true |
-| brand_id        | references | foreign_key: true              |
-| condition       | string     | null: false                    |
-| postage_payer   | string     | null: false                    |
-| prefecture_code | integer    | null: false                    |
-| preparation_day | references | null: false                    |
-| price           | integer    | null: false                    |
-| trading         | string     | null: false                    |
-|                 |            |                                |
+| Type       | Column          | Options     |
+| ---------- | --------------- | ----------- |
+| references | user            | null: false |
+| string     | name            | null: false |
+| references | image           | null: false |
+| text       | introduction    | null: false |
+| references | category        | null: false |
+| references | brand           |             |
+| string     | condition       | null: false |
+| string     | postage_payer   | null: false |
+| string     | prefecture_code | null: false |
+| string     | preparation_day | null: false |
+| integer    | price           | null: false |
+| string     | trading         | null: false |
+|            |                 |             |
 
 ### Association
-
-- belongs_to :user
-- has_many :comments
-- has_many :images
-- belongs_to :category
-- belongs_to :brand
-- has_many :orders
+- belongs_to: user
+- has_many: comments
+- has_many: images
+- belongs_to: category
+- belongs_to: brand
+- has_many: orders
 
 ---
 
 ## imagesテーブル
-
-| Column          | Type       | Options                        |
-| --------------- | ---------- | ------------------------------ |
-| image           | string     | null: false                    |
-| item_id         | references | null: false, foreign_key: true |
-|                 |            |                                |
+| Type       | Column | Options     |
+| ---------- | ------ | ----------- |
+| string     | image  | null: false |
+| references | item   | null: false |
+|            |        |             |
 
 ### Association
-- belongs_to :item
+- belongs_to: item
 
 ---
 
-## categorテーブル
-
-| Column  | Type      | Options                        |
-| ------- | --------- | ------------------------------ |
-| name    | string    | null: false                    |
-|         |           |                                |
+## categoriesテーブル
+| Type   | Column | Options     |
+| ------ | ------ | ----------- |
+| string | name   | null: false |
+|        |        |             |
 
 ### Association
-- has_many :items
+- has_many: items
 
 ---
 
 ## brandsテーブル
-
-| Column          | Type       | Options                        |
-| --------------- | ---------- | ------------------------------ |
-| name            | string     | null: false                    |
-|                 |            |                                |
+| Type   | Column | Options     |
+| ------ | ------ | ----------- |
+| string | name   | null: false |
+|        |        |             |
 
 ### Association
-- belongs_to :item
+- belongs_to: item
 
 ---
 
 ## ordersテーブル
-
-| Column     | Type       | Options                        |
-| ---------- | ---------- | ------------------------------ |
-| user_id    | references | null: false, foreign_key: true |
-| item_id    | references | null: false, foreign_key: true |
-| address_id | references | null: false, foreign_key: true |
-|            |            |                                |
+| Type       | Column  | Options     |
+| ---------- | ------- | ----------- |
+| references | user    | null: false |
+| references | item    | null: false |
+| references | address | null: false |
 
 ### Association
-
-- belongs_to :user
-- belongs_to :item
+- belongs_to: user
+- belongs_to: item
 
 ---
 
 ## commentsテーブル
-
-| Column  | Type       | Options                        |
-| ------- | ---------- | ------------------------------ |
-| user_id | references | null: false, foreign_key: true |
-| item_id | references | null: false,foreign_key: true  |
-| comment | text       | null: false                    |
-|         |            |                                |
+| Type       | Column  | Options     |
+| ---------- | ------- | ----------- |
+| references | user    | null: false |
+| references | item    | null: false |
+| text       | comment | null: false |
+|            |         |             |
 
 ### Association
-
-- belongs_to :user
-- belongs_to :item
+- belongs_to: user
+- belongs_to: item

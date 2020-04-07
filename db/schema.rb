@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_04_06_013914) do
+ActiveRecord::Schema.define(version: 2020_04_06_103215) do
 
   create_table "addresses", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.integer "post_code", null: false
@@ -24,8 +24,17 @@ ActiveRecord::Schema.define(version: 2020_04_06_013914) do
     t.index ["user_id"], name: "index_addresses_on_user_id"
   end
 
+
   create_table "brands", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.string "name", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "cards", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
+    t.integer "user_id", null: false
+    t.string "customer_id", null: false
+    t.string "card_id", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
@@ -45,6 +54,7 @@ ActiveRecord::Schema.define(version: 2020_04_06_013914) do
   end
 
   create_table "items", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
+    t.bigint "user_id", null: false
     t.string "name", null: false
     t.bigint "image_id", null: false
     t.text "introduction", null: false
@@ -52,8 +62,8 @@ ActiveRecord::Schema.define(version: 2020_04_06_013914) do
     t.bigint "brand_id"
     t.string "condition", null: false
     t.string "postage_payer", null: false
-    t.integer "prefecture_code", null: false
-    t.bigint "preparation_day_id", null: false
+    t.string "prefecture_code", null: false
+    t.string "preparation_day", null: false
     t.integer "price", null: false
     t.string "trading", null: false
     t.datetime "created_at", null: false
@@ -62,6 +72,7 @@ ActiveRecord::Schema.define(version: 2020_04_06_013914) do
     t.index ["category_id"], name: "index_items_on_category_id"
     t.index ["image_id"], name: "index_items_on_image_id"
     t.index ["preparation_day_id"], name: "index_items_on_preparation_day_id"
+    t.index ["user_id"], name: "index_items_on_user_id"
   end
 
   create_table "orders", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
