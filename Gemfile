@@ -99,3 +99,4 @@ end
   gem 'impressionist' # PV数チェック
   gem 'ancestry' #カテゴリー多階層構造
   gem "gretel" # パンくず機能 カテゴリー誘導表示
+  gem 'rails-i18n' # エラーメッセージの日本語化
