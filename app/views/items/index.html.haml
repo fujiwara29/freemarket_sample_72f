@@ -109,9 +109,21 @@
 
 
   .pickups
-    %p.subtitle ピックアップカテゴリー
+    %p.subtitle 新着商品
     .new_items
       = link_to "新規投稿商品", "#", class:"new_items"
+    .pickup_inside
+      .pickup_lists
+        -# ここから繰り返し
+        - @newitems.each do |item|
+          = render partial: "item", locals: { item: item }
+          -# ここまで繰り返し
+
+
+  .pickups
+    %p.subtitle ピックアップカテゴリー
+    .new_items
+      = link_to "カテゴリー一覧", "#", class:"new_items"
     .pickup_inside
       .pickup_lists
         -# ここから繰り返し
