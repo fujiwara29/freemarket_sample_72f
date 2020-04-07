@@ -108,6 +108,7 @@ ja:
         building_name: 建物名
     models:
       user: ユーザ
+      address: 住所情報
   devise:
     confirmations:
       confirmed: メールアドレスが確認できました。
