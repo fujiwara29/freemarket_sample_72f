@@ -100,3 +100,6 @@ end
   gem 'ancestry' #カテゴリー多階層構造
   gem "gretel" # パンくず機能 カテゴリー誘導表示
   gem 'rails-i18n' # エラーメッセージの日本語化
+  gem 'payjp' # クレジットカード用
+  gem 'dotenv-rails' # 環境変数を簡単に定義できるENVファイルを対応させるgem
+

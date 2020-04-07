@@ -1,0 +1,55 @@
+.myPage
+  .myPage__wrapper
+    .sideMenu
+      = render 'layouts/side'
+    .myMain
+      .myMain__contents
+        .myMain__head
+          .myMain__head__view
+            = image_tag 'material/icon/member_photo_noimage_thumb.png', alt: 'image', height: '60px', width: '60px', class: 'photo'
+          .myMain__head__name
+            %p aaaaa
+      .mySell
+        %p 出品した商品
+        .mySell__box
+          %ul.mySell__box__items
+            %li
+              %div.mySell__box__items--img
+              %div.mySell__box__items__info
+                .mySell__box__items__info--itemName aaaaa
+                .mySell__box__items__info--itemPrice aaaaa
+            %li
+              %div.mySell__box__items--img
+              %div.mySell__box__items__info
+                .mySell__box__items__info--itemName aaaaa
+                .mySell__box__items__info--itemPrice aaaaa
+            %li
+              %div.mySell__box__items--img
+              %div.mySell__box__items__info
+                .mySell__box__items__info--itemName aaaaa
+                .mySell__box__items__info--itemPrice aaaaa
+      .myBuy
+        .myBuy__head
+          %p 購入した商品
+        .trade
+          .trading
+            %p 取引中
+          .pastTrade
+            %p 過去の取引
+        .trade__box
+          %ul.trade__box__items
+            %li
+              %div.trade__box__items--img
+              %div.trade__box__items__info
+                .trade__box__items__info--itemName aaaaa
+                .trade__box__items__info--itemPrice aaaaa
+            %li
+              %div.trade__box__items--img
+              %div.trade__box__items__info
+                .trade__box__items__info--itemName aaaaa
+                .trade__box__items__info--itemPrice aaaaa
+            %li
+              %div.trade__box__items--img
+              %div.trade__box__items__info
+                .trade__box__items__info--itemName aaaaa
+                .trade__box__items__info--itemPrice aaaaa
