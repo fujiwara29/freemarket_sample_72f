@@ -62,6 +62,7 @@ ActiveRecord::Schema.define(version: 2020_04_06_013914) do
     t.index ["category_id"], name: "index_items_on_category_id"
     t.index ["image_id"], name: "index_items_on_image_id"
     t.index ["preparation_day_id"], name: "index_items_on_preparation_day_id"
+    t.index ["user_id"], name: "index_items_on_user_id"
   end
 
   create_table "orders", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
