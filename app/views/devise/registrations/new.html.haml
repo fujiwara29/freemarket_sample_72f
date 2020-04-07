@@ -4,7 +4,7 @@
       %h2 会員情報登録
     .content
       = form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f|
-        = render "devise/shared/error_messages", resource: resource
+        = render "devise/shared/error_messages", resource: @user
         .field
           = f.label :ニックネーム
           = f.label :必須, class: 'hissu'
@@ -34,39 +34,41 @@
           = f.label :お名前（全角）
           = f.label :必須, class: 'hissu'
           %br/
-          = f.text_field :first_name,class: 'name',placeholder:"例）山田"
-          = f.text_field :family_name,class: 'name',placeholder:"例）彩"
+          .name-field
+            = f.text_field :first_name,class: 'name',placeholder:"例）山田"
+            = f.text_field :family_name,class: 'name',placeholder:"例）彩"
         .field
           = f.label :お名前カナ（全角）
           = f.label :必須, class: 'hissu'
           %br/
-          = f.text_field :first_name_kana, class: 'name',placeholder:"例）ヤマダ"
-          = f.text_field :family_name_kana, class: 'name',placeholder:"例））アヤ" 
+          .name-field
+            = f.text_field :first_name_kana, class: 'name',placeholder:"例）ヤマダ"
+            = f.text_field :family_name_kana, class: 'name',placeholder:"例））アヤ" 
        
         .field
           = f.label :生年月日
           = f.label :必須, class: 'hissu'
           %br/
-          = f.text_field :birth_year,class: 'birth'
-          = f.label :年
-          = f.text_field :birth_month, class: 'birth'
-          = f.label :月
-          = f.text_field :birth_day, class: 'birth'
-          = f.label :日
+          .birth-field
+            = f.text_field :birth_year,class: 'birth'
+            = f.label :年, class: 'birth-text'
+            = f.text_field :birth_month, class: 'birth'
+            = f.label :月, class: 'birth-text'
+            = f.text_field :birth_day, class: 'birth'
+            = f.label :日, class: 'birth-text'
           %p.birth_supplement 生年月日を入力してください
           %p.birtf_supplement2※ 本人情報は正しく入力してください。会員登録後、修正するにはお時間を頂く場合があります。
         .field
-          = f.label :電話番号
-          = f.label :必須, class: 'hissu'
+          = f.label :電話番号（任意）
           %br/
-          = f.text_field :phone_number, class: 'number'
-
+          = f.text_field :phone_number, class: 'number',placeholder:"ハイフンなしで入力ください"
         .next_supplement
           %p 「次へ進む」のボタンを押すことにより、利用規約に同意したものとみなします。
-        .next
-          次へ進む
+        .nextbtn
+          = f.submit "次へ進む", class: 'next'
         .text-right
           本人登録情報について>
         .recaptcha_term
           This site is protected by reCAPTCHA and the Google Privacy Policy and Terms of Service apply.
+        
  

@@ -12,6 +12,19 @@
 
 ActiveRecord::Schema.define(version: 2020_04_06_103215) do
 
+  create_table "addresses", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
+    t.integer "post_code", null: false
+    t.integer "prefecture_code", null: false
+    t.string "city", null: false
+    t.string "house_number", null: false
+    t.string "building_name"
+    t.bigint "user_id", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["user_id"], name: "index_addresses_on_user_id"
+  end
+
+
   create_table "brands", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.string "name", null: false
     t.datetime "created_at", null: false
@@ -58,6 +71,7 @@ ActiveRecord::Schema.define(version: 2020_04_06_103215) do
     t.index ["brand_id"], name: "index_items_on_brand_id"
     t.index ["category_id"], name: "index_items_on_category_id"
     t.index ["image_id"], name: "index_items_on_image_id"
+    t.index ["preparation_day_id"], name: "index_items_on_preparation_day_id"
     t.index ["user_id"], name: "index_items_on_user_id"
   end
 
@@ -83,7 +97,7 @@ ActiveRecord::Schema.define(version: 2020_04_06_103215) do
     t.integer "birth_year", null: false
     t.integer "birth_month", null: false
     t.integer "birth_day", null: false
-    t.integer "phone_number", null: false
+    t.integer "phone_number"
     t.string "reset_password_token"
     t.datetime "reset_password_sent_at"
     t.datetime "remember_created_at"

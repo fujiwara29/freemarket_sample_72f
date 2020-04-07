@@ -17,9 +17,16 @@
 
         %li.brand
           = link_to "ブランド",'#', class: "nav-brand"
-
-      %ul.listsRight
-        %li.login
-          = link_to "ログイン", new_user_session_path,class: "nav-login"
-        %li.sign_up
-          = link_to "新規会員登録", new_user_registration_path, class: "nav-login"
+      - if user_signed_in?
+        %ul.listsRight
+          %li.login
+            = link_to "マイページ",class: "my-page"
+          %li.login
+            = link_to "ログアウト", destroy_user_session_path, method: :delete
+      - else
+        %ul.listsRight
+          %li.login
+            = link_to "ログイン", new_user_session_path,class:"nav-login"
+          %li.sign_up
+            = link_to "新規会員登録", new_user_registration_path, class: "nav-login"
+      
