@@ -1,3 +1,4 @@
+
 $(document).on('turbolinks:load', function(){
   var dropzone = $('.dropzone-area');
   var dropzone2 = $('.dropzone-area2');
@@ -31,7 +32,6 @@ $(document).on('turbolinks:load', function(){
       dropzone.css({
         'display': 'none'
       })
-      
       $.each(images, function(index, image) {
         image.attr('data-image', index);
         preview2.append(image);
@@ -40,7 +40,7 @@ $(document).on('turbolinks:load', function(){
         })
       })
       if(images.length == 9) {
-        dropzone2.find('p').replaceWith('<i class="fas fa-camera"></i>')
+        dropzone2.find('p').replaceWith('<i class="fa fa-camera"></i>')
       }
     } else {
         $('#preview').empty();
@@ -53,7 +53,7 @@ $(document).on('turbolinks:load', function(){
         })
       }
       if(images.length == 4) {
-        dropzone.find('p').replaceWith('<i class="fas fa-camera"></i>')
+        dropzone.find('p').replaceWith('<i class="fa fa-camera"></i>')
       }
     if(images.length == 10) {
       dropzone2.css({
@@ -62,7 +62,7 @@ $(document).on('turbolinks:load', function(){
       return;
     }
     var new_image = $(`<input multiple= "multiple" name="images[image][]" class="upload-image" data-image= ${images.length} type="file" id="upload-image">`);
-    .input_area.prepend(new_image);
+    input_area.prepend(new_image);
   });
 
   // 投稿された画像の削除

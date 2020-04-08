@@ -6,7 +6,7 @@ class ItemsController < ApplicationController
   end
 
   def create
-    binding.pry
+    # binding.pry
     @item = Item.new(item_params)
     binding.pry
     respond_to do |format|
@@ -39,7 +39,7 @@ class ItemsController < ApplicationController
       :price,
       images_attributes: [:image]
     )
-    .merge(trading: "販売中", user: current_user.id)
+    .merge(trading: "販売中", user: "1")
   end
 
 end
