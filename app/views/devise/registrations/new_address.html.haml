@@ -1,0 +1,35 @@
+.back
+  .box
+    .sign_in
+      %h2 住所情報登録
+    .content
+      = form_for @address do |f|
+        = render "devise/shared/error_messages", resource: @address
+        .field
+          = f.label :郵便番号
+          = f.label :必須, class: 'hissu'
+          %br/
+          = f.text_field :post_code, class: 'text'
+        .field
+          = f.label :都道府県
+          = f.label :必須, class: 'hissu'
+          %br/
+          = f.text_field :prefecture_code, class: 'text'
+        .field
+          = f.label :市区町村
+          = f.label :必須, class: 'hissu'
+          %br/
+          = f.text_field :city, class: 'text'
+        .field
+          = f.label :番地
+          = f.label :必須, class: 'hissu'
+          %br/
+          = f.text_field :house_number, class: 'text'
+        .field
+          = f.label :マンション・ビル名
+          %br/
+          = f.text_field :building_name, class: 'text'
+        .actions
+          = f.submit "登録をする", class: 'sign-up'
+
+       

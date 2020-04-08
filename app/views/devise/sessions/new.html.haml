@@ -11,14 +11,15 @@
           Facebookでログイン
       = link_to "#", class: "googlebtn" do
         = image_tag "google.jpg", size: "40x40",class: "google"
-        Googleでログイン
+        %textgoogle<>
+          Googleでログイン
     .menu_session
       = form_for(resource, as: resource_name, url: session_path(resource_name)) do |f|
         .field
           = f.email_field :email, autofocus: true, autocomplete: "email" ,placeholder: "メールアドレス",class: 'text'
         .field
-          = f.password_field :password, autocomplete: "current-password",placeholder: "パスワード",class: 'text'
-        .log_in_font
-          ログイン
+          = f.password_field :password, autocomplete: "current-password",placeholder: "パスワード",class: 'text'      
+        .loginbtn
+          = f.submit "ログイン", class: 'log_in_font'
       %p.passworfforget パスワードをお忘れの方
 

@@ -83,7 +83,8 @@ end
 
 # Windows does not include zoneinfo files, so bundle the tzinfo-data gem
   gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
-  # 追加gem
+
+# 追加gem
   gem 'haml-rails' # haml変換
   gem 'erb2haml' # hamlにerb記述
   gem 'font-awesome-sass' # アイコンを追加
@@ -99,3 +100,6 @@ end
   gem 'impressionist' # PV数チェック
   gem 'ancestry' #カテゴリー多階層構造
   gem "gretel" # パンくず機能 カテゴリー誘導表示
+  gem 'rails-i18n' # エラーメッセージの日本語化
+  gem 'payjp' # クレジットカード用
+  gem 'dotenv-rails' # 環境変数を簡単に定義できるENVファイルを対応させるgem

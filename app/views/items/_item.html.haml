@@ -1,0 +1,18 @@
+.pickup_list
+  %label.pickup_label
+    = link_to "/items/show", class:"pickup_link" do
+      = image_tag "test_image/test_1.JPG" ,class:"pickup_imge"
+      -# = image_tag item.imaimages.first.image.urlge_id.images.first.image.url ,class:"pickup_imge"
+      .pickup_body
+        %p.pickup_body__name 名前
+        -# %p.pickup_body__name #{item.name}
+        -# ⬆データベースができたら使う
+        .pickup_body__data
+          %p.pickup_body__data__price 値段
+          -# %p.pickup_body__data__price #{item.price}
+          -# ⬆データベースができたら使う
+          .pickup_body__data__like-box
+            %i.fa.fa-star.pickup_body__data__like-box__icon
+            %p.pickup_body__data__like-box__like
+              12
+        %p.pickup_body__tax (税込)
