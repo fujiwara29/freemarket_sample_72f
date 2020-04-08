@@ -124,7 +124,7 @@
           .item-post__form
             .item-post__form__body
               = f.label :category, class: "item-post__form__body__label" do
-                = f.select :postage_payer, ["選択してください",["送料込み(出品者負担)","1"], "着払い(購入者負担)"],{}, {class: "item-post__form__body__label_select"}
+                = f.select :postage_payer, ["選択してください","送料込み(出品者負担)", "着払い(購入者負担)"],{}, {class: "item-post__form__body__label_select"}
                 %i.fas.fa-chevron-down.item-post__form__body__label__icon
         
         -# 発送元の地域

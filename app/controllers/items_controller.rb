@@ -10,7 +10,7 @@ class ItemsController < ApplicationController
     @item = Item.new(item_params)
     # binding.pry
     respond_to do |format|
-      # binding.pry
+      binding.pry
       if @item.save
           params[:images][:image].each do |image|
             @item.images.create(image: image, item_id: @item.id)
