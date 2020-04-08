@@ -25,7 +25,7 @@
           .item-image__max-upload 最大10枚までアップロードできます
           .item-image__form
             .item-image__form__body
-              = f.fields_for :image do |image|
+              = f.fields_for :images do |image|
                 .dropzone-container
                   #preview
                   .dropzone-area
@@ -81,8 +81,8 @@
               必須
           .item-category__form
             .item-category__form__body
-              = f.label :category, class: "item-category__form__body__label" do
-                = f.select :category, ["選択してください","レディース", "メンズ", "ベビー・キッズ","インテリア・住まい・小物","本・音楽・ゲーム"],{}, {class: "item-category__form__body__label__select"}
+              = f.label :category_id, class: "item-category__form__body__label" do
+                = f.select :category_id, ["選択してください",["レディース", "1"]],{}, {class: "item-category__form__body__label__select"}
                 %i.fas.fa-chevron-down.item-category__form__body__label__icon
         
         -# ブランド
@@ -94,7 +94,7 @@
               任意
           .item-brand__form
             .item-brand__form__body
-              = f.text_field :brand, {class:"item-brand__form__body__field", placeholder: '例）シャネル'}
+              -# = f.text_field :brand_id, {class:"item-brand__form__body__field", placeholder: '例）シャネル'}
         
         -# 商品の状態
         .item-condition

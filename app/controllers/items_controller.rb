@@ -8,12 +8,12 @@ class ItemsController < ApplicationController
   def create
     # binding.pry
     @item = Item.new(item_params)
-    binding.pry
+    # binding.pry
     respond_to do |format|
-      binding.pry
+      # binding.pry
       if @item.save
           params[:images][:image].each do |image|
-            @item.images.create(image: image, item: @item.id)
+            @item.images.create(image: image, item_id: @item.id)
           end
         format.html{redirect_to root_path}
       else
@@ -30,8 +30,8 @@ class ItemsController < ApplicationController
     .permit(
       :name,
       :introduction,
-      :category,
-      :brand,
+      :category_id,
+      :brand_id,
       :condition,
       :postage_payer,
       :prefecture_code,
@@ -39,7 +39,7 @@ class ItemsController < ApplicationController
       :price,
       images_attributes: [:image]
     )
-    .merge(trading: "販売中", user: "1")
+    .merge(trading: "販売中", user_id: "1")
   end
 
 end

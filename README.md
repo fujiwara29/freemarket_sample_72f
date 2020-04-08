@@ -76,7 +76,6 @@
 | ---------- | --------------- | ----------- |
 | references | user            | null: false |
 | string     | name            | null: false |
-| references | image           | null: false |
 | text       | introduction    | null: false |
 | references | category        | null: false |
 | references | brand           |             |
