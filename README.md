@@ -13,7 +13,7 @@
 | integer | birth_year         | null: false                           |
 | integer | birth_month        | null: false                           |
 | integer | birth_day          | null: false                           |
-| integer | phone_number       | null: false, unique:true              |
+| string  | phone_number       | null: false, unique:true              |
 |         |                    |                                       |
 
 ### Association
@@ -76,7 +76,6 @@
 | ---------- | --------------- | ----------- |
 | references | user            | null: false |
 | string     | name            | null: false |
-| references | image           | null: false |
 | text       | introduction    | null: false |
 | references | category        | null: false |
 | references | brand           |             |
