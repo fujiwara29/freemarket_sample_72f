@@ -5,7 +5,6 @@ class ItemsController < ApplicationController
     @images = Image.last
   end
 
-
   def new
     @item = Item.new
     @item.images.build
@@ -41,8 +40,10 @@ class ItemsController < ApplicationController
       :preparation_day,
       :price,
       images_attributes: [:image]
+    ).merge(
+      trading: "販売中",
+      user_id: "1"
     )
-    .merge(trading: "販売中", user_id: "1")
   end
 
 end

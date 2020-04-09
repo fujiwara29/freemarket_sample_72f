@@ -54,7 +54,7 @@
               必須
           .item-name__form
             .item-name__form__body
-              = f.text_field :name, {class:"item-name__form__body__field", required:"required", placeholder:"商品名 (必須 40文字まで)" } 
+              = f.text_field :name, {class:"item-name__form__body__field", required:"required", placeholder:"40文字まで" } 
         
         -# 商品の説明
         .item-int
@@ -64,9 +64,8 @@
             .certainly
               必須
           .item-int__form
-            .item-int__form__body
-              = f.text_area :introduction, {class: "item-int__form__bodyarea",required: "required",placeholder: '商品の説明 (必須 1,000文字以内) (色、素材、重さ、定価、注意点など) 例) 2010年頃に1万円で購入したジャケットです。ライトグレーで傷はありません。あわせやすいのでおすすめです',rows: '6',maxlength: '1000'}
-      
+            = f.text_area :introduction, {class: "item-int__form__area", required: "required", placeholder: "商品の説明（必須 1,000文字以内）\n（色、素材、重さ、定価、注意点など）\n\n例）2010年頃に1万円で購入したジャケットです。ライトグレーで傷はありません。あわせやすいのでおすすめです。",maxlength: '1000'}
+            .item-int__form__count 0/1000
       .border
       
       .item-box
@@ -83,7 +82,8 @@
             .item-category__form__body
               = f.label :category_id, class: "item-category__form__body__label" do
                 = f.select :category_id, ["選択してください",["レディース", "1"]],{}, {class: "item-category__form__body__label__select"}
-                %i.fas.fa-chevron-down.item-category__form__body__label__icon
+                .item-category__form__body__label__box
+                  %i.fas.fa-chevron-down.item-category__form__body__label__box__icon
         
         -# ブランド
         .item-brand
