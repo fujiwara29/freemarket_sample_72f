@@ -58,7 +58,10 @@
                 %tr
                   %th ブランド
                   %td
-                    =@item.brand.name
+                    - if @item.brand.nil?
+                      %p 指定なし
+                    - else
+                      = @item.brand.name
                 %tr
                   %th 商品のサイズ
                   %td カラムなし
