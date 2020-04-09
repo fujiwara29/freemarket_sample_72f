@@ -5,7 +5,6 @@ class ItemsController < ApplicationController
     @images = Image.last
   end
 
-
   def new
     @item = Item.new
     @item.images.build
@@ -24,6 +23,11 @@ class ItemsController < ApplicationController
         format.html{render action: 'new'}
       end
     end
+  end
+
+  def show
+    # @item = Item.find(params[:id])
+    @item = Item.find(1)
   end
 
   private
@@ -46,3 +50,5 @@ class ItemsController < ApplicationController
   end
 
 end
+
+
