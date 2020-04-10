@@ -15,7 +15,7 @@
   width: 700px;
   height: 600px;
   margin-left: 40px;
-  .c-single-top{
+  &__top{
     background-color: #ffffff;
     height: 50px;
     margin-bottom: 3px;
@@ -27,10 +27,9 @@
       font-family: 'Source Sans Pro', Helvetica , Arial, '游ゴシック体', 'YuGothic', 'メイリオ', 'Meiryo', sans-serif;
     }
   }
-  .c-single-inner{
+  &__inner{
     background-color: #ffffff;
     padding: 64px;
-  }
   .creditlist{
     padding: 0 0 24px 45px;
     width: 320px;
@@ -40,7 +39,7 @@
     text-align: center;
     font-family: 'Source Sans Pro', Helvetica , Arial, '游ゴシック体', 'YuGothic', 'メイリオ', 'Meiryo', sans-serif;
   }
-  .c-single-regist{
+  &__regist{
     background-color: #ffffff;
     color: #0099e8;
     font-size: 14px;
@@ -48,22 +47,22 @@
     text-align: end;
     padding-top: 35px;
   }
-}
-
-.c-single-content{
-  cursor: pointer;
-  width: 320px;
-  background: #3ccace;
-  color: #fff;
-  margin: auto;
-  height: 45px;
-  font-size: 14px;
-  line-height: 45px;
-  margin-bottom: 40px;
-  text-align: center;
-  a {
-    display: block;
+  &__content{
+    cursor: pointer;
+    width: 320px;
+    background: #3ccace;
+    color: #fff;
+    margin: auto;
+    height: 45px;
+    font-size: 14px;
+    line-height: 45px;
+    margin-bottom: 40px;
+    text-align: center;
+    a {
+      display: block;
+    }
   }
+}
   .menu{
     text-decoration: none ;
     color: #ffffff;
