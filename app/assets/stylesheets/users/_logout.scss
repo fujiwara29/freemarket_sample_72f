@@ -15,14 +15,14 @@
   width: 700px;
   height: 600px;
   margin-left: 40px;
-}
 
-.i-single-inner{
+
+&__inner{
   background-color: #ffffff;
   padding: 64px;
 }
 
-.i-single-content{
+&__content{
   cursor: pointer;
   width: 320px;
   background: #3ccace;
@@ -35,6 +35,8 @@
   a {
     display: block;
   }
+}
+
   .menu{
     text-decoration: none ;
     color: #ffffff;
