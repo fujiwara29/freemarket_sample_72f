@@ -20,7 +20,7 @@
       - if user_signed_in?
         %ul.listsRight
           %li.login
-            = link_to "マイページ",class: "my-page"
+            = link_to "マイページ", "/users/#{current_user.id}", class: "my-page"
           %li.login
             = link_to "ログアウト", destroy_user_session_path, method: :delete
       - else

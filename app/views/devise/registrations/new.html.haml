@@ -15,17 +15,20 @@
           = f.label :必須, class: 'hissu'
           %br/
           = f.email_field :email, autofocus: true, autocomplete: "email", placeholder: "PC・携帯どちらでも可", class: 'text'
-        .field
-          = f.label :パスワード
-          = f.label :必須, class: 'hissu'
-          %br/
-          = f.password_field :password, autocomplete: "new-password",placeholder: "7文字以上で入力してください", class: 'text'
-          %p.password_supplement※ 英字と数字の両方を含めて設定してください
-        .field
-          = f.label :確認用パスワード
-          = f.label :必須, class: 'hissu'
-          %br/
-          = f.password_field :password_confirmation, autocomplete: "new-password",placeholder:"確認の為もう一度入力ください", class: 'text'
+        - if @sns_id.present?
+          = hidden_field_tag :sns_auth, true
+        - else
+          .field
+            = f.label :パスワード
+            = f.label :必須, class: 'hissu'
+            %br/
+            = f.password_field :password, autocomplete: "new-password",placeholder: "7文字以上で入力してください", class: 'text'
+            %p.password_supplement※ 英字と数字の両方を含めて設定してください
+          .field
+            = f.label :確認用パスワード
+            = f.label :必須, class: 'hissu'
+            %br/
+            = f.password_field :password_confirmation, autocomplete: "new-password",placeholder:"確認の為もう一度入力ください", class: 'text'
 
         .field
           %h2 本人確認

@@ -102,4 +102,8 @@ end
   gem 'rails-i18n' # エラーメッセージの日本語化
   gem 'payjp' # クレジットカード用
   gem 'dotenv-rails' # 環境変数を簡単に定義できるENVファイルを対応させるgem
+  gem 'omniauth-facebook' #フェイスブック対応のOmniAuth
+  gem 'omniauth-google-oauth2' #グーグル対応のOmniAuth
+  gem "omniauth-rails_csrf_protection" #OmniAuthの脆弱性に対応するためのGem
+
 

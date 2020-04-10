@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_04_06_103215) do
+ActiveRecord::Schema.define(version: 2020_04_08_063532) do
 
   create_table "addresses", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.integer "post_code", null: false
@@ -23,7 +23,6 @@ ActiveRecord::Schema.define(version: 2020_04_06_103215) do
     t.datetime "updated_at", null: false
     t.index ["user_id"], name: "index_addresses_on_user_id"
   end
-
 
   create_table "brands", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.string "name", null: false
@@ -54,7 +53,6 @@ ActiveRecord::Schema.define(version: 2020_04_06_103215) do
   end
 
   create_table "items", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
-    t.bigint "user_id", null: false
     t.string "name", null: false
     t.bigint "image_id", null: false
     t.text "introduction", null: false
@@ -62,8 +60,8 @@ ActiveRecord::Schema.define(version: 2020_04_06_103215) do
     t.bigint "brand_id"
     t.string "condition", null: false
     t.string "postage_payer", null: false
-    t.string "prefecture_code", null: false
-    t.string "preparation_day", null: false
+    t.integer "prefecture_code", null: false
+    t.bigint "preparation_day_id", null: false
     t.integer "price", null: false
     t.string "trading", null: false
     t.datetime "created_at", null: false
@@ -72,7 +70,6 @@ ActiveRecord::Schema.define(version: 2020_04_06_103215) do
     t.index ["category_id"], name: "index_items_on_category_id"
     t.index ["image_id"], name: "index_items_on_image_id"
     t.index ["preparation_day_id"], name: "index_items_on_preparation_day_id"
-    t.index ["user_id"], name: "index_items_on_user_id"
   end
 
   create_table "orders", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
@@ -84,6 +81,15 @@ ActiveRecord::Schema.define(version: 2020_04_06_103215) do
     t.index ["address_id"], name: "index_orders_on_address_id"
     t.index ["item_id"], name: "index_orders_on_item_id"
     t.index ["user_id"], name: "index_orders_on_user_id"
+  end
+
+  create_table "sns_credentials", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
+    t.string "provider"
+    t.string "uid"
+    t.bigint "user_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["user_id"], name: "index_sns_credentials_on_user_id"
   end
 
   create_table "users", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
@@ -107,4 +113,5 @@ ActiveRecord::Schema.define(version: 2020_04_06_103215) do
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
 
+  add_foreign_key "sns_credentials", "users"
 end
