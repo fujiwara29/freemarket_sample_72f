@@ -44,10 +44,9 @@
 
 .item-box{
   padding: 40px;
-}
-
-.item-box:last-child{
-  padding: 40px 40px 64px;
+  &:last-child{
+    padding: 40px 40px 64px;
+  }
 }
 
 .item-head{
@@ -60,20 +59,6 @@
 }
 
 // --------------------------------- ここより上は繰り返し使うパーツ ---------------------------------
-
-// □■□■□■□■□■□■□■□■□■□■□■□■□■□■□■□■□ コピペメモ 後で消す □■□■□■□■□■□■□■□■□■□■□■□■□■□■□■□■□
-// &__top{
-//   display: flex;
-//   &__title{
-//     color: #333;
-//     line-height: 19px;
-//     align-items: center;
-//     font-size: 14px;
-//     font-weight: 600;
-//   }
-// }
-// □■□■□■□■□■□■□■□■□■□■□■□■□■□■□■□■□ コピペメモ 後で消す □■□■□■□■□■□■□■□■□■□■□■□■□■□■□■□■□
-
 // --------------------------------- sale ---------------------------------
 .sale{
   width: 100%;
@@ -146,9 +131,10 @@
               
                 .img_view{
                   height: 150px;
-                  width: 100%;
+                  width: 20%;
                   margin-top: 8px;
                   padding: 0 4px;
+                  font-size: 0;
                   
                   img{
                     height: 150px;
@@ -157,10 +143,17 @@
                   }
                   
                   .btn_wrapper{
+                    height: 32px;
+                    color: #0095ee;
+                    align-items: center;
+                    -webkit-box-align: center;
+                    -webkit-box-pack: center;
+
                     display: flex;
                     justify-content: space-around;
                     
                     .btn{
+                      font-size: 14px;
                       cursor: pointer;
                     }
                   }
@@ -325,9 +318,6 @@
             margin: 0;
             outline: none;
             padding: 13px 16px;
-            // resize: vertical;
-            // vertical-align: middle;
-            // font-weight: 400;
           }
           &__count{
             color: #888;
@@ -347,6 +337,123 @@
         display: flex;
         flex-flow: column;
         justify-content: space-between;
+        
+        &__top{
+          display: flex;
+          margin-top: 6px;
+          margin-bottom: 16px;
+
+          &__title{
+            color: #333;
+            line-height: 19px;
+            align-items: center;
+            font-size: 14px;
+            font-weight: 600;
+          }
+        }
+        &__form{
+          height: 48px;
+          width: 100%;
+
+          &__body{
+            width: 100%;
+            cursor: pointer;
+
+            &__label{
+              display: inline-block;
+              position: relative;
+              width: inherit;
+
+              &__select{
+                background-color: #fff;
+                border: 1px solid #ccc;
+                border-radius: 4px;
+                box-sizing: border-box;
+                color: #222;
+                font-size: 16px;
+                height: 48px;
+                line-height: 1;
+                margin: 0;
+                outline: none;
+                width: 100%;
+                -webkit-appearance: none;
+                padding-left: 16px;
+                padding-right: 56px;
+              }
+              &__box{
+                width: 24px;
+                height: 24px;
+                position: absolute;
+                top: 0;
+                right: 16px;
+                bottom: 0;
+                margin: auto;
+                display: flex;
+                justify-content: space-around;
+
+                &__icon{
+                  line-height: 24px;
+                  color: #8A8A8A;
+                }
+              }
+            }
+          }
+        }
+      }
+      // --------------------------------- カテゴリー 〆 ---------------------------------
+      // --------------------------------- ブランド ---------------------------------
+      .item-brand{
+        width: 100%;
+        height: 100%;
+        display: flex;
+        margin-top: 32px;
+        flex-flow: column;
+        justify-content: space-between;
+        
+        &__top{
+          display: flex;
+          margin-bottom: 16px;
+
+          &__title{
+            color: #333;
+            line-height: 19px;
+            align-items: center;
+            font-size: 14px;
+            font-weight: 600;
+          }
+        }
+        &__form{
+          height: 48px;
+          width: 100%;
+
+          &__body{
+            width: 100%;
+
+            &__field{
+              border: 1px solid #ccc;
+              border-radius: 4px;
+              box-sizing: border-box;
+              font-family: inherit;
+              font-size: inherit;
+              height: 48px;
+              margin: 0;
+              outline: none;
+              padding: 0 16px;
+              width: inherit;
+            }
+          }
+        }
+      }
+      // --------------------------------- ブランド 〆 ---------------------------------
+      // --------------------------------- 商品の状態 ---------------------------------
+      .item-condition{
+        width: 100%;
+        height: 100%;
+        display: flex;
+        flex-flow: column;
+        justify-content: space-between;
+        margin-top: 32px;
+
         
         &__top{
           display: flex;
@@ -373,15 +480,6 @@
               position: relative;
               width: inherit;
 
-              // border: 1px solid #ccc;
-              // border-radius: 4px;
-              // box-sizing: border-box;
-              // font-family: inherit;
-              // font-size: inherit;
-              // height: 48px;
-              // margin: 0;
-              // outline: none;
-              // width: inherit;
               &__select{
                 background-color: #fff;
                 border: 1px solid #ccc;
@@ -394,7 +492,7 @@
                 margin: 0;
                 outline: none;
                 width: 100%;
-
+                -webkit-appearance: none;
                 padding-left: 16px;
                 padding-right: 56px;
               }
@@ -411,42 +509,366 @@
 
                 &__icon{
                   line-height: 24px;
+                  color: #8A8A8A;
                 }
               }
             }
           }
         }
       }
-      // --------------------------------- カテゴリー 〆 ---------------------------------
-      // --------------------------------- ブランド ---------------------------------
-      
-      // --------------------------------- ブランド 〆 ---------------------------------
-      // --------------------------------- 商品の状態 ---------------------------------
-      
       // --------------------------------- 商品の状態 〆 ---------------------------------
       // --------------------------------- 配送料の負担 ---------------------------------
-      
+      .item-post{
+        width: 100%;
+        height: 100%;
+        display: flex;
+        flex-flow: column;
+        justify-content: space-between;
+        margin-top: 32px;
+        
+        &__top{
+          display: flex;
+          margin-bottom: 16px;
+
+          &__title{
+            color: #333;
+            line-height: 19px;
+            align-items: center;
+            font-size: 14px;
+            font-weight: 600;
+          }
+        }
+        &__form{
+          height: 48px;
+          width: 100%;
+
+          &__body{
+            width: 100%;
+            cursor: pointer;
+
+            &__label{
+              display: inline-block;
+              position: relative;
+              width: inherit;
+
+              &__select{
+                background-color: #fff;
+                border: 1px solid #ccc;
+                border-radius: 4px;
+                box-sizing: border-box;
+                color: #222;
+                font-size: 16px;
+                height: 48px;
+                line-height: 1;
+                margin: 0;
+                outline: none;
+                width: 100%;
+                -webkit-appearance: none;
+                padding-left: 16px;
+                padding-right: 56px;
+              }
+              &__box{
+                width: 24px;
+                height: 24px;
+                position: absolute;
+                top: 0;
+                right: 16px;
+                bottom: 0;
+                margin: auto;
+                display: flex;
+                justify-content: space-around;
+
+                &__icon{
+                  line-height: 24px;
+                  color: #8A8A8A;
+                }
+              }
+            }
+          }
+        }
+      }
       // --------------------------------- 配送料の負担 〆 ---------------------------------
       // --------------------------------- 発送元の地域 ---------------------------------
-      
+      .item-code{
+        width: 100%;
+        height: 100%;
+        display: flex;
+        flex-flow: column;
+        justify-content: space-between;
+        margin-top: 32px;
+        
+        &__top{
+          display: flex;
+          margin-bottom: 16px;
+
+          &__title{
+            color: #333;
+            line-height: 19px;
+            align-items: center;
+            font-size: 14px;
+            font-weight: 600;
+          }
+        }
+        &__form{
+          height: 48px;
+          width: 100%;
+
+          &__body{
+            width: 100%;
+            cursor: pointer;
+
+            &__label{
+              display: inline-block;
+              position: relative;
+              width: inherit;
+
+              &__select{
+                background-color: #fff;
+                border: 1px solid #ccc;
+                border-radius: 4px;
+                box-sizing: border-box;
+                color: #222;
+                font-size: 16px;
+                height: 48px;
+                line-height: 1;
+                margin: 0;
+                outline: none;
+                width: 100%;
+                -webkit-appearance: none;
+                padding-left: 16px;
+                padding-right: 56px;
+              }
+              &__box{
+                width: 24px;
+                height: 24px;
+                position: absolute;
+                top: 0;
+                right: 16px;
+                bottom: 0;
+                margin: auto;
+                display: flex;
+                justify-content: space-around;
+
+                &__icon{
+                  line-height: 24px;
+                  color: #8A8A8A;
+                }
+              }
+            }
+          }
+        }
+      }
       // --------------------------------- 発送元の地域 〆 ---------------------------------
       // --------------------------------- 発送までの日数 ---------------------------------
-      
+      .item-day{
+        width: 100%;
+        height: 100%;
+        display: flex;
+        flex-flow: column;
+        justify-content: space-between;
+        margin-top: 32px;
+        
+        &__top{
+          display: flex;
+          margin-bottom: 16px;
+
+          &__title{
+            color: #333;
+            line-height: 19px;
+            align-items: center;
+            font-size: 14px;
+            font-weight: 600;
+          }
+        }
+        &__form{
+          height: 48px;
+          width: 100%;
+
+          &__body{
+            width: 100%;
+            cursor: pointer;
+
+            &__label{
+              display: inline-block;
+              position: relative;
+              width: inherit;
+
+              &__select{
+                background-color: #fff;
+                border: 1px solid #ccc;
+                border-radius: 4px;
+                box-sizing: border-box;
+                color: #222;
+                font-size: 16px;
+                height: 48px;
+                line-height: 1;
+                margin: 0;
+                outline: none;
+                width: 100%;
+                -webkit-appearance: none;
+                padding-left: 16px;
+                padding-right: 56px;
+              }
+              &__box{
+                width: 24px;
+                height: 24px;
+                position: absolute;
+                top: 0;
+                right: 16px;
+                bottom: 0;
+                margin: auto;
+                display: flex;
+                justify-content: space-around;
+
+                &__icon{
+                  line-height: 24px;
+                  color: #8A8A8A;
+                }
+              }
+            }
+          }
+        }
+      }
       // --------------------------------- 発送までの日数 〆 ---------------------------------
       // --------------------------------- 販売価格 ---------------------------------
-      
+      .item-price{
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        height: 46px;
+        padding-bottom: 12px;
+        width: 100%;
+        &__text{
+          width: 50%;
+          display: flex;
+          justify-content: space-between;
+          &__top{
+            display: flex;
+            &__title{
+              color: #333;
+              font-size: 14px;
+              font-weight: 600;
+            }
+          }
+        }
+        &__form{
+          width: 50%;
+          align-items: center;
+          display: flex;
+          justify-content: space-between;
+          &__en{
+            font-size: 14px;
+            margin-right: 8px;
+          }
+          &__body{
+            width: 100%;
+            &__lavel{
+              &__field{
+                height: 48px;
+                border: 1px solid #ccc;
+                border-radius: 4px;
+                box-sizing: border-box;
+                font-family: inherit;
+                font-size: inherit;
+                margin: 0;
+                outline: none;
+                padding: 0 16px;
+                width: 100%;
+                text-align: right;
+              }
+            }
+          }
+        }
+      }
+      .item-price-error{
+        color: #ff0211;
+        font-size: 14px;
+        line-height: 19px;
+        margin-top: 4px;
+        text-align: right;
+        font-weight: 400;
+      }
       // --------------------------------- 販売価格 〆 ---------------------------------
       // --------------------------------- 販売手数料 ---------------------------------
-      
+      .item-charge{
+        display: flex;
+        justify-content: space-between;
+        height: 46px;
+        padding: 12px 0;
+        align-items: center;
+        color: #515151;
+        font-size: 14px;
+      }
       // --------------------------------- 販売手数料 〆 ---------------------------------
       // --------------------------------- 販売利益 ---------------------------------
-      
+      .item-Sales{
+        display: flex;
+        justify-content: space-between;
+        height: 46px;
+        padding-top: 12px;
+        align-items: center;
+        margin-bottom: 40px;
+        color: #515151;
+        font-size: 14px;
+      }
       // --------------------------------- 販売利益 〆 ---------------------------------
       // --------------------------------- 出品ボタン ---------------------------------
-      
+      .submit-btn{
+        width: 58%;
+        display: flex;
+        margin: 0 auto;
+        flex-flow: column;
+        &__sale{
+          border: 0;
+          height: 48px;
+          color: #fff;
+          font-size: 17px;
+          font-weight: bold;
+          border-radius: 5px;
+          margin-bottom: 24px;
+          background-color: #ea352d;
+          &:hover{
+            cursor: pointer;
+          }
+        }
+        &__draft{
+          color: #222;
+          font-size: 17px;
+          font-weight: bold;
+          border-radius: 5px;
+          margin-bottom: 24px;
+          background-color: #ccc;
+          line-height: 48px;
+          display: flex;
+          justify-content: space-around;
+          text-decoration: none;
+          &:hover{
+            cursor: pointer;
+          }
+        }
+        &__return{
+          line-height: 20px;
+          color: #0095ee;
+          font-size: 14px;
+          text-decoration: none;
+          margin: 0 auto 32px;
+          &:hover{
+            cursor: pointer;
+          }
+        }
+      }
       // --------------------------------- 出品ボタン 〆 ---------------------------------
       // --------------------------------- 注意書き ---------------------------------
-      
+      .attention{
+        line-height: 16px;
+        &__text{
+          font-size: 12px;
+          &--color{
+            color: #0095ee;
+            text-decoration: none;
+          }
+        }
+      }
       // --------------------------------- 注意書き 〆 ---------------------------------
     }
     // --------------------------------- フォーム 〆 ---------------------------------
@@ -464,7 +886,7 @@
       .footer-lists{
         display: flex;
         justify-content: center;
-        font-size: 14px;
+        font-size: 12px;
         line-height: 14px;
         margin-bottom: 30px;
         .footer-list{
