@@ -41,8 +41,10 @@ class ItemsController < ApplicationController
       :preparation_day,
       :price,
       images_attributes: [:image]
+    ).merge(
+      trading: "販売中",
+      user_id: current_user.id
     )
-    .merge(trading: "販売中", user_id: "1")
   end
 
 end
