@@ -1,206 +1,241 @@
-// ここより下は繰り返し使うパーツ
-a {
-  color: inherit;
-  box-sizing: border-box;
-  text-decoration: none;
+// 枠の仕切り
+.border{
+  border-top: 1px solid #efefef;
 }
-a:hover{
-  text-decoration: underline;
+
+// 必須
+.certainly{
+  height: 16px;
+  line-height: 16px;
+  align-items: center;
+  display: inline-block;
+  padding: 0 4px;
+  margin: 1px 0 1px 8px;
+  color: #fff;
+  font-size: 12px;
+  font-weight: 600;
+  border-radius: 2px;
+  background-color: #ff0211;
 }
-img {
-  vertical-align: middle;
-  box-sizing: border-box;
+
+// 任意
+.optional{
+  height: 16px;
+  line-height: 16px;
+  align-items: center;
+  display: inline-block;
+  padding: 0 4px;
+  margin: 1px 0 1px 8px;
+  color: #fff;
+  font-size: 12px;
+  font-weight: 600;
+  border-radius: 2px;
+  background-color: #bfbfbf;
 }
+
+// エラーメッセージ
 .error-messages{
   color: #ff0211;
   font-size: 14px;
-  line-height: 1.4em;
+  line-height: 1.4;
   margin: 16px 0;
   box-sizing: border-box;
 }
 
-.sell-title{
-  align-items: center;
-  margin: 0 auto;
-  box-sizing: border-box;
-  &__text{
-    font-size: 14px;
-    font-weight: 600;
-    line-height: 1.4em;
-  }
-  &__required{
-    margin-left: 8px;
-    font-size: 12px;
-    padding: 0 4px;
-    background-color: #ff0211;
-    color: #fff;
-    border-radius: 2px;
-    display: inline-block;
-    font-style: normal;
-    font-weight: 600;
-    line-height: 1.4em;
-    margin: 0;
-  }
+.item-box{
+  padding: 40px;
 }
 
-.sell-sub-head{
-  box-sizing: border-box;
-  color: rgb(136, 136, 136);
+.item-box:last-child{
+  padding: 40px 40px 64px;
+}
+
+.item-head{
+  color: #888;
   font-size: 14px;
   font-weight: 600;
-  line-height: 1.4em;
+  line-height: 19px;
+  align-items: center;
   margin-bottom: 24px;
-  display: flex;
-  &__guides-link{
-    color: rgb(0, 149, 238);
-    margin-left: 4px;
-  }
 }
 
-.sell-collection_select{
-  box-sizing: border-box;
-  margin-top: 16px;
+// --------------------------------- ここより上は繰り返し使うパーツ ---------------------------------
+
+// □■□■□■□■□■□■□■□■□■□■□■□■□■□■□■□■□ コピペメモ 後で消す □■□■□■□■□■□■□■□■□■□■□■□■□■□■□■□■□
+// &__top{
+//   display: flex;
+//   &__title{
+//     color: #333;
+//     line-height: 19px;
+//     align-items: center;
+//     font-size: 14px;
+//     font-weight: 600;
+//   }
+// }
+// □■□■□■□■□■□■□■□■□■□■□■□■□■□■□■□■□ コピペメモ 後で消す □■□■□■□■□■□■□■□■□■□■□■□■□■□■□■□■□
+
+// --------------------------------- sale ---------------------------------
+.sale{
+  width: 100%;
+  background-color: #f5f5f5;
   
-  &__label{
-    display: inline-block;
-    position: relative;
+  // --------------------------------- ヘッダー ---------------------------------
+  .header{
     width: 100%;
-    
-    
-    .fas.fa-chevron-down{
-      box-sizing: border-box;
-      pointer-events: none;
-      position: absolute;
-      right: 16px;
-      top: 50%;
-      color: rgb(136, 136, 136);
-      height: 48px;
-      
-    }
-  }
-}
-// ここより上は繰り返し使うパーツ
-
-.sell {
-  box-sizing: border-box;
-  position: relative;
-  color: rgb(51, 51, 51);
-  background-color: rgb(245, 245, 245);
-  font-family: Arial, 游ゴシック体, YuGothic, メイリオ, Meiryo, sans-serif;
-  font-size: 14px;
-  line-height: 1;
-  box-sizing: border-box;
-  .sell-header{
-    box-sizing: border-box;
     height: 128px;
-    align-items: center;
     display: flex;
-    justify-content: center;
-  }
-  .sell-container{
-    box-sizing: border-box;
-    max-width: 700px;
-    width: 100%;
-    margin: 0px auto;
-    background-color: rgb(255, 255, 255);
-    &__content__text{
-      -webkit-appearance: none;
-      -moz-appearance: none;
-      appearance: none;
-      background-color: rgb(255, 255, 255);
+    justify-content: space-around;
+    align-items: center;
+    .header-link{
+      .header-image{
+        width: 185px;
+      }
     }
-       
-    &__content__text::-ms-expand{
-      display: none;
-      }
-    // 画像
-    &__content{
-      height: auto;
-      padding: 40px;
-      border-bottom: 1px;
-      border-bottom-color: #efefef;
-      border-bottom-style: solid;
-      &__max-sheet{
-        margin-top: 16px;
-      }
-      &__upload{
-        margin-top: 16px;
+  }
+  // --------------------------------- ヘッダー 〆 ---------------------------------
+  // --------------------------------- メイン ---------------------------------
+  .main{
+    background-color: #FFF;
+    max-width: 700px;
+    margin: 0 auto;
+    padding: 0;
+    
+    // --------------------------------- 投稿フォーム ---------------------------------
+    .sell-form.dropzone{
+      
+      // --------------------------------- 画像投稿機能 ---------------------------------
+      .item-image{
+        height: 100%;
         display: flex;
-        flex-wrap: wrap;
-        &__items{
-          height: auto;
-          width: 100%;
+        flex-flow: column;
+        justify-content: space-between;
+        
+        &__top{
+          display: flex;
+          margin-bottom: 16px;
 
-          &__box{
-            height: auto;
-            align-content: center;
+          &__title{
+            color: #333;
+            line-height: 19px;
             align-items: center;
-            cursor: pointer;
-            display: flex;
-            flex-wrap: wrap;
-            justify-content: center;
-            position: relative;
-            border-width: 1px;
-
-            #output-box{
-              box-sizing: border-box;
+            font-size: 14px;
+            font-weight: 600;
+          }
+        }
+        
+        &__max-upload{
+          color: #333;
+          font-size: 14px;
+          font-weight: 400;
+          line-height: 19px;
+          align-items: center;
+        }
+        
+        &__form{
+          margin-top: 16px;
+          width: 100%;
+          // height: 48px;
+          
+          &__body{
+            .dropzone-container{
               display: flex;
-              flex-wrap: wrap;
-              width: 100%;
-              height: auto;
-
-              .preview-image{
-                box-sizing: border-box;
-                height: 150px;
-                width: 20%;
-                padding: 0px 4px;
-                margin-top: 8px;
-
-                &__figure{
-                  margin:0 auto;
-                  height: 118px;
-                  background-color: rgb(245, 245, 245);
+              justify-content: flex-start;
+              // ここから下はJSにも影響{
+              
+              #preview{
+              display: flex;
+              
+                .img_view{
+                  height: 150px;
+                  width: 100%;
+                  margin-top: 8px;
+                  padding: 0 4px;
+                  
                   img{
-                    box-sizing: border-box;
-                    width: 100%;
-                    height: 100%;
-                    object-fit: contain;
+                    height: 150px;
+                    width: calc(620px / 5);
+                    object-fit: cover;
+                  }
+                  
+                  .btn_wrapper{
+                    display: flex;
+                    justify-content: space-around;
+                    
+                    .btn{
+                      cursor: pointer;
+                    }
                   }
                 }
-                &__button{
-                  border-top-width: 1px;
-                  border-top-color: rgb(204, 204, 204);
-                  border-top-style: solid;
-                  background-color: rgb(245, 245, 245);
-                  justify-content: space-around;
-                  display: flex;
-                  align-items: center;
-                  height: 32px;
-                  color: rgb(0, 149, 238);
+              }
+              
+              .dropzone-area{
+                width: calc(100% - 2px);
+                height: 148px;
+                background-color: #f5f5f5;
+                border: 1px dashed #ccc;
+                
+                .dropzone-box{
+                  
+                  .input_area{
+                    
+                    #upload-image.upload-image.data-image{
+                    }
+                  }
+                  
+                  .input_text{
+                    width: 100%;
+                    margin: 0 auto;
+                    
+                    p{
+                      color: #333;
+                      font-size: 12px;
+                      font-weight: 400;
+                    }
+                  }
                 }
               }
-
-              #image-input{
-                box-sizing: border-box;
-                height: 100%;
-                -webkit-flex: 1;
-                flex: 1;
-                margin-top: 8px;
-
-                .sell-container__content__upload__items__box__label{
-                  box-sizing: border-box;
-                  background-color: rgb(245, 245, 245);
+              
+              #preview2{
+                display: flex;
+                
+                .img_view{
+                  
+                  img{
                   height: 150px;
-                  border-width: 1px;
-                  border-style: dashed;
-                  border-color: rgb(204, 204, 204);
-                  text-align: center;
-                  display: flex;
-                  align-items: center;
-                  justify-content: center;
-                  i{
-                    box-sizing: border-box;
-                    margin-bottom: 8px;
+                  margin: 8px 4px 0;
+                  width: calc(1 /5 * 100% );
+                  object-fit: cover;
+                  }
+                  
+                  .btn_wrapper{
+                    display: flex;
+                    justify-content: space-around;
+                    
+                    .btn{
+                      cursor: pointer;
+                    }
+                  }
+                }
+              }
+              
+              .dropzone-area2{
+                width: calc(100% - 2px);
+                height: 148px;
+                background-color: #f5f5f5;
+                border: 1px dashed #ccc;
+                
+                .dropzone-box{
+                  
+                  .input_text{
+                    margin: 0 auto;
+                    
+                    p{
+                      color: #333;
+                      font-size: 12px;
+                      font-weight: 400;
+                      line-height: 16px;
+                      align-items: center;
+                    }
                   }
                 }
               }
@@ -208,148 +243,105 @@ img {
           }
         }
       }
-    }
+      // --------------------------------- 画像投稿機能 〆 ---------------------------------
+      // --------------------------------- 商品名 ---------------------------------
+      .item-name{
+        height: 100%;
+        display: flex;
+        flex-flow: column;
+        justify-content: space-between;
+        
+        &__top{
+          display: flex;
+          margin-bottom: 16px;
 
-    // 商品名
-    &__content{
-      &__name{
-        margin-top: 16px;
-        border: 1px solid #ccc;
-        border-radius: 4px;
-        box-sizing: border-box;
-        height: 48px;
-        padding: 0 16px;
-        width: 100%;
-      }
-      &__text{
-        margin-top: 16px;
-        border: 1px solid #ccc;
-        border-radius: 4px;
-        box-sizing: border-box;
-        padding: 16px;
-        width: 100%;
-        font-size: 16px;
-        display: block;
-      }
-      textarea {
-      resize: vertical;
-      }
-      &__word-count{
-        text-align: right;
-        color: #888;
-        font-size: 12px;
-        line-height: 1.4em;
-      }
-    }
-
-    // 詳細は共通パーツのみ
-    // 配送は共通パーツのみ
-    // 価格
-    &__content{
-      &__price{
-        -webkit-box-align: center;
-        align-items: center;
-        box-sizing: content-box;
-        display: flex;
-        height: 46px;
-        justify-content:space-between;
-        &form__label{
-          font-size: 14px;
+          &__title{
+            color: #333;
+            line-height: 19px;
+            align-items: center;
+            font-size: 14px;
+            font-weight: 600;
+          }
         }
-        &__form__box{
-          border: 1px solid #ccc;
-          border-radius: 4px;
-          height: 48px;
-          margin-left: 8px;
-          padding: 0 16px;
-          width: 300px;
-          align-items: center;
-          display: inline-flex;
-          text-align: right;
-        }
+      
       }
-      #error-price{
-        box-sizing: border-box;
-        text-align: right;
-      }
-      &__commission{
-        display: flex;
-        justify-content:space-between;
-        height: 70px;
-        padding: 12px 0px;
-        align-items: center;
-        border-bottom: 1px;
-        border-bottom-color: #efefef;
-        border-bottom-style: solid;
-      }
-      &__profit{
-        display: flex;
-        justify-content:space-between;
-        height: 70px;
-        padding: 12px 0px;
-        align-items: center;
-      }
+      // --------------------------------- 商品名 〆 ---------------------------------
+      // --------------------------------- 商品の説明 ---------------------------------
+      
+      // --------------------------------- 商品の説明 〆 ---------------------------------
+      // --------------------------------- カテゴリー ---------------------------------
+      
+      // --------------------------------- カテゴリー 〆 ---------------------------------
+      // --------------------------------- ブランド ---------------------------------
+      
+      // --------------------------------- ブランド 〆 ---------------------------------
+      // --------------------------------- 商品の状態 ---------------------------------
+      
+      // --------------------------------- 商品の状態 〆 ---------------------------------
+      // --------------------------------- 配送料の負担 ---------------------------------
+      
+      // --------------------------------- 配送料の負担 〆 ---------------------------------
+      // --------------------------------- 発送元の地域 ---------------------------------
+      
+      // --------------------------------- 発送元の地域 〆 ---------------------------------
+      // --------------------------------- 発送までの日数 ---------------------------------
+      
+      // --------------------------------- 発送までの日数 〆 ---------------------------------
+      // --------------------------------- 販売価格 ---------------------------------
+      
+      // --------------------------------- 販売価格 〆 ---------------------------------
+      // --------------------------------- 販売手数料 ---------------------------------
+      
+      // --------------------------------- 販売手数料 〆 ---------------------------------
+      // --------------------------------- 販売利益 ---------------------------------
+      
+      // --------------------------------- 販売利益 〆 ---------------------------------
+      // --------------------------------- 出品ボタン ---------------------------------
+      
+      // --------------------------------- 出品ボタン 〆 ---------------------------------
+      // --------------------------------- 注意書き ---------------------------------
+      
+      // --------------------------------- 注意書き 〆 ---------------------------------
     }
-    .submit-btn{
-      box-sizing: border-box;
-      margin: 0 auto;
-      width: 360px;
-      margin-bottom: 32px;
-      &__sell-btn{
-        background-color: #3ccace;
-        color: #fff;
-        margin-bottom: 24px;
-        width: 100%;
-        font-size: 17px;
-        height: 48px;
-        font-weight: 600;
-        border-radius: 4px;
-      }
-      &__return-btn{
-        background-color: #ccc;
-        color: #222;
-        width: 100%;
-        font-size: 17px;
-        height: 48px;
-        font-weight: 600;
-        padding: 14px 0;
-        border-radius: 4px;
-        display: inline-block;
-        text-align: center;
-        text-decoration: none;
-      }
-    }
-    .attention-box{
-      box-sizing: border-box;
-      font-size: 12px;
-      line-height: 1.4em;
-      word-break: keep-all;
-      a{
-        box-sizing: border-box;
-        color: #0095ee;
-        text-decoration: none;
-      }
-    }
+    // --------------------------------- フォーム 〆 ---------------------------------
   }
-  // フッター
-  .sell-footer{
-    box-sizing: border-box;
-    padding: 40px 0px;
-    text-align: center;
-    nav{
-      box-sizing: border-box;
-      .clearfix{
-        box-sizing: border-box;
-        display: inline-block;
-        font-size: 12px;
+  // --------------------------------- メイン 〆 ---------------------------------
+  // --------------------------------- フッター ---------------------------------
+  .footer{
+    width: 100%;
+    height: 139px;
+    padding: 40px 0 41px;
+    background-color: #f5f5f5;
+    font-size: 0;
+    .footer-top{
+      margin: 0 auto;
+      .footer-lists{
         display: flex;
         justify-content: center;
-        margin-bottom: 40px;
-        li{
-          box-sizing: border-box;
+        font-size: 14px;
+        line-height: 14px;
+        margin-bottom: 30px;
+        .footer-list{
           margin: 0px 8px;
+          a{
+            text-decoration: none;
+            color: #333;
+          }
         }
       }
     }
+    .footer_logo{
+      img{
+        width: 80px;
+      }
+    }
+    .copyright{
+      margin: 0 auto;
+      color: #333;
+      font-size: 12px;
+      font-family:'Times New Roman', 'Times';
+    }
   }
+  // --------------------------------- フッター 〆 ---------------------------------
 }
+// --------------------------------- sale 〆 ---------------------------------
