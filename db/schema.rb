@@ -61,7 +61,7 @@ ActiveRecord::Schema.define(version: 2020_04_08_063532) do
     t.bigint "category_id", null: false
     t.bigint "brand_id"
     t.string "condition", null: false
-    t.string "postage_payer", default: "", null: false, collation: "utf8_bin"
+    t.string "postage_payer", null: false
     t.string "prefecture_code", null: false
     t.string "preparation_day", null: false
     t.integer "price", null: false
