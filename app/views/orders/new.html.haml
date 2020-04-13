@@ -2,7 +2,7 @@
   .single-container
     %header.container
       %h1
-        = link_to "#", class:"header__btn__furima" do
+        = link_to root_path, class:"header__btn__furima" do
           = image_tag "material/logo/logo.png", class: "header__btn__furima-btn"
     .single-main
       %section.single-main__content
@@ -13,19 +13,24 @@
               %h3.buy-item-image
                 = image_tag "material/pict/pict-reason-03.jpg", class:"buy-image"
                 .buy-item-box__detail
-                  %p.buy-item-name アウター、パーカー
+                  %p.buy-item-name
+                    =@order.item.name
                   %p.buy-price
-                    %span ¥2,800
+                    %span ¥  #{@order.item.price}
                     %span.item-shipping-fee (税込)送料込み
         %section.single-main__item
           .single-main__item__content
-            =form_with url: "#",local: true, method: :POST,class: "search-form" do |form|
+            = form_with(model: @orders, local: true) do |form| 
               %ul.buy-price-table
+                %li.buy-price
+                  .buy-price-cell-label 商品名
+                  .buy-price__cell
+                    %span.data-buy-pay
+                      =@order.item.name
                 %li.buy-price
                   .buy-price-cell-label 支払い金額
                   .buy-price__cell
-                    %span.data-buy-pay ¥2,800
-
+                    %span.data-buy-pay ¥  #{@order.item.price}
               %ul.buy-accordion-point
                 %li.accordion-parent
                   .checkbox-default-buy-use-point
@@ -52,7 +57,7 @@
           = link_to 'メルカリ利用規約', '#'
         %li
           = link_to '特定商取引に関する表記', '#'
-    = link_to "#", class:"header__btn__furima" do
+    = link_to root_path, class:"header__btn__furima" do
       = image_tag "material/logo/logo-white.png", class: "header__btn__furima-btn",:size =>'120x30'
     %p
       %span  &copy;

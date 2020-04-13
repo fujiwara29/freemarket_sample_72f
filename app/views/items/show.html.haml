@@ -52,11 +52,14 @@
                 %tr
                   %th カテゴリー
                   %td
-                    = link_to @item.category.name, '#'
+                    = @item.category.name
                     %br
-                    = link_to @item.category.name, '#'
+                    = link_to  @item.category.children.pluck(:name)[0], category_path(@item.id)
                     %br                    
-                    = link_to @item.category.name, '#'
+                    = link_to @item.category.descendants.pluck(:name)[7], 
+                    category_path(@item.id)
+
+                    
                 %tr
                   %th ブランド
                   %td
@@ -88,7 +91,7 @@
                 = link_to '★お気に入り 0', '#'
             %ul
               %li#likebtn.optional
-                = link_to '購入する', orders_path, class: 'buy'
+                = link_to '購入する', new_order_path, class: 'buy'
             %ul.optional
               %li.optionalBtn
                 = link_to '🏴不適切な商品の通報', '#'

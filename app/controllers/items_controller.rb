@@ -8,6 +8,7 @@ class ItemsController < ApplicationController
   def new
     @item = Item.new
     @item.images.build
+    
   end
 
   def create
@@ -28,8 +29,10 @@ class ItemsController < ApplicationController
   def show
     # @item = Item.find(params[:id])
     @item = Item.find(1)
+    
   end
 
+  
   private
 
   def item_params
