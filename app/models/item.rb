@@ -20,4 +20,15 @@ class Item < ApplicationRecord
   # validates :trading,         presence: true
   # validates :user_id,         presence: true
 
+  #   #imageのバリデーション
+  #   def images_presence
+  #     if images.attached?
+  #       # inputに保持されているimagesがあるかを確認
+  #       if images.length > 10
+  #         errors.add(:image, '10枚まで投稿できます')
+  #       end
+  #     else
+  #       errors.add(:image, '画像がありません')
+  #     end
+  #   end
 end

@@ -24,7 +24,7 @@
         margin: 0 auto;
         background-color: #ffff;
         width: 700px;
-        height: 700px;
+        height: 800px;
         .buy-item-container{
           font-size: 22px;
           padding: 32px;
@@ -34,7 +34,7 @@
         }
         .single-main__item{
           text-align: center;
-          border-bottom: 1px solid #f5f5f5;
+          // border-bottom: 1px solid #f5f5f5;
           height: 140px;
           .buy-content{
             .buy-item-box{
@@ -92,7 +92,7 @@
               justify-content: space-between;
               font-weight: bold;
               line-height: 40px;
-              border-bottom: 1px solid #f5f5f5;
+              // border-bottom: 1px solid #f5f5f5;
               .buy-content{
                 margin-bottom: 40px;
                 h3{
