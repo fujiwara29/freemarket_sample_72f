@@ -42,11 +42,13 @@ ActiveRecord::Schema.define(version: 2020_04_08_063532) do
     t.string "name", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.string "ancestry"
+    t.index ["ancestry"], name: "index_categories_on_ancestry"
   end
 
   create_table "images", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.string "image", null: false
-    t.bigint "item_id"
+    t.bigint "item_id", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["item_id"], name: "index_images_on_item_id"
@@ -59,7 +61,7 @@ ActiveRecord::Schema.define(version: 2020_04_08_063532) do
     t.bigint "category_id", null: false
     t.bigint "brand_id"
     t.string "condition", null: false
-    t.string "postage_payer", null: false
+    t.string "postage_payer", default: "", null: false, collation: "utf8_bin"
     t.string "prefecture_code", null: false
     t.string "preparation_day", null: false
     t.integer "price", null: false
