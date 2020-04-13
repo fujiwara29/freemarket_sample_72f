@@ -23,34 +23,21 @@
             .certainly
               必須
           .item-image__max-upload 最大10枚までアップロードできます
+          -# 画像投稿フォーム
           .item-image__form
-            .item-image__form__body
-              = f.fields_for :images do |image|
-                .dropzone-container
-                  #preview
-                    .img_view
-                      = image_tag "test_image/test_6.jpg"
-                      .btn_wrapper
-                        .btn.edit 編集
-                        .btn.delete 削除
-                  .dropzone-area
-                    = image.label :image, class: "dropzone-box", for: "upload-image" do
-                      .input_area
-                        = image.file_field :image, multiple: true, name: 'images[image][]', id: "upload-image", class: "upload-image", 'data-image': 0, style:'display: none;'
-                      .input_text
-                        %i.fas.fa-camera.fa-lg
-                        %p ここをクリックしてファイルをアップロード
-                  #preview2
-                  .dropzone-area2
-                    = image.label :image, class: "dropzone-box", for: "upload-image" do
-                      .input_text
-                        %p ここをクリックしてファイルをアップロード
-        -# .error-messages
+            #preview
+              .num-0#image-container
+                %label
+                  = f.fields_for :images do |image|
+                    .input-area
+                      = image.file_field :image, type: 'file', name: "images[image][]", id: "upload-image", style: "display:none"
+                      %i.fas.fa-camera
+          -# .error-messages
       
       .border
       
+      -# 商品名
       .item-box
-        -# 商品名
         .item-name
           .item-name__top
             .item-name__top__title
@@ -73,8 +60,8 @@
             .item-int__form__count 0/1000
       .border
       
+      -# 商品の詳細
       .item-box
-        -# 商品の詳細
         .item-head 商品の詳細
         -# カテゴリー
         .item-category
@@ -117,8 +104,8 @@
       
       .border
       
+      -# 配送について
       .item-box
-        -# 配送について
         .item-head 配送について
         -# 配送料の負担
         .item-post
@@ -164,8 +151,8 @@
       
       .border
       
+      -# 価格・出品ボタン
       .item-box
-        -# 価格・出品ボタン
         .item-head 価格（¥300〜9,999,999）
         -# 販売価格
         .item-price

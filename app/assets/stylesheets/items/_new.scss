@@ -58,6 +58,37 @@
   margin-bottom: 24px;
 }
 
+.num-0{
+  width: calc(100% - 2px);
+}
+.num-1{
+  width: calc(80% - 2px);
+}
+.num-2{
+  width: calc(60% - 2px);
+}
+.num-3{
+  width: calc(40% - 2px);
+}
+.num-4{
+  width: calc(20% - 2px);
+}
+.num-5{
+  width: calc(100% - 2px);
+}
+.num-6{
+  width: calc(80% - 2px);
+}
+.num-7{
+  width: calc(60% - 2px);
+}
+.num-8{
+  width: calc(40% - 2px);
+}
+.num-9{
+  width: calc(20% - 2px);
+}
+
 // --------------------------------- ここより上は繰り返し使うパーツ ---------------------------------
 // --------------------------------- sale ---------------------------------
 .sale{
@@ -94,11 +125,9 @@
         display: flex;
         flex-flow: column;
         justify-content: space-between;
-        
         &__top{
           display: flex;
           margin-bottom: 16px;
-
           &__title{
             color: #333;
             line-height: 19px;
@@ -107,7 +136,6 @@
             font-weight: 600;
           }
         }
-        
         &__max-upload{
           color: #333;
           font-size: 14px;
@@ -115,121 +143,74 @@
           line-height: 19px;
           align-items: center;
         }
-        
         &__form{
-          margin-top: 16px;
+          margin-top: 8px;
           width: 100%;
-          
-          &__body{
-            .dropzone-container{
-              display: flex;
-              justify-content: flex-start;
-              // ここから下はJSにも影響{
-              
-              #preview{
-              display: flex;
-              
-                .img_view{
-                  height: 150px;
-                  width: 20%;
-                  margin-top: 8px;
-                  padding: 0 4px;
-                  font-size: 0;
-                  
-                  img{
-                    height: 150px;
-                    width: calc(620px / 5);
-                    object-fit: cover;
-                  }
-                  
-                  .btn_wrapper{
-                    height: 32px;
-                    color: #0095ee;
-                    align-items: center;
-                    -webkit-box-align: center;
-                    -webkit-box-pack: center;
-
-                    display: flex;
-                    justify-content: space-around;
-                    
-                    .btn{
-                      font-size: 14px;
-                      cursor: pointer;
-                    }
-                  }
-                }
-              }
-              
-              .dropzone-area{
-                width: calc(100% - 2px);
-                height: 148px;
-                background-color: #f5f5f5;
-                border: 1px dashed #ccc;
-                
-                .dropzone-box{
-                  
-                  .input_area{
-                    
-                    #upload-image.upload-image.data-image{
-                    }
-                  }
-                  
-                  .input_text{
-                    width: 100%;
-                    margin: 0 auto;
-                    
-                    p{
-                      color: #333;
-                      font-size: 12px;
-                      font-weight: 400;
-                    }
-                  }
-                }
-              }
-              
-              #preview2{
-                display: flex;
-                
-                .img_view{
-                  
-                  img{
-                  height: 150px;
-                  margin: 8px 4px 0;
-                  width: calc(1 /5 * 100% );
+          #preview{
+            display: flex;
+            flex-wrap: wrap;
+            .item-img{
+              height: 150px;
+              width: calc(100% / 5 - 8px);
+              margin-top: 8px;
+              padding: 0 4px;
+              font-size: 0;
+              &__content{
+                img{
+                  height: 116px;
+                  width: calc(100% - 2px);
                   object-fit: cover;
-                  }
-                  
-                  .btn_wrapper{
-                    display: flex;
-                    justify-content: space-around;
-                    
-                    .btn{
-                      cursor: pointer;
-                    }
-                  }
+                  border: 1px solid #ccc;
                 }
               }
-              
-              .dropzone-area2{
-                width: calc(100% - 2px);
-                height: 148px;
+              &__btn{
+                height: 30px;
+                color: #0095ee;
+                align-items: center;
+                -webkit-box-align: center;
+                -webkit-box-pack: center;
+                display: flex;
+                justify-content: space-around;
                 background-color: #f5f5f5;
-                border: 1px dashed #ccc;
-                
-                .dropzone-box{
-                  
-                  .input_text{
-                    margin: 0 auto;
-                    
-                    p{
-                      color: #333;
-                      font-size: 12px;
-                      font-weight: 400;
-                      line-height: 16px;
-                      align-items: center;
-                    }
+                border: 1px solid #ccc;
+                &--delete{
+                  font-size: 14px;
+                  cursor: pointer;
+                }
+              }
+            }
+            #image-container{
+              margin-top: 8px;
+              padding: 0 4px;
+              height: 150px;
+              box-sizing: border-box;
+              label{
+                height: 100%;
+                width: 100%;
+                cursor: pointer;
+                .input-area{
+                  height: 100%;
+                  width: 100%;
+                  padding: 0 4px;
+                  background-color: #f5f5f5;
+                  border: 1px dashed #ccc;
+                  display: flex;
+                  justify-content: space-around;
+                  box-sizing: border-box;
+                  #upload-image{
+                    height: 100%;
+                    width: 100%;
+                    cursor: pointer;
+                  }
+                  i{
+                    line-height: 148px;
+                    font-size: 24px;
+                    animation: img 1.8s linear infinite;
                   }
                 }
+                // .input-area:hover{
+                //   i{animation: img 1.8s linear infinite;}
+                // }
               }
             }
           }
@@ -826,7 +807,7 @@
           font-weight: bold;
           border-radius: 5px;
           margin-bottom: 24px;
-          background-color: #ea352d;
+          background-color: #3CCACE;
           &:hover{
             cursor: pointer;
           }

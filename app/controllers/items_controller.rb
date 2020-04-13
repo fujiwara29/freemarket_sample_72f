@@ -42,7 +42,7 @@ class ItemsController < ApplicationController
       images_attributes: [:image]
     ).merge(
       trading: "販売中",
-      user_id: "1"
+      user_id: current_user.id
     )
   end
 
