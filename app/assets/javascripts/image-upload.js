@@ -1,133 +1,55 @@
-$(document).on('turbolinks:load', function(){
-  var dropzone = $('.dropzone-area');
-  var dropzone2 = $('.dropzone-area2');
-  var dropzone_box = $('.dropzone-box');
-  var images = [];
-  var inputs  =[];
-  var input_area = $('.input_area');
-  var preview = $('#preview');
-  var preview2 = $('#preview2');
-
-  // プレビュー画像作成
-  $(document).on('change', 'input[type= "file"].upload-image',function(event) {
-    var file = $(this).prop('files')[0];
-    var reader = new FileReader();
-    inputs.push($(this));
-    var img = $(`<div class= "img_view"><img></div>`);
-    reader.onload = function(e) {
-      var btn_wrapper = $('<div class="btn_wrapper"><div class="btn edit">編集</div><div class="btn delete">削除</div></div>');
-      img.append(btn_wrapper);
-      img.find('img').attr({
-        src: e.target.result
-      })
-    }
-    reader.readAsDataURL(file);
-    images.push(img);
-
-    if(images.length >= 5) {
-      dropzone2.css({
-        'display': 'block'
-      })
-      dropzone.css({
-        'display': 'none'
-      })
-      
-      $.each(images, function(index, image) {
-        image.attr('data-image', index);
-        preview2.append(image);
-        dropzone2.css({
-          'width': `calc(100% - (135px * ${images.length - 5}))`
-        })
-      })
-      if(images.length == 9) {
-        dropzone2.find('p').replaceWith('<i class="fas fa-camera"></i>')
+$(function(){
+  var container = $('#image-container')
+  var image_box = new DataTransfer();
+  var file_field = document.querySelector('input[type=file]')
+  
+  $('#upload-image').change(function(){
+    $.each(this.files, function(image, file){
+      var fileReader = new FileReader();
+      image_box.items.add(file)
+      file_field.files = image_box.files
+      var num = $('.item-img').length + 1 + image
+      fileReader.readAsDataURL(file);
+      if (num == 10){
+        container.css('display', 'none')
       }
-    } else {
-        $('#preview').empty();
-        $.each(images, function(index, image) {
-          image.attr('data-image', index);
-          preview.append(image);
-        })
-        dropzone.css({
-          'width': `calc(100% - (135px * ${images.length}))`
-        })
-      }
-      if(images.length == 4) {
-        dropzone.find('p').replaceWith('<i class="fas fa-camera"></i>')
-      }
-    if(images.length == 10) {
-      dropzone2.css({
-        'display': 'none'
-      })
-      return;
-    }
-    var new_image = $(`<input multiple= "multiple" name="images[image][]" class="upload-image" data-image= ${images.length} type="file" id="upload-image">`);
-    .input_area.prepend(new_image);
+      fileReader.onloadend = function() {
+        var src = fileReader.result
+        var html= `<div class='item-img' data-image="${file.name}">
+                    <div class='item-img__content'>
+                      <img src=${src}>
+                    </div>
+                    <div class='item-img__btn'>
+                      <div class='item-img__btn--delete'>削除</div>
+                    </div>
+                  </div>`
+                  
+        container.before(html);
+      };
+      container.attr('class', `num-${num}`)
+    });
   });
 
-  // 投稿された画像の削除
-  $(document).on('click', '.delete', function() {
-    var target_image = $(this).parent().parent();
-    $.each(inputs, function(index, input){
-      if ($(this).data('image') == target_image.data('image')){
-        $(this).remove();
-        target_image.remove();
-        var num = $(this).data('image');
-        images.splice(num, 1);
-        inputs.splice(num, 1);
-        if(inputs.length == 0) {
-          $('input[type= "file"].upload-image').attr({
-            'data-image': 0
-          })
+
+  $(document).on("click", '.item-img__btn--delete', function(){
+    var target_image = $(this).parent().parent()
+    var target_name = $(target_image).data('image')
+    if(file_field.files.length==1){
+      $('input[type=file]').val(null)
+      image_box.clearData();
+      console.log(image_box)
+    }else{
+      $.each(file_field.files, function(image,input){
+        if(input.name==target_name){
+          image_box.items.remove(image)
         }
-      }
-    })
-    $('input[type= "file"].upload-image:first').attr({
-      'data-image': inputs.length
-    })
-    $.each(inputs, function(index, input) {
-      var input = $(this)
-      input.attr({
-        'data-image': index
       })
-      $('input[type= "file"].upload-image:first').after(input)
-    })
-    if (images.length >= 5) {
-      dropzone2.css({
-        'display': 'block'
-      })
-      $.each(images, function(index, image) {
-        image.attr('data-image', index);
-        preview2.append(image);
-      })
-      dropzone2.css({
-        'width': `calc(100% - (135px * ${images.length - 5}))`
-      })
-      if(images.length == 9) {
-        dropzone2.find('p').replaceWith('<i class="fa fa-camera"></i>')
-      }
-      if(images.length == 8) {
-        dropzone2.find('i').replaceWith('<p>ココをクリックしてください</p>')
-      }
-    } else {
-      dropzone.css({
-        'display': 'block'
-      })
-      $.each(images, function(index, image) {
-        image.attr('data-image', index);
-        preview.append(image);
-      })
-      dropzone.css({
-        'width': `calc(100% - (135px * ${images.length}))`
-      })
+      file_field.files = image_box.files
     }
-    if(images.length == 4) {
-      dropzone2.css({
-        'display': 'none'
-      })
-    }
-    if(images.length == 3) {
-      dropzone.find('i').replaceWith('<p>ココをクリックしてください</p>')
-    }
+
+    target_image.remove()
+    var num = $('.item-img').length
+    container.show()
+    container.attr('class', `num-${num}`)
   })
 });

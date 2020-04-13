@@ -5,7 +5,6 @@ class ItemsController < ApplicationController
     @images = Image.last
   end
 
-
   def new
     @item = Item.new
     @item.images.build
