@@ -1,0 +1,15 @@
+.credit-container
+  .c-container.clearfix
+    .side_bar
+      = render "layouts/side"
+
+    .c-single-middle
+      .c-single-middle__top
+        %p.method-of-patment 支払い方法
+      .c-single-middle__inner
+        %p.creditlist クレジットカード一覧
+        .c-single-middle__inner__content
+          = link_to "クレジットカードを追加する", destroy_user_session_path, method: :delete, class: "menu"
+        .c-single-middle__inner__regist
+          = link_to "支払い方法について ＞", "#", class: "cp-regist-p"
+          %i.icon-arrow-right
