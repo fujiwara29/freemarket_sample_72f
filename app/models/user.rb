@@ -26,8 +26,8 @@ class User < ApplicationRecord
   has_many :comments
   has_one :profile
   has_one :address
-  has_one :credit_card
   has_many :sns_credentials
+  has_one :card
 
   VALID_PHONE_REGEX = /\A\d{10}$|^\d{11}\z/
   VALID_KATAKANA_REGEX = /\A[\p{katakana}\p{blank}ー－]+\z/ 
