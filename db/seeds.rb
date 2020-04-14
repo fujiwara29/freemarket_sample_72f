@@ -9,9 +9,6 @@
 # user = User.create(nickname:"ニックネーム", email:"email@TEST", password:"12345678", first_name:"鈴木", family_name:"田中", first_name_kana:"スズキ", family_name_kana:"タナカ", birth_year:"2020", birth_month:"1", birth_day:"2", phone_number:"07012345678" )
 # user.save!
 
-# category = Category.create(name:"レディース" )
-# category.save!
-
 lady = Category.create(name: "レディース")
 # レディースの子カテゴリ
 lady_tops = lady.children.create(name: "トップス")
