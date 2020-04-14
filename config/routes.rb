@@ -30,7 +30,6 @@ Rails.application.routes.draw do
     end
   end
 
-
   resources :purchase, only: [:index] do
     collection do
       get 'index', to: 'purchase#index'
