@@ -39,29 +39,28 @@ set :linked_files, fetch(:linked_files, []).push("config/master.key")
 #credentials.yml.encではmasterkeyにする（今回）
 set :linked_files, %w{config/master.key}
 
-after 'deploy:publishing', 'deploy:restart'
-namespace :deploy do
-
- task :restart do
-   invoke 'unicorn:restart'
- end
+# after 'deploy:publishing', 'deploy:restart'
+# namespace :deploy do
+#   task :restart do
+#     invoke 'unicorn:restart'
+#   end
 # restartだとキャッシュが残るので下記の書き方でも良い
 # task :restart do
 #   invoke 'unicorn:stop'
 #   invoke 'unicorn:start'
 # end
 
- desc 'upload master.key'
- task :upload do
-   on roles(:app) do |host|
-     if test "[ ! -d #{shared_path}/config ]"
-       execute "mkdir -p #{shared_path}/config"
-     end
-     upload!('config/master.key', "#{shared_path}/config/master.key")
-   end
- end
- before :starting, 'deploy:upload'
- after :finishing, 'deploy:cleanup'
+  desc 'upload master.key'
+  task :upload do
+    on roles(:app) do |host|
+      if test "[ ! -d #{shared_path}/config ]"
+        execute "mkdir -p #{shared_path}/config"
+      end
+      upload!('config/master.key', "#{shared_path}/config/master.key")
+    end
+  end
+  before :starting, 'deploy:upload'
+  after :finishing, 'deploy:cleanup'
 end
 
 # 必要に応じて/環境変数をcapistranoでの自動デプロイで利用
