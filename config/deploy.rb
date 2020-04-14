@@ -50,17 +50,17 @@ set :linked_files, %w{config/master.key}
 #   invoke 'unicorn:start'
 # end
 
-  desc 'upload master.key'
-  task :upload do
-    on roles(:app) do |host|
-      if test "[ ! -d #{shared_path}/config ]"
-        execute "mkdir -p #{shared_path}/config"
-      end
-      upload!('config/master.key', "#{shared_path}/config/master.key")
+desc 'upload master.key'
+task :upload do
+  on roles(:app) do |host|
+    if test "[ ! -d #{shared_path}/config ]"
+      execute "mkdir -p #{shared_path}/config"
     end
+    upload!('config/master.key', "#{shared_path}/config/master.key")
   end
-  before :starting, 'deploy:upload'
-  after :finishing, 'deploy:cleanup'
+# end
+before :starting, 'deploy:upload'
+after :finishing, 'deploy:cleanup'
 end
 
 # 必要に応じて/環境変数をcapistranoでの自動デプロイで利用
