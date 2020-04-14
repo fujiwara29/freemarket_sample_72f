@@ -9,20 +9,29 @@
           %label.search-label
             = form.submit "" , class: "search-btn" 
             = image_tag "material/icon/icon-search 1.png", class:"search-icon" 
+
     .navNavi
-
       %ul.listsLeft
-        %li.category
-          = link_to "カテゴリー",'#', class: "nav-category"
+        %li.search-navs__unit.category
 
+        %li.category
+          = link_to "カテゴリー",category_index_path, class: "nav-category"
+          -# %p.parents_list
+          -#   - @category_parent.each do |parent|
+          -#     = link_to "#{parent.name}", "#", class: "parent_category",id: "#{parent.id}"
+          -#     .children_list
+          -#       - parent.children.each do |child|
+          -#         = link_to "#{child.name}", "#", class: "child_category",id: "#{child.id}"
+          -#         .grand_children_list
+          -#           - child.children.each do |grandchild|
+          -#             = link_to "#{grandchild.name}", "#", class: "grand_child_category",id: "#{grandchild.id}"
+     
         %li.brand
           = link_to "ブランド",'#', class: "nav-brand"
       - if user_signed_in?
         %ul.listsRight
           %li.login
-
-            = link_to "マイページ","users/#{current_user.id}", class: "my-page"
-            
+            = link_to "マイページ","users/#{current_user.id}",class: "my-page"           
           %li.login
             = link_to "ログアウト", destroy_user_session_path, method: :delete
       - else
@@ -31,4 +40,3 @@
             = link_to "ログイン", new_user_session_path,class:"nav-login"
           %li.sign_up
             = link_to "新規会員登録", new_user_registration_path, class: "nav-login"
-      

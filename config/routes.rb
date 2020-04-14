@@ -14,7 +14,8 @@ Rails.application.routes.draw do
 
   root "items#index"
   resources :items
-  resources :orders, only: :index
+  resources :category
+  resources :orders, only: [:index,:create,:new]
   resources :users, only: [:show,:new,:create,:destroy] do
     collection do
       get 'logout'
@@ -30,3 +31,4 @@ Rails.application.routes.draw do
     end
   end
 end
+

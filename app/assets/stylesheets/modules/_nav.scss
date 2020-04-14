@@ -95,3 +95,21 @@
     }
   }
 }
+
+.parents_list{
+  font-size: 15px;
+
+.child_category{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+
+
+ }
+}
+
+.grand_child_category{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  }
