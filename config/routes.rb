@@ -20,8 +20,8 @@ Rails.application.routes.draw do
       get 'logout'
     end
   end
+  
   resources :card, only: [:new, :show] do
-    
     collection do
       get 'add_to'
       post 'show', to: 'card#show'
