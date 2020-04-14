@@ -15,17 +15,20 @@
           = f.label :必須, class: 'hissu'
           %br/
           = f.email_field :email, autofocus: true, autocomplete: "email", placeholder: "PC・携帯どちらでも可", class: 'text'
-        .field
-          = f.label :パスワード
-          = f.label :必須, class: 'hissu'
-          %br/
-          = f.password_field :password, autocomplete: "new-password",placeholder: "7文字以上で入力してください", class: 'text'
-          %p.password_supplement※ 英字と数字の両方を含めて設定してください
-        .field
-          = f.label :確認用パスワード
-          = f.label :必須, class: 'hissu'
-          %br/
-          = f.password_field :password_confirmation, autocomplete: "new-password",placeholder:"確認の為もう一度入力ください", class: 'text'
+        - if @sns_id.present?
+          = hidden_field_tag :sns_auth, true
+        - else
+          .field
+            = f.label :パスワード
+            = f.label :必須, class: 'hissu'
+            %br/
+            = f.password_field :password, autocomplete: "new-password",placeholder: "7文字以上で入力してください", class: 'text'
+            %p.password_supplement※ 英字と数字の両方を含めて設定してください
+          .field
+            = f.label :確認用パスワード
+            = f.label :必須, class: 'hissu'
+            %br/
+            = f.password_field :password_confirmation, autocomplete: "new-password",placeholder:"確認の為もう一度入力ください", class: 'text'
 
         .field
           %h2 本人確認
@@ -44,7 +47,7 @@
           .name-field
             = f.text_field :first_name_kana, class: 'name',placeholder:"例）ヤマダ"
             = f.text_field :family_name_kana, class: 'name',placeholder:"例））アヤ" 
-       
+        
         .field
           = f.label :生年月日
           = f.label :必須, class: 'hissu'
@@ -71,4 +74,3 @@
         .recaptcha_term
           This site is protected by reCAPTCHA and the Google Privacy Policy and Terms of Service apply.
         
- 
