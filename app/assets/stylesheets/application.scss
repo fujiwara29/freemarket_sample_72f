@@ -2,13 +2,14 @@
 @import "font-awesome-sprockets";
 @import "font-awesome";
 @import "modules/nav";
+@import "modules/flash";
 @import "modules/banner";
 @import "modules/footer";
-@import "modules/_sale-btn";
+@import "modules/sale-btn";
+@import "modules/item-footer";
 @import "items/index";
 @import "items/show";
 @import "devises/registration/new";
-@import "modules/flash";
 @import "orders/new";
 @import "items/new";
 @import "users/show";
