@@ -1,3 +1,74 @@
-// Place all the styles related to the card controller here.
-// They will automatically be included in application.css.
-// You can use Sass (SCSS) here: http://sass-lang.com/
+#charge-form{
+  padding-top: 98px;
+  max-width: 500px;
+  margin: 0 auto;
+  
+  .card_info_input{
+    padding-top: 50px;
+    padding-bottom: 50px;
+    font-size: 25px;
+  }
+  .expiration_date{
+    padding-top: 50px;
+  }
+  label{
+    font-weight: 600;
+    
+  }
+  .number{
+    width: 80%;
+    height: 50px;
+  }
+  
+  select{
+    height: 50px;
+    width: 30%;
+    cursor: pointer;
+  }
+  .security_code{
+    padding-top: 50px;
+  }
+  .cvc{
+    height: 50px;
+    width: 50%;
+  }
+
+  #card_token{
+    padding-bottom: 50px;
+    padding-top: 50px;
+  }
+  #token_submit{
+    background-color:#3CCACE;
+    color: white;
+    width: 80%;
+    height: 50px;
+    font-weight: 600;
+    cursor: pointer;
+  }
+}
+
+
+.card_index{
+  padding-top: 98px;
+  max-width: 300px;
+  margin: 0 auto;
+  &__form{
+    line-height: 5;
+    padding-top: 100px;
+    font-weight: 600;
+    &--info{
+      font-size: 25px;
+    }
+    
+  }
+  .card_index__form--button{
+    padding-bottom: 50px;
+  }
+  button{
+    height: 50px;
+    width: 70%;
+    background-color: #3CCACE;
+    color: white;
+    font-weight: 600;
+  }
+}
