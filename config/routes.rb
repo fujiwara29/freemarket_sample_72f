@@ -13,7 +13,9 @@ Rails.application.routes.draw do
   end
 
   root "items#index"
-  resources :items
+  resources :items do
+    get "items/:id" => "items#show"
+  end
   resources :category
   resources :orders, only: [:index,:create,:new]
   resources :users, only: [:show,:new,:create,:destroy] do
