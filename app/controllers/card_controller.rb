@@ -1,6 +1,9 @@
 class CardController < ApplicationController
   require "payjp"
 
+  def index
+  end
+
   def new
     card = Card.where(user_id: current_user.id)
     redirect_to action: "show" if card.exists?
@@ -25,9 +28,6 @@ class CardController < ApplicationController
     end
   end
 
-  def add_to
-  end
-
   def delete #PayjpとCardデータベースを削除します
     card = Card.where(user_id: current_user.id).first
     if card.blank?
@@ -37,7 +37,7 @@ class CardController < ApplicationController
       customer.delete
       card.delete
     end
-      redirect_to action: "new"
+      redirect_to action: "index"
   end
 
   def show #Cardのデータpayjpに送り情報を取り出します
