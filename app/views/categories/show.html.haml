@@ -1,0 +1,22 @@
+= render 'layouts/nav'
+.main
+  .categoryTitle
+    = @category.name 
+    の商品コード一覧
+  
+
+  .pickup_list
+    %label.pickup_label
+      - @image.each do |image|
+        = link_to "/items/show", class:"pickup_link" do
+          = image_tag image.image.url,class:"pickup_imge" 
+          .pickup_body
+            %p.pickup_body__name  #{image.item.name}
+            .pickup_body__data
+              %p.pickup_body__data__price #{image.item.price}円
+              .pickup_body__data__like-box
+                %i.fa.fa-star.pickup_body__data__like-box__icon
+                %p.pickup_body__data__like-box__like
+                  0
+            %p.pickup_body__tax (税込)
+-# あとで変更します。

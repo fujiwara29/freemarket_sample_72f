@@ -26,7 +26,7 @@
           .itemBox__body
             %ul
               %li.image-main
-                = image_tag "material/pict/pict-reason-03.jpg",class:"item-img"
+                = image_tag @item.images.first.image.url,class:"item-img"
                 %ul.imaga
                   %li.image-small
                     = image_tag "material/pict/pict-reason-03.jpg",class:"item-img-small"
@@ -53,11 +53,11 @@
                   %th カテゴリー
                   %td
                     = @item.category.name
-                    %br
-                    = link_to  @item.category.children.pluck(:name)[0], category_path(@item.id)
-                    %br                    
-                    = link_to @item.category.descendants.pluck(:name)[7], 
-                    category_path(@item.id)
+                    -# %br
+                    -# = link_to  @item.category.children.pluck(:name)[0], category_path(@item.id)
+                    -# %br                    
+                    -# = link_to @item.category.descendants.pluck(:name)[7], 
+                    -# category_path(@item.id)
 
                     
                 %tr

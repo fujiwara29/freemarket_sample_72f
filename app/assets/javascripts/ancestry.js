@@ -9,11 +9,11 @@
 // })
 
 
-$(function () {
-  $('.parent_category').click(function () {
-    $('html,body').animate({
-      scrollTop: $('.category-index__name').offset().top
-    }, 'fast');
-    return false;
-  });
-}); 
+// $(function () {
+//   $('.parent_category').click(function () {
+//     $('html,body').animate({
+//       scrollTop: $('.category-index__name').offset().top
+//     }, 'fast');
+//     return false;
+//   });
+// }); 

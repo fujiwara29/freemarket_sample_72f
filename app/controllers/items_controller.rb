@@ -27,8 +27,9 @@ class ItemsController < ApplicationController
   end
 
   def show
-    # @item = Item.find(params[:id])
-    @item = Item.find(1)
+    @item = Item.find(params[:id])
+    # @item = Item.find(2)
+    # @image = Image.find(1)
     
   end
 

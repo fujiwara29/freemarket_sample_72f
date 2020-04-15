@@ -73,10 +73,10 @@
           .item-category__form
             .item-category__form__body
               = f.label :category_id, class: "item-category__form__body__label" do
-                = f.select :category_id, ["選択してください",["レディース", "1"]],{}, {class: "item-category__form__body__label__select"}
+                = f.select :category_id, ["選択してください",["レディース", "1"],["メンズ", "2"],["ベビーキッズ", "3"],["インテリ・住まい・子供", "4"],["本・音楽・ゲーム", "5"],["おもちゃ・ホビーグッズ", "6"],["コスメ・香水・美容", "7"],["家電・スマホ・カメラ", "8"],["スポーツ・レジャー", "9"],["ハンドメイド", "10"],["チケット", "11"],["その他", "12"]],{}, {class: "item-category__form__body__label__select"}
                 .item-category__form__body__label__box
                   %i.fas.fa-chevron-down.item-category__form__body__label__box__icon
-        
+
         -# ブランド
         .item-brand
           .item-brand__top

@@ -13,6 +13,18 @@
 # category.save!
 
 lady = Category.create(name: "レディース")
+lady = Category.create(name: "メンズ")
+lady = Category.create(name: "ベビー・キッズ")
+lady = Category.create(name: "インテリ・住まい・小物")
+lady = Category.create(name: "本・音楽・ゲーム")
+lady = Category.create(name: "おもちゃ・ホビーグッズ")
+lady = Category.create(name: "コスメ・香水・美容")
+lady = Category.create(name: "家電・スマホ・カメラ")
+lady = Category.create(name: "スポーツ・レジャー")
+lady = Category.create(name: "ハンドメイド")
+lady = Category.create(name: "チケット")
+lady = Category.create(name: "その他")
+
 # レディースの子カテゴリ
 lady_tops = lady.children.create(name: "トップス")
 lady_jacket = lady.children.create(name: "ジャケット/アウター")
