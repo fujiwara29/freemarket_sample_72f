@@ -30,7 +30,7 @@ Rails.application.routes.draw do
 
   resources :purchase, only: [:index] do
     collection do
-      get 'done', to: 'purchase#done'
+      post 'done', to: 'purchase#done'
     end
   end
   get  "items/purchase/pay/:id",  to: "purchase#pay"

@@ -14,5 +14,6 @@
       - exp_year = @default_card_information.exp_year.to_s.slice(2,3)
       = exp_month + " / " + exp_year
     %br
-    = form_tag(action: :done, method: :post) do
+    -# = form_tag(action: :done, method: :post) do
       %button 購入する
+    = link_to '購入する', "purchase/done/#{@item.id}", method: :post
