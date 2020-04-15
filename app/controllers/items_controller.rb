@@ -37,8 +37,7 @@ class ItemsController < ApplicationController
   end
 
   def destroy
-   if item = Item.find(params[:id])
-    item.destroy
+   if item.destroy
     redirect_to root_path
    else
     redirect_to item_path
