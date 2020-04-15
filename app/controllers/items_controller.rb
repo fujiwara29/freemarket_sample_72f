@@ -6,7 +6,6 @@ class ItemsController < ApplicationController
 
   def index
     @newitems = Item.last(3)
-    @images = Image.last
   end
 
   def new
@@ -22,7 +21,7 @@ class ItemsController < ApplicationController
         @item.save
         images.each do |image|
           @item.images.create(image: image, item_id: @item.id)
-          end
+        end
         format.html{redirect_to root_path}
       else
         @item.images.build
