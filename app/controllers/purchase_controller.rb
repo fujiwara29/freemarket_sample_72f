@@ -2,7 +2,7 @@ class PurchaseController < ApplicationController
 
   require 'payjp'
 
-  def index
+  def pay
     card = Card.where(user_id: current_user.id).first
     #Cardテーブルは前回記事で作成、テーブルからpayjpの顧客IDを検索
     if card.blank?
@@ -17,9 +17,8 @@ class PurchaseController < ApplicationController
     end
   end
 
-  def pay
+  def done
     @item = Item.find(1)
-
     card = Card.where(user_id: current_user.id).first
     Payjp.api_key = ENV['PAYJP_PRIVATE_KEY']
     Payjp::Charge.create(
@@ -27,7 +26,6 @@ class PurchaseController < ApplicationController
     :customer => card.customer_id, #顧客ID
     :currency => 'jpy', #日本円
   )
-  redirect_to action: 'done' #完了画面に移動
   end
 
 end

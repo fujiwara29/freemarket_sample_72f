@@ -1,64 +1,64 @@
-.orders
-  .single-container
-    %header.container
-      %h1
-        = link_to root_path, class:"header__btn__furima" do
-          = image_tag "material/logo/logo.png", class: "header__btn__furima-btn"
-    .single-main
-      %section.single-main__content
-        %h2.buy-item-container 購入内容の確認
-        %section.single-main__item
-          .buy-content
-            .buy-item-box
-              %h3.buy-item-image
-                = image_tag "material/pict/pict-reason-03.jpg", class:"buy-image"
-                .buy-item-box__detail
-                  %p.buy-item-name
-                    =@order.item.name
-                  %p.buy-price
-                    %span ¥  #{@order.item.price}
-                    %span.item-shipping-fee (税込)送料込み
-        %section.single-main__item
-          .single-main__item__content
-            = form_with(model: @orders, local: true) do |form| 
-              %ul.buy-price-table
-                %li.buy-price
-                  .buy-price-cell-label 商品名
-                  .buy-price__cell
-                    %span.data-buy-pay
-                      =@order.item.name
-                %li.buy-price
-                  .buy-price-cell-label 支払い金額
-                  .buy-price__cell
-                    %span.data-buy-pay ¥  #{@order.item.price}
-              %ul.buy-accordion-point
-                %li.accordion-parent
-                  .checkbox-default-buy-use-point
-                    = form.check_box "/",class:"check"
-                    %label ポイントを使用 (所持ポイント: P0)
-              %section.buy-content-user-info
-                .buy-content
-                  %h3 支払い方法
-                  %p
-                    = link_to '+登録してください', '#',class:"add" 
-              %section.buy-content-user-info
-                .buy-content
-                  %h3.buy 配送先
-                  %p
-                    = link_to '+登録してください', '#' ,class:"add"
-              %section.buy-content-user-info-btn
-                = form.submit "購入する" , class: "search-btn"
-  %footer.single-footer
-    %nav
-      %ul.clearfix
-        %li
-          = link_to 'プライバシーポリシー', '#'
-        %li
-          = link_to 'メルカリ利用規約', '#'
-        %li
-          = link_to '特定商取引に関する表記', '#'
-    = link_to root_path, class:"header__btn__furima" do
-      = image_tag "material/logo/logo-white.png", class: "header__btn__furima-btn",:size =>'120x30'
-    %p
-      %span  &copy;
-      FURIMA
+-# .orders
+-#   .single-container
+-#     %header.container
+-#       %h1
+-#         = link_to root_path, class:"header__btn__furima" do
+-#           = image_tag "material/logo/logo.png", class: "header__btn__furima-btn"
+-#     .single-main
+-#       %section.single-main__content
+-#         %h2.buy-item-container 購入内容の確認
+-#         %section.single-main__item
+-#           .buy-content
+-#             .buy-item-box
+-#               %h3.buy-item-image
+-#                 = image_tag "material/pict/pict-reason-03.jpg", class:"buy-image"
+-#                 .buy-item-box__detail
+-#                   %p.buy-item-name
+-#                     =@order.item.name
+-#                   %p.buy-price
+-#                     %span ¥  #{@order.item.price}
+-#                     %span.item-shipping-fee (税込)送料込み
+-#         %section.single-main__item
+-#           .single-main__item__content
+-#             = form_with(model: @orders, local: true) do |form| 
+-#               %ul.buy-price-table
+-#                 %li.buy-price
+-#                   .buy-price-cell-label 商品名
+-#                   .buy-price__cell
+-#                     %span.data-buy-pay
+-#                       =@order.item.name
+-#                 %li.buy-price
+-#                   .buy-price-cell-label 支払い金額
+-#                   .buy-price__cell
+-#                     %span.data-buy-pay ¥  #{@order.item.price}
+-#               %ul.buy-accordion-point
+-#                 %li.accordion-parent
+-#                   .checkbox-default-buy-use-point
+-#                     = form.check_box "/",class:"check"
+-#                     %label ポイントを使用 (所持ポイント: P0)
+-#               %section.buy-content-user-info
+-#                 .buy-content
+-#                   %h3 支払い方法
+-#                   %p
+-#                     = link_to '+登録してください', '#',class:"add" 
+-#               %section.buy-content-user-info
+-#                 .buy-content
+-#                   %h3.buy 配送先
+-#                   %p
+-#                     = link_to '+登録してください', '#' ,class:"add"
+-#               %section.buy-content-user-info-btn
+-#                 = form.submit "購入する" , class: "search-btn"
+-#   %footer.single-footer
+-#     %nav
+-#       %ul.clearfix
+-#         %li
+-#           = link_to 'プライバシーポリシー', '#'
+-#         %li
+-#           = link_to 'メルカリ利用規約', '#'
+-#         %li
+-#           = link_to '特定商取引に関する表記', '#'
+-#     = link_to root_path, class:"header__btn__furima" do
+-#       = image_tag "material/logo/logo-white.png", class: "header__btn__furima-btn",:size =>'120x30'
+-#     %p
+-#       %span  &copy;
+-#       FURIMA
