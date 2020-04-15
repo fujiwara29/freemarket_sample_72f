@@ -17,8 +17,11 @@ class User < ApplicationRecord
   end
 
 
-  devise  :database_authenticatable, :registerable,
-          :recoverable, :rememberable, :validatable, :omniauthable, omniauth_providers: [:facebook, :google_oauth2]
+  validates :nickname, presence: true
+  
+  devise :database_authenticatable, :registerable,
+         :recoverable, :rememberable, :validatable, :omniauthable, omniauth_providers: [:facebook, :google_oauth2]
+
 
   has_many :items
   has_many :orders

@@ -7,7 +7,7 @@
 
     .category-index__list
       - @category_parent.each do |parent|
-        = link_to "#{parent.name}", "#", class: "parent_category",id: "#{parent.id}"
+        = link_to "#{parent.name}", category_path(parent.id), class: "parent_category",id: "#{parent.id}"
 
     .category-index__name 
       %h2 レディース

@@ -14,7 +14,7 @@ Rails.application.routes.draw do
 
   root "items#index"
   resources :items
-  resources :category
+  resources :categories
   resources :orders, only: [:index,:create,:new]
   resources :users, only: [:show,:new,:create,:destroy] do
     collection do
