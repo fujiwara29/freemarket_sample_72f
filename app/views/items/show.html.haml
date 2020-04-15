@@ -61,11 +61,11 @@
                   %th カテゴリー
                   %td
                     = @item.category.name
-                    %br
-                    = link_to  @item.category.children.pluck(:name)[0], category_path(@item.id)
-                    %br                    
-                    = link_to @item.category.descendants.pluck(:name)[7], 
-                    category_path(@item.id)
+                    -# %br
+                    -# = link_to  @item.category.children.pluck(:name)[0], category_path(@item.id)
+                    -# %br                    
+                    -# = link_to @item.category.descendants.pluck(:name)[7], 
+                    -# category_path(@item.id)
 
                     
                 %tr
@@ -88,7 +88,7 @@
                 %tr
                   %th 発送料の地域
                   %td
-                    = link_to '岩手県カラムなし', '#'
+                    = link_to "#{@item.prefecture_code}", '#'
                 %tr
                   %th 発送日の目安
                   %td 
@@ -103,6 +103,11 @@
             %ul.optional
               %li.optionalBtn
                 = link_to '🏴不適切な商品の通報', '#'
+            .delete_option
+            - if user_signed_in? && current_user.id == @item.user_id
+              .pickup_body__delete
+                = link_to "この商品を削除する", item_path(@item.id), method: :delete, class: "pickup_body__deletea"
+
         .commentBox
           %ul.commentContents
             = form_with url: "#", local: true, method: :get, class: "search-form" do |form|
@@ -117,9 +122,10 @@
         %li.right
           = link_to '後ろの商品へ', '#'
       .relatedItems
-        = link_to 'ベビーキッズをもっと見る', '#'
+        = link_to "#{@item.category.name} をもっと見る", '#'
 
 = render 'layouts/banner'
 = render 'layouts/footer'
 = render 'layouts/sale-btn'
 
+= @item.category.name

@@ -15,7 +15,7 @@
         %li.search-navs__unit.category
 
         %li.category
-          = link_to "カテゴリー",category_index_path, class: "nav-category"
+          = link_to "カテゴリー",categories_path, class: "nav-category"
           -# %p.parents_list
           -#   - @category_parent.each do |parent|
           -#     = link_to "#{parent.name}", "#", class: "parent_category",id: "#{parent.id}"
@@ -31,12 +31,12 @@
       - if user_signed_in?
         %ul.listsRight
           %li.login
-            = link_to "マイページ","users/#{current_user.id}",class: "my-page"           
+            = link_to "マイページ","users/#{current_user.id}",class: "nav-btn"
           %li.login
-            = link_to "ログアウト", destroy_user_session_path, method: :delete
+            = link_to "ログアウト", destroy_user_session_path, method: :delete ,class: "nav-btn"
       - else
         %ul.listsRight
           %li.login
-            = link_to "ログイン", new_user_session_path,class:"nav-login"
+            = link_to "ログイン", new_user_session_path,class: "nav-btn"
           %li.sign_up
-            = link_to "新規会員登録", new_user_registration_path, class: "nav-login"
+            = link_to "新規会員登録", new_user_registration_path, class: "nav-btn"
