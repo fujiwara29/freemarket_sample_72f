@@ -8,7 +8,7 @@
   .pickup_list
     %label.pickup_label
       - @image.each do |image|
-        = link_to "/items/show", class:"pickup_link" do
+        = link_to category_path, class:"pickup_link" do
           = image_tag image.image.url,class:"pickup_imge" 
           .pickup_body
             %p.pickup_body__name  #{image.item.name}

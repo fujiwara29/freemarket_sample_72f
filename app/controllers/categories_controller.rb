@@ -7,6 +7,5 @@ class CategoriesController < ApplicationController
   def show
     @category = Category.find(params[:id])
     @image = Image.where(params[:category_id])
-    # @item = Item.find(params[:id])
   end
 end
