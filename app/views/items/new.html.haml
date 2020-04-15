@@ -27,10 +27,8 @@
               .num-0#image-container
                 %label
                   = f.fields_for :images do |image|
-                    = render "items/new_error_message", resource: image
                     .input-area
-                      = image.file_field :image, type: 'file', name: "images[image][]", id: "upload-image", style: "display:none"
-                      -# , required:"required" 
+                      = image.file_field :image, type: 'file', name: "images[image][]", id: "upload-image", style: "display:none", required:"required" 
                       %i.fas.fa-camera
           -# .error-messages
       

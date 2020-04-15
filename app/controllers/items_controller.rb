@@ -18,7 +18,6 @@ class ItemsController < ApplicationController
     @item = Item.new(item_params)
     images = params[:images][:image]
     respond_to do |format|
-      binding.pry
       if @item.valid? && (images.length >= 1) && (images.length <= 10)
         @item.save
         images.each do |image|
