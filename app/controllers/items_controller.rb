@@ -2,6 +2,7 @@ class ItemsController < ApplicationController
 
   before_action :set_category, only: [:new, :create]
   before_action :set_brand, only: [:new, :create]
+  before_action :set_item, only: [:show ,:edit ,:update, :destroy]
 
 
   def index
@@ -31,21 +32,33 @@ class ItemsController < ApplicationController
   end
 
   def show
-    @item = Item.find(params[:id])
   end
 
   def destroy
-    item = Item.find(params[:id])
-   if item.destroy
+   if @item.destroy
     redirect_to root_path
    else
     redirect_to item_path
    end
   end
 
+  def edit
+  end
+
+  def update
+    if @item.update(item_params)
+    else
+      flash.now[:alert] = '必須項目が入力されていません。'
+      redirect_to edit
+    end
+  end
   
   private
-
+  
+  def set_item
+    @item = Item.find(params[:id])
+  end
+  
   def set_category
     @category = Category.all()
   end

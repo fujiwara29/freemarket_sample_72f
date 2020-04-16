@@ -1,0 +1,6 @@
+.content__title
+  商品の編集
+= form_with model: @item, class: :form, local: true do |form|
+  = form.text_field :name, placeholder: :タイトル, class: :form__title
+  = form.text_area :introduction, placeholder: :ブログ本文, class: :form__text
+  = form.submit '再登録する', class: :form__btn
