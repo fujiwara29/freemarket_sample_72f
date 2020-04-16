@@ -90,15 +90,15 @@
               %li#likebtn.optionalBtn.likeBtn
                 = link_to '★お気に入り 0', '#'
             %ul
-              %li#likebtn.optional
-                = link_to '購入に進む', new_order_path, class: 'buy'
-            %ul.optional
-              %li.optionalBtn
-                = link_to '🏴不適切な商品の通報', '#'
+              - if user_signed_in? && current_user.id != @item.user_id
+                %li#likebtn.optional
+                  = link_to '購入に進む', new_order_path, class: 'buy'
             .delete_option
             - if user_signed_in? && current_user.id == @item.user_id
-              .pickup_body__delete
+              .pickup_body__user
                 = link_to "この商品を削除する", item_path(@item.id), method: :delete, class: "pickup_body__deletea"
+              .pickup_body__user
+                = link_to "この商品を編集する", edit_item_path(@item.id), class: "pickup_body__show"
 
         .commentBox
           %ul.commentContents
