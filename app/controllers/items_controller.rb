@@ -50,7 +50,7 @@ class ItemsController < ApplicationController
 
   def update
     item = params(set_item)
-    if Item.update(item)
+    if Item.update(item_params)
     else
       flash.now[:alert] = '必須項目が入力されていません。'
       redirect_to edit
