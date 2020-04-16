@@ -24,14 +24,14 @@
           -# 画像投稿フォーム
           .item-image__form
             #preview
-              -# ここから追加画像
-              .item-img
-                .item-img__content
-                  = image_tag
-                .item-img__btn
-                  .item-img__btn--delete 削除
-              -# ここまで追加画像
+              = @images.each do |image|
+                .item-img
+                  .item-img__content
+                    = image_tag image.image.url
+                  .item-img__btn
+                    .item-img__btn--delete 削除
               .num-0#image-container
+              = div class: "num-#{@images.length}" ,id: "image-container"
                 %label
                   = f.fields_for :images do |image|
                     .input-area
