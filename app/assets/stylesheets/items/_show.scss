@@ -173,6 +173,10 @@
                 text-decoration: none;
                 color: white;
                 font-weight: bold;
+                font-size: 30px;
+              }
+              a:hover{
+                opacity: 0.5;
               }
             }
           }
@@ -195,6 +199,7 @@
             font-size: 16px;
             font-weight: bold;
             text-decoration: none;
+            text-align: center;
             color:white;
             display: inline;
             border-radius: 10px;
@@ -202,13 +207,18 @@
             border: 1px solid;
             background-color: red;
             position: absolute;
-            left: 460px;
-            top:100px;
+            left: 200px;
+            top:45px;
+            width: 200px;
+          }
+          .pickup_body__deletea:hover{
+            opacity: 0.5 ;
           }
           .pickup_body__show{
             font-size: 16px;
             font-weight: bold;
             text-decoration: none;
+            text-align: center;
             color:white;
             display: inline;
             border-radius: 10px;
@@ -216,8 +226,11 @@
             border: 1px solid;
             background-color: blue;
             position: absolute;
-            left: 460px;
-            top:50px;
+            left: 200px;
+            width: 200px;
+          }
+          .pickup_body__show:hover{
+            opacity: 0.5 ;
           }
         }
        }
