@@ -50,11 +50,15 @@ class ItemsController < ApplicationController
 
   def update
     item = params(set_item)
-    if item.update(item_params)
+    if Item.update(item)
     else
       flash.now[:alert] = '必須項目が入力されていません。'
       redirect_to edit
     end
+  end
+
+  def set_item
+    @item = Item.find(params[:id])
   end
 
   private
@@ -83,20 +87,6 @@ class ItemsController < ApplicationController
     ).merge(
       trading: "販売中",
       user_id: current_user.id
-    )
-  end
-
-  def set_item
-    params.require(:item).permit(
-      :name,
-      :introduction,
-      :category_id,
-      :brand_id,
-      :condition,
-      :postage_payer,
-      :prefecture_code,
-      :preparation_day,
-      :price
     )
   end
 
