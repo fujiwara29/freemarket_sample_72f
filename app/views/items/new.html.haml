@@ -25,17 +25,18 @@
           .item-image__form
             #preview
               -# ここから追加画像
-              .item-img
-                .item-img__content
-                  = image_tag
-                .item-img__btn
-                  .item-img__btn--delete 削除
+              -# .item-img
+              -#   .item-img__content
+              -#     = image_tag image.image.url
+              -#   .item-img__btn
+              -#     .item-img__btn--delete 削除
               -# ここまで追加画像
               .num-0#image-container
                 %label
                   = f.fields_for :images do |image|
                     .input-area
-                      = image.file_field :image, type: 'file', name: "images[image][]", id: "upload-image", style: "display:none", required:"required" 
+                      = image.file_field :image, type: 'file', name: "images[image][]", id: "upload-image"
+                      -# , style: "display:none", required:"required" 
                       %i.fas.fa-camera
           -# .error-messages
       
