@@ -2,6 +2,7 @@ class ItemsController < ApplicationController
 
   before_action :set_category, only: [:new, :create]
   before_action :set_brand, only: [:new, :create]
+  before_action :set_item, only: :update
 
 
   def index
@@ -49,8 +50,7 @@ class ItemsController < ApplicationController
 
   def update
     item = params(set_item)
-    if item.valid?
-      Item.update(item)
+    if Item.update(item)
     else
       flash.now[:alert] = '必須項目が入力されていません。'
       redirect_to edit
