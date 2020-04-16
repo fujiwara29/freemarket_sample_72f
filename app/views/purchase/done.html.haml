@@ -1,6 +1,9 @@
 .purchase
   .purchase__done
     %h2 購入が完了しました！
-    %p 玉ねぎ
-    %p ¥100(送料込み)
+    %p
+      = "名前 ""#{@item.name}"
+    %br
+      = "¥""#{@item.price}""円"
+    %br
     = link_to "トップページに戻る","/"

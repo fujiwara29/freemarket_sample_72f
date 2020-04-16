@@ -34,6 +34,6 @@ Rails.application.routes.draw do
     end
   end
   get  "items/purchase/pay/:id",  to: "purchase#pay"
-  post "items/purchase/done/:id", to: "purchase#done"
+  post "items/purchase/pay/done/:id", to: "purchase#done"
 
 end
