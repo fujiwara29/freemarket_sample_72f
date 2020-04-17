@@ -31,7 +31,7 @@
       - if user_signed_in?
         %ul.listsRight
           %li.login
-            = link_to "マイページ","users/#{current_user.id}",class: "nav-btn"
+            = link_to "マイページ",user_path(current_user.id),class: "nav-btn"
           %li.login
             = link_to "ログアウト", destroy_user_session_path, method: :delete ,class: "nav-btn"
       - else
