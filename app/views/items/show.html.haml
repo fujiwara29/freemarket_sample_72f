@@ -1,6 +1,6 @@
 = render 'layouts/nav'
 
-.wrapper
+.wrappera
 %nav.breadCrumbs
   .bread
     %ul
@@ -99,12 +99,12 @@
                 = link_to '★お気に入り 0', '#'
             %ul
               - if user_signed_in? && current_user.id != @item.user_id
-                %li#likebtn.optional
+                .likebtn.option
                   = link_to '購入に進む', new_order_path, class: 'buy'
             .delete_option
             - if user_signed_in? && current_user.id == @item.user_id
               .pickup_body__user
-                = link_to "この商品を削除する", item_path(@item.id), method: :delete, class: "pickup_body__deletea"
+                = link_to "この商品を削除する", item_path(@item.id), method: :delete, data:{ confirm: '削除しますか？' } ,class: "pickup_body__deletea"
               .pickup_body__user
                 = link_to "この商品を編集する", edit_item_path(@item.id), class: "pickup_body__show"
 
