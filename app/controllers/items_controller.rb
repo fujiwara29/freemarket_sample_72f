@@ -74,6 +74,7 @@ class ItemsController < ApplicationController
       end
     format.html{redirect_to item_path}
     end
+  end
 
   def destroy
     if @item.destroy
