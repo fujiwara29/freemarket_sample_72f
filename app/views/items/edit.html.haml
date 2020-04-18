@@ -22,103 +22,23 @@
               必須
           .item-image__max-upload 最大10枚までアップロードできます
           -# --------------------------------- ここまでnew,edit共通CSS ---------------------------------
-
-
-
-          -# -# 画像投稿フォーム
-          -# .item-image__form
-          -#   #preview
-          -#     - @images.each do |image|
-          -#       .item-img
-          -#         .item-img__content
-          -#           = image_tag image.image.url
-          -#         .item-img__btn
-          -#           .item-img__btn--delete 削除
-          -#     #image-container{class: "num-#{@images.length}"} 
-          -#       %label
-          -#         = f.fields_for :images, @images do |image|
-          -#           .input-area
-          -#             = image.file_field :image, type: 'file', name: "images[image][]", id: "upload-image", style: "display:none", required:"required" 
-          -#             %i.fas.fa-camera
-
           -# 画像投稿フォーム
           .item-image__form
             #preview
-              - @images.each do |image|
+              - @item.images.each_with_index do |image, num|
                 .item-img
                   .item-img__content
                     = image_tag image.image.url
-                  .item-img__btn
-                    .item-img__btn--delete 削除
-                    = image.id
-              #image-container{class: "num-#{@images.length}"} 
+                  %label
+                    .item-img__btn
+                      .item-img__btn--delete{id: "delete-num#{num}"} 削除
+              #image-container{class: "num-#{@item.images.length}"} 
                 %label
                   = f.fields_for :images, @images do |image|
                     .input-area
-                      = image.file_field :image, type: 'file', name: "images[image][]", id: "upload-image", required:"required"
-                      -# , style: "display:none"
+                      = image.file_field :image, type: 'file', name: "images[image][]", id: "upload-image",style: "display:none"
                       %i.fas.fa-camera
-          -# .error-messages
-
-          -# - @item.images.each do |image|
-          -#   .preview-box
-          -#     .upper-box
-          -#       = image_tag image.image.url, width: "112", height: "112", alt: "preview"
-          -#     .lower-box
-          -#       .update-box
-          -#         %label.edit-btn 編集
-          -#       .delete-box
-          -#         .delete-btn
-          -#           %span 削除
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-          -# .post__drop__box__container
-          -#   .prev-content
-          -#   .label-content
-          -#     %label{for: "item_images_0_image", class: "abel-box", id: "label-box--0"}
-          -#       %pre.label-box__text-visible クリックしてファイルをアップロード
-          -# .hidden-content
-          -#   = f.fields_for :images do |i|
-          -#     = i.file_field :image, class: "hidden-field"
-          -#     %input{class:"hidden-field", type: "file", name: "images[image][]", id: "item_images_1_image" }
-          -#     %input{class:"hidden-field", type: "file", name: "item[images][2][image]", id: "item_images_2_image" }
-          -#     %input{class:"hidden-field", type: "file", name: "item[images][3][image]", id: "item_images_3_image" }
-          -#     %input{class:"hidden-field", type: "file", name: "item[images][4][image]", id: "item_images_4_image" }
-          -#     = image.file_field :image, type: 'file', name: "images[image][]", id: "upload-image", style: "display:none", required:"required" 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+            - @item.images.each_with_index do |image, num|
+              = f.check_box :imag_destroy, {name: "item[imag_destroy[#{image.id}]]", class:"delete-num#{num}"}
       = render partial: "form", locals: { f: f }
 = render 'layouts/item-footer'
