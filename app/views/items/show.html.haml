@@ -101,7 +101,7 @@
             %ul
               - if user_signed_in? && current_user.id != @item.user_id
                 .likebtn.option
-                  = link_to '購入に進む', "purchase/pay/#{@item.id}", class: 'buy'
+                  = link_to '購入に進む', pay_purchase_path(@item.id), class: 'buy'
             .delete_option
             - if user_signed_in? && current_user.id == @item.user_id
               .pickup_body__user

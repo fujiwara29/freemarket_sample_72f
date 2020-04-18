@@ -21,4 +21,4 @@
       = exp_month + " / " + exp_year
     %br
     %br
-    = link_to '購入する', "done/#{@item.id}", method: :post
+    = link_to '購入する', done_purchase_path(@item.id), method: :post
