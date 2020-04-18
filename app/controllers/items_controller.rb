@@ -3,7 +3,6 @@ class ItemsController < ApplicationController
   before_action :set_category, only: [:new, :create ,:edit ,:update]
   before_action :set_brand, only: [:new, :create, :edit, :update]
   before_action :set_item, only: [:show, :edit, :update, :destroy]
-  before_action :imag_destroy_params, only: :update
 
   def index
     @newitems = Item.last(3)
@@ -75,11 +74,9 @@ class ItemsController < ApplicationController
       end
     format.html{redirect_to item_path}
     end
-  end
 
   def destroy
     if @item.destroy
-    redirect_to root_path
     else
     redirect_to item_path
     end
@@ -116,10 +113,6 @@ class ItemsController < ApplicationController
       trading: "販売中",
       user_id: current_user.id
     )
-  end
-
-  def imag_destroy_params
-    params.require(:item).permit(:imag_destroy )
   end
 
 end

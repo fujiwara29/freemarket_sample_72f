@@ -1,4 +1,4 @@
-.wrapper{
+.wrappera{
   padding-top: 100px;
 }
 .breadCrumbs{
@@ -159,21 +159,26 @@
                 color: #3CCACE;
               }
             }
-            li#likebtn.optional{
-              margin-right: auto;
-              padding: 6px 10px;
-              border-radius: 30px;
-              background-color: red;
-              width: 250px;
-              height: 80px;
+            .buy{
+              font-size: 16px;
+              height: 50px;
+              font-weight: bold;
+              text-decoration: none;
               text-align: center;
-              line-height: 80px;
-              
-              a{
-                text-decoration: none;
-                color: white;
-                font-weight: bold;
-              }
+              color:white;
+              display: inline;
+              border-radius: 10px;
+              padding: 6px;
+              border: 1px solid;
+              background-color: red;
+              position: absolute;
+              left: 200px;
+              top:10px;
+              width: 200px;
+              line-height: 50px;
+            }
+            .buy:hover{
+              opacity: 0.5 ;
             }
           }
           ul.optional{
@@ -195,6 +200,7 @@
             font-size: 16px;
             font-weight: bold;
             text-decoration: none;
+            text-align: center;
             color:white;
             display: inline;
             border-radius: 10px;
@@ -202,10 +208,33 @@
             border: 1px solid;
             background-color: red;
             position: absolute;
-            left: 460px;
-            top:100px;
+            left: 200px;
+            top:45px;
+            width: 200px;
           }
-        }
+          .pickup_body__deletea:hover{
+            opacity: 0.5 ;
+          }
+          .pickup_body__show{
+            font-size: 16px;
+            font-weight: bold;
+            text-decoration: none;
+            text-align: center;
+            color:white;
+            display: inline;
+            border-radius: 10px;
+            padding: 6px;
+            border: 1px solid;
+            background-color: blue;
+            position: absolute;
+            left: 200px;
+            width: 200px;
+          }
+          .pickup_body__show:hover{
+            opacity: 0.5 ;
+          }
+         }
+         
        }
        .commentBox{
         padding: 24px;

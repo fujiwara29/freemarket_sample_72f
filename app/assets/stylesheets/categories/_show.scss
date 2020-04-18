@@ -1,3 +1,6 @@
+.main{
+  width: 100%;
+  word-wrap: break-word;
 .categoryTitle{
   background-color: #3CCACE;
   color: #fff;
@@ -6,15 +9,20 @@
   font-size: 30px;
 }
 
-        .pickup_list{
+        .pickup_listshow{
           width: 220px;
           background-color: #fff;
           font-size: 0;
           .pickup_label{
+            display: flex;
+            justify-content: space-between;
+
             .pickup_label:hover{
               cursor: pointer;
             }
             .pickup_link{
+              padding-right: 10px;
+              padding-top: 5px;
               color: #515151;
               text-decoration: none;
               .pickup_imge{
@@ -65,3 +73,4 @@
             }
           }
         }
+      }
