@@ -15,7 +15,6 @@ class CardController < ApplicationController
       redirect_to action: "new"
     else
       customer = Payjp::Customer.create(
-      
       card: params['payjp-token'],
       metadata: {user_id: current_user.id}
       )
