@@ -4,7 +4,7 @@
       .mainHeaderIcon
         =link_to image_tag("material/logo/logo.png",class: "mainHeaderIconLogo"),root_path
       .searchBox
-        = form_with url: "#", local: true, method: :get, class: "search-form" do |form|
+        = form_with url: items_searches_path, local: true, method: :get, class: "search-form"do |form|
           = form.text_field :keyword, placeholder: "キーワードから探す", class: "search-input"
           %label.search-label
             = form.submit "" , class: "search-btn" 

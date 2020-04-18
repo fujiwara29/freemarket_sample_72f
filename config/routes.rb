@@ -13,6 +13,9 @@ Rails.application.routes.draw do
   end
 
   root "items#index"
+  namespace :items do
+    resources :searches, only: :index
+  end
   resources :items
   resources :categories
   resources :orders, only: [:index,:create,:new]
