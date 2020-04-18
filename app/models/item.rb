@@ -19,5 +19,7 @@ class Item < ApplicationRecord
   validates :price,           numericality: { only_integer: true, greater_than: 300, less_than_or_equal_to: 9999999 }
   validates :trading,         presence: true
   validates :user_id,         presence: true
+  
+  scope :name_like, ->(keyword) { where('name LIKE(?)', "%#{keyword}%" )}
 
 end
