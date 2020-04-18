@@ -20,12 +20,15 @@ class Item < ApplicationRecord
   validates :trading,         presence: true
   validates :user_id,         presence: true
 
-  def self.search(search)
-    if search
-      Item.where('name LIKE(?)', "%#{search}%")
-    else
-      Item.all
-    end
-  end
+  # def self.search(search)
+  #   if search
+  #     Item.where('name LIKE(?)', "%#{search}%")
+  #   else
+  #     Item.all
+  #   end
+  # end
+
+  
+  scope :name_like, ->(keyword) { where('name LIKE(?)', "%#{keyword}%" )}
 
 end

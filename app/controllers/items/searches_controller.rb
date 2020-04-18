@@ -1,5 +1,5 @@
 class Items::SearchesController < ApplicationController
   def index
-    @items = Item.search(params[:keyword])
+    @items = Item.name_like(params[:keyword])
   end
 end
