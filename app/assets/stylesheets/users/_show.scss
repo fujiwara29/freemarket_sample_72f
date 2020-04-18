@@ -10,7 +10,7 @@
       padding-right: 50px;
     }
     .myMain{
-      width: 700px;
+      width: 800px;
       height: 1300px;
       &__contents{
         height: 200px;
@@ -39,11 +39,10 @@
         }
       }
       .mySell{
-        height: 425px;
+        overflow: auto;
         background-color: #f8f8f8;
-        p{
-          height: 25%;
-          background-color: #3CCACE;
+        p.title{
+          height: 50px;
           text-align: center;
           display: flex;
           justify-content: center;
@@ -51,36 +50,43 @@
           font-weight: bold;
           font-size: 15px;
           border-bottom: 2px solid #eee;
+          background-color: rgb(130, 226, 226);
         }
-        .mySell__box{
-          height: 70%;
-          ul.mySell__box__items{
-            display: flex;
-            li{
-              height: 250px;
-              width: 220px;
-              background-color: white;
-              border: 1px solid #eee;
-              margin: 30px;
-              .mySell__box__items--img{
-                height: 150px;
-                background-color: slategrey;
+        .pickup_lists{
+          width: 780px;
+          margin: 26px auto;
+          display: flex;
+          justify-content: space-between;
+          flex-wrap: wrap;
+          align-items: baseline;
+          .pickup_list{
+            width: 220px;
+            background-color: #fff;
+            font-size: 0;
+            margin-top: 5px;
+            border: 1px solid #eee;
+            .pickup_label{
+              .pickup_label:hover{
+                cursor: pointer;
               }
-              .mySell__box__items__info{
-                line-height: 70px;
-                &--itemName{
-                  text-align: center;
-                  height: 25px;
+              .pickup_link{
+                color: #515151;
+                text-decoration: none;
+                .pickup_imge{
+                  width: 220px;
+                  height: 150px;
+                  object-fit: cover;
                 }
-                &--itemPrice{
-                  text-align: center;
-                  height: 25px;
+                .pickup_body{
+                  color: #333;
+                  font-size: 16px;
+                  padding: 16px;
                 }
               }
             }
           }
         }
-      }
+       }
       .myBuy{
         margin-top: 40px;
         width: 100%;

@@ -1,4 +1,9 @@
 %label.sale-btn
-  = link_to new_item_path, class:"new-sale" do
-    .sale-text 出品する
-    = image_tag "material/icon/icon_camera.png"
+  - if user_signed_in?
+    = link_to new_item_path, class:"new-sale" do
+      .sale-text 出品する
+      = image_tag "material/icon/icon_camera.png"
+  - else
+    = link_to new_user_registration_path, class:"new-sale" do
+      .sale-text 登録する
+      = image_tag "material/icon/icon_camera.png"

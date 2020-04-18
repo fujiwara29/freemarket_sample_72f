@@ -9,10 +9,19 @@
 # user = User.create(nickname:"ニックネーム", email:"email@TEST", password:"12345678", first_name:"鈴木", family_name:"田中", first_name_kana:"スズキ", family_name_kana:"タナカ", birth_year:"2020", birth_month:"1", birth_day:"2", phone_number:"07012345678" )
 # user.save!
 
-# category = Category.create(name:"レディース" )
-# category.save!
-
 lady = Category.create(name: "レディース")
+lady = Category.create(name: "メンズ")
+lady = Category.create(name: "ベビー・キッズ")
+lady = Category.create(name: "インテリ・住まい・小物")
+lady = Category.create(name: "本・音楽・ゲーム")
+lady = Category.create(name: "おもちゃ・ホビーグッズ")
+lady = Category.create(name: "コスメ・香水・美容")
+lady = Category.create(name: "家電・スマホ・カメラ")
+lady = Category.create(name: "スポーツ・レジャー")
+lady = Category.create(name: "ハンドメイド")
+lady = Category.create(name: "チケット")
+lady = Category.create(name: "その他")
+
 # レディースの子カテゴリ
 lady_tops = lady.children.create(name: "トップス")
 lady_jacket = lady.children.create(name: "ジャケット/アウター")
