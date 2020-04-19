@@ -54,18 +54,18 @@ class ItemsController < ApplicationController
       
       #DBの画像が0になる場合は処理をしないようにする
       db_image = Image.where(item_id: @item.id)
-      d_box = []
-      @item.images.each do |d_image|
-        if params[:item][:imag_destroy][:"#{d_image.id}"] == "1"
-        d_box << d_image
+      destroy_images_box = []
+      @item.images.each do |destroy_check_image|
+        if params[:item][:imag_destroy][:"#{destroy_check_image.id}"] == "1"
+        destroy_images_box << destroy_check_image
         end
       end
       
       # データベースのimage数と削除image数を比較
-      if db_image.length > d_box.length
+      if db_image.length > destroy_images_box.length
         # 既存の画像を削除した場合の処理
-        d_box.each do |d_image2|
-          destroimage = Image.find_by(id: d_image2.id)
+        destroy_images_box.each do |destroy_image|
+          destroimage = Image.find_by(id: destroy_image.id)
           destroimage.destroy
         end
       else

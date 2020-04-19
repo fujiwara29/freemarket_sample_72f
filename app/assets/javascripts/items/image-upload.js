@@ -40,8 +40,8 @@ $(function(){
     var d_class = "." + d_id
     var name = $(d_class).attr('name');
     $('input:checkbox[name="' + name + '"]').prop('checked', true);
-    var target_image = $(this).parent().parent().parent()
-    var target_name = $(target_image).data('image')
+    var destroy_image_block = $(this).parent().parent().parent()
+    var target_name = $(destroy_image_block).data('image')
     if(file_field.files.length==1){
       $('input[type=file]').val(null)
       image_box.clearData();
@@ -55,7 +55,7 @@ $(function(){
       file_field.files = image_box.files
     }
 
-    target_image.remove()
+    destroy_image_block.remove()
     var num = $('.item-img').length
     container.show()
     container.attr('class', `num-${num}`)

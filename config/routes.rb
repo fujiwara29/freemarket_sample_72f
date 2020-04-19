@@ -16,7 +16,6 @@ Rails.application.routes.draw do
     resources :searches, only: :index
   end
   resources :items
-  # resources :image, only: [:edit, :update]
   resources :categories
   resources :orders, only: [:index,:create,:new]
   resources :users, only: [:show,:new,:create,:destroy] do
