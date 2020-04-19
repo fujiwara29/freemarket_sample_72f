@@ -30,4 +30,3 @@
 .DS_Store
 public/uploads/*
 config/secrets.yml
-/.env
