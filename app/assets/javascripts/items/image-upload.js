@@ -32,9 +32,6 @@ $(function(){
     });
   });
 
-
-
-
   $(document).on("click", '.item-img__btn--delete', function(){
     var d_id = $(this).attr('id')
     var d_class = "." + d_id
