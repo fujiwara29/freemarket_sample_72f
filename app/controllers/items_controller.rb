@@ -5,7 +5,7 @@ class ItemsController < ApplicationController
   before_action :set_item, only: [:show, :edit, :update, :destroy]
 
   def index
-    @newitems = Item.last(10)
+    @newitems = Item.order("created_at DESC").limit(10)
   end
 
   def new
