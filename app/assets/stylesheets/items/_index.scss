@@ -263,6 +263,13 @@
       }
     }
     .pickup_inside{
+      .pickup_lists{
+        width: 80%;
+        margin: 26px auto;
+        display: flex;
+        justify-content: flex-start;
+        flex-wrap: wrap;
+      }
     }
   }
   .pickups:last-child{

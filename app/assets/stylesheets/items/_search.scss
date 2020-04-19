@@ -1,37 +1,14 @@
-.search{
-  text-align: center;
+.pickup_inside_search{
+  padding-top: 100px;
   background-color: #f8f8f8;
-  
-  .pickup_lists{
-    margin: 26px auto;
+  width: 100%;
+  .pickup_lists_search{
+    width: 80%;
+    margin: 0 auto;
+    padding: 100px 0;
     display: flex;
-    justify-content: space-between;
+    justify-content: flex-start;
+    font-size: 0px;
     flex-wrap: wrap;
-    align-items: baseline;
-
-    .pickup_list{
-      background-color: #fff;
-      margin-top: 5px;
-      border: 1px solid #eee;
-      .pickup_label{
-        .pickup_label:hover{
-          cursor: pointer;
-        }
-        .pickup_link{
-          color: #515151;
-          text-decoration: none;
-          .pickup_imge{
-            width: 220px;
-            height: 150px;
-            object-fit: cover;
-          }
-          .pickup_body{
-            color: #333;
-            font-size: 16px;
-            padding: 16px;
-          }
-        }
-      }
-    }
   }
 }

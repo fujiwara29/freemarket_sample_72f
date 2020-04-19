@@ -5,7 +5,7 @@ class ItemsController < ApplicationController
   before_action :set_item, only: [:show, :edit, :update, :destroy]
 
   def index
-    @newitems = Item.last(3)
+    @newitems = Item.last(15)
   end
 
   def new
