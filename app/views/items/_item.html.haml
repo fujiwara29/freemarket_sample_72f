@@ -1,7 +1,12 @@
 .pickup_list
   %label.pickup_label
     = link_to "/items/#{item.id}", class:"pickup_link" do
-      = image_tag item.images.first.image.url ,class:"pickup_imge"
+      - if item.trading == "販売中"
+        = image_tag item.images.first.image.url ,class:"pickup_imge"
+      - else item.trading == "売り切れ"
+        .sold_out
+          .sold_out__text SOLDOUT
+        = image_tag item.images.first.image.url ,class:"pickup_imge_byu"
       .pickup_body
         %p.pickup_body__name #{item.name}
         .pickup_body__data
