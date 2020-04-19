@@ -40,7 +40,7 @@ $(function(){
     var d_class = "." + d_id
     var name = $(d_class).attr('name');
     $('input:checkbox[name="' + name + '"]').prop('checked', true);
-    var destroy_image_block = $(this).parent().parent().parent()
+    var destroy_image_block = $(this).parent().parent().parent() 
     var target_name = $(destroy_image_block).data('image')
     if(file_field.files.length==1){
       $('input[type=file]').val(null)
