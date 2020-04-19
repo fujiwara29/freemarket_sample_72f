@@ -106,4 +106,3 @@ end
   gem 'omniauth-facebook' #フェイスブック対応のOmniAuth
   gem 'omniauth-google-oauth2' #グーグル対応のOmniAuth
   gem "omniauth-rails_csrf_protection" #OmniAuthの脆弱性に対応するためのGem
-  gem 'dotenv-rails' # 環境変数を簡単に定義できるENVファイルを対応させるgem
