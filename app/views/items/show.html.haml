@@ -13,7 +13,7 @@
       %li
         = link_to 'アウター', '#' 
       %li
-        product3
+        = @item.name
 
 .main
   .main__snow
@@ -28,7 +28,7 @@
               %li.image-main
                 - @item.images.each_with_index do |image,index|
                   -if index == 0
-                    =image_tag image.image.url
+                    =image_tag image.image.url, class:"item-img-big"
                   -else
                 %ul.imaga
                   - @item.images.each_with_index do |image,index|
@@ -61,11 +61,12 @@
                   %th カテゴリー
                   %td
                     = @item.category.name
-                    -# %br
-                    -# = link_to  @item.category.children.pluck(:name)[0], category_path(@item.id)
-                    -# %br                    
-                    -# = link_to @item.category.descendants.pluck(:name)[7], 
-                    -# category_path(@item.id)
+                    %br
+                    = link_to  @item.category.children.pluck(:name)[0], category_path(@item.id)
+                    %br
+                    = link_to @item.category.descendants.pluck(:name)[7], 
+                    category_path(@item.id)
+
 
                     
                 %tr
@@ -100,7 +101,7 @@
             %ul
               - if user_signed_in? && current_user.id != @item.user_id
                 .likebtn.option
-                  = link_to '購入に進む', new_order_path, class: 'buy'
+                  = link_to '購入に進む', pay_purchase_path(@item.id), class: 'buy'
             .delete_option
             - if user_signed_in? && current_user.id == @item.user_id
               .pickup_body__user

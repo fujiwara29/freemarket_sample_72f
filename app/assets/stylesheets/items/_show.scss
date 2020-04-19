@@ -77,8 +77,12 @@
                   object-fit: cover;
                 }
                 .item-img-small{
-                  height: 100px;
+                  height: 90px;
                   margin: 5px 5px 0;
+                  cursor:pointer
+                }
+                .item-img-small:hover{
+                  opacity: 0.5;
                 }
               }
             }
