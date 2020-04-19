@@ -28,7 +28,7 @@
               %li.image-main
                 - @item.images.each_with_index do |image,index|
                   -if index == 0
-                    =image_tag image.image.url
+                    =image_tag image.image.url, class:"item-img-big"
                   -else
                 %ul.imaga
                   - @item.images.each_with_index do |image,index|
