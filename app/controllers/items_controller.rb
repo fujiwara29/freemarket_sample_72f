@@ -1,8 +1,10 @@
 class ItemsController < ApplicationController
 
+  before_action :move_to_index, except: [:index, :show]
   before_action :set_category, only: [:new, :create ,:edit ,:update]
   before_action :set_brand, only: [:new, :create, :edit, :update]
   before_action :set_item, only: [:show, :edit, :update, :destroy]
+  before_action :not_owner_move_to_index, only: :edit
 
   def index
     @newitems = Item.order("created_at DESC").limit(10)
@@ -57,7 +59,7 @@ class ItemsController < ApplicationController
       destroy_images_box = []
       @item.images.each do |destroy_check_image|
         if params[:item][:imag_destroy][:"#{destroy_check_image.id}"] == "1"
-        destroy_images_box << destroy_check_image
+          destroy_images_box << destroy_check_image
         end
       end
       
@@ -114,6 +116,14 @@ class ItemsController < ApplicationController
       trading: "販売中",
       user_id: current_user.id
     )
+  end
+
+  def move_to_index
+    redirect_to action: :index unless user_signed_in?
+  end
+
+  def not_owner_move_to_index
+    redirect_to action: :index unless current_user.id == @item.user_id
   end
 
 end
