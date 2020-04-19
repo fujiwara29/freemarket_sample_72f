@@ -12,7 +12,6 @@
 @import "items/destroy";
 @import "items/search";
 @import "devises/registration/new";
-@import "orders/new";
 @import "items/new";
 @import "items/item";
 @import "items/form";
@@ -22,5 +21,6 @@
 @import "users/logout";
 @import "categories/index";
 @import "categories/show";
+@import "cards/card";
 @import "cards/index";
-
+@import "purchase";

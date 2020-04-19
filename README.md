@@ -22,7 +22,7 @@
 - has_many: orders
 - has_one: profile
 - has_one: address
-- has_one: credit_card
+- has_one: card
 
 ---
 
@@ -56,14 +56,12 @@
 
 ---
 
-## credit_cardテーブル
+## cardテーブル
 | Type       | Column           | Options                        |
 | ---------- | ---------------- | ------------------------------ |
-| integer    | card_number      | null: false, unique: true      |
-| integer    | expiration_year  | null: false                    |
-| integer    | expiration_month | null: false                    |
-| integer    | security_code    | null: false                    |
-| references | user             | null: false                    |
+| references | user             | null: false, foreign_key: true |
+| string     | customer_id      | null: false                    |
+| string     | card_id          | null: false                    |
 |            |                  |                                |
 
 ### Association
