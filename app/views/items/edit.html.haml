@@ -1,6 +1,44 @@
-.content__title
-  商品の編集
-= form_with model: @item, class: :form, local: true do |form|
-  = form.text_field :name, placeholder: :タイトル, class: :form__title
-  = form.text_area :introduction, placeholder: :ブログ本文, class: :form__text
-  = form.submit '再登録する', class: :form__btn
+.sale
+
+  -# ヘッダー
+  .header
+    =link_to root_path ,class:"header-link" do
+      = image_tag "material/logo/logo.png" ,class:"header-image"
+  
+  -# メイン
+  .main
+  
+    -# 投稿フォーム
+    = form_with(model: @item, local: true, id: "item-dropzone", class: "sell-form dropzone") do |f|
+      
+      -# 画像投稿機能
+      .item-box
+        -# 出品画像
+        .item-image
+          .item-image__top
+            .item-image__top__title
+              出品画像
+            .certainly
+              必須
+          .item-image__max-upload 最大10枚までアップロードできます
+          -# --------------------------------- ここまでnew,edit共通CSS ---------------------------------
+          -# 画像投稿フォーム
+          .item-image__form
+            #preview
+              - @item.images.each_with_index do |image, num|
+                .item-img
+                  .item-img__content
+                    = image_tag image.image.url
+                  %label
+                    .item-img__btn
+                      .item-img__btn--delete{id: "delete-num#{num}"} 削除
+              #image-container{class: "num-#{@item.images.length}"} 
+                %label
+                  = f.fields_for :images, @images do |image|
+                    .input-area
+                      = image.file_field :image, type: 'file', name: "images[image][]", id: "upload-image",style: "display:none"
+                      %i.fas.fa-camera
+            - @item.images.each_with_index do |image, num|
+              = f.check_box :imag_destroy, {name: "item[imag_destroy[#{image.id}]]", class:"delete-num#{num}"}
+      = render partial: "form", locals: { f: f }
+= render 'layouts/item-footer'
