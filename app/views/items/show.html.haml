@@ -36,12 +36,6 @@
                       %li.image-small
                         =image_tag image.image.url,class:"item-img-small"
                     -else
-                  -# %li.image-small
-                  -#   = image_tag "material/pict/pict-reason-03.jpg",class:"item-img-small"
-                  -# %li.image-small
-                  -#   = image_tag "material/pict/pict-reason-03.jpg",class:"item-img-small"
-                  -# %li.image-small
-                  -#   = image_tag "material/pict/pict-reason-03.jpg",class:"item-img-small"                   
           .itemBox__price
             %span ¥  #{@item.price}
             .itemBox__price-detail
@@ -99,15 +93,20 @@
               %li#likebtn.optionalBtn.likeBtn
                 = link_to '★お気に入り 0', '#'
             %ul
-              - if user_signed_in? && current_user.id != @item.user_id
-                .likebtn.option
-                  = link_to '購入に進む', pay_purchase_path(@item.id), class: 'buy'
-            .delete_option
-            - if user_signed_in? && current_user.id == @item.user_id
-              .pickup_body__user
-                = link_to "この商品を削除する", item_path(@item.id), method: :delete, data:{ confirm: '削除しますか？' } ,class: "pickup_body__deletea"
-              .pickup_body__user
-                = link_to "この商品を編集する", edit_item_path(@item.id), class: "pickup_body__show"
+              -# 商品の販売状態の確認
+              - if @item.trading == "売り切れ"
+                .sold_out_box SOLDOUT
+              - else @item.trading == "販売中"
+                -# 出品者のIDを確認
+                - if user_signed_in? && current_user.id != @item.user_id
+                  .likebtn.option
+                    = link_to '購入に進む', pay_purchase_path(@item.id), class: 'buy'
+                  .delete_option
+                - elsif user_signed_in? && current_user.id == @item.user_id
+                  .pickup_body__user
+                    = link_to "この商品を削除する", item_path(@item.id), method: :delete, data:{ confirm: '削除しますか？' } ,class: "pickup_body__deletea"
+                  .pickup_body__user
+                    = link_to "この商品を編集する", edit_item_path(@item.id), class: "pickup_body__show"
 
         .commentBox
           %ul.commentContents
