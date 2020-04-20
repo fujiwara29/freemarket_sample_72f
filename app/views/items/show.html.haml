@@ -106,7 +106,7 @@
                   .pickup_body__user
                     = link_to "この商品を削除する", item_path(@item.id), method: :delete, data:{ confirm: '削除しますか？' } ,class: "pickup_body__deletea"
                   .pickup_body__user
-                    = link_to "この商品を編集する", edit_item_path(@item.id), class: "pickup_body__show"
+                    = link_to "この商品を編集する", edit_item_path(@item.id), data: {"turbolinks" => false} , class: "pickup_body__show"
 
         .commentBox
           %ul.commentContents
