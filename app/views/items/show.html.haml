@@ -5,13 +5,9 @@
   .bread
     %ul
       %li
-        = link_to 'FURIMA', '#'
+        = link_to 'FURIMA', '/'
       %li
-        = link_to 'ベビー・キッズ', '#'
-      %li
-        = link_to 'ベビー服(男女兼用) ~95cm', '#' 
-      %li
-        = link_to 'アウター', '#' 
+        = link_to "#{@item.category.name}", '#'
       %li
         = @item.name
 
