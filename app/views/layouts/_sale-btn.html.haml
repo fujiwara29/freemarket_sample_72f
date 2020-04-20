@@ -1,6 +1,6 @@
 %label.sale-btn
   - if user_signed_in?
-    = link_to new_item_path, class:"new-sale" do
+    = link_to new_item_path, class:"new-sale", data: {"turbolinks" => false} do
       .sale-text 出品する
       = image_tag "material/icon/icon_camera.png"
   - else

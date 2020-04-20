@@ -55,21 +55,21 @@
                   %th カテゴリー
                   %td
                     = @item.category.name
-                    %br
-                    = link_to  @item.category.children.pluck(:name)[0], category_path(@item.id)
-                    %br
-                    = link_to @item.category.descendants.pluck(:name)[7], 
-                    category_path(@item.id)
+                    -# %br
+                    -# = link_to  @item.category.children.pluck(:name)[0], category_path(@item.id)
+                    -# %br
+                    -# = link_to @item.category.descendants.pluck(:name)[7], 
+                    -# category_path(@item.id)
 
 
                     
-                %tr
-                  %th ブランド
-                  %td
-                    - if @item.brand.nil?
-                      %p 指定なし
-                    - else
-                      = @item.brand.name
+                -# %tr
+                -#   %th ブランド
+                -#   %td
+                -#     - if @item.brand.nil?
+                -#       %p 指定なし
+                -#     - else
+                -#       = @item.brand.name
                 %tr
                   %th 商品のサイズ
                   %td カラムなし
