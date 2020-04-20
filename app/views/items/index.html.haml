@@ -11,10 +11,10 @@
         フリマアプリです
       .contents__btns
         .contents__btns__btn
-          = link_to "#", class:"contents__btns__btn__app_store" do
+          = link_to "#", data: {"turbolinks" => false}, class:"contents__btns__btn__app_store" do
             = image_tag "material/btn/app_store.png", class: "contents__btns__btn__app_store--btn"
         .contents__btns__btn
-          = link_to "#", class:"contents__btns__btn__google_play" do
+          = link_to "#", data: {"turbolinks" => false}, class:"contents__btns__btn__google_play" do
             = image_tag "material/btn/google_play.png", class: "contents__btns__btn__google_play--btn"
 
 
@@ -70,10 +70,10 @@
         ほしかったあの商品に出会えるかもしれません。
       .download__inside__btns
         .download__inside__btns__btn
-          = link_to "#", class:"download__inside__btns__btn__app_store" do
+          = link_to "#", data: {"turbolinks" => false}, class:"download__inside__btns__btn__app_store" do
             = image_tag "material/btn/app_store.png", class: "download__inside__btns__btn__app_store--btn"
         .download__inside__btns__btn
-          = link_to "#", class:"download__inside__btns__btn__google_play" do
+          = link_to "#", data: {"turbolinks" => false}, class:"download__inside__btns__btn__google_play" do
             = image_tag "material/btn/google_play.png", class: "download__inside__btns__btn__google_play--btn" 
 
 
@@ -113,7 +113,7 @@
   .pickups
     %p.subtitle 新着商品
     .new_items
-      = link_to "新規投稿商品一覧", items_searches_path, class:"new_items"
+      = link_to "新規投稿商品一覧", items_searches_path, data: {"turbolinks" => false}, class:"new_items"
     .pickup_inside
       .pickup_lists
         -# ここから繰り返し

@@ -53,41 +53,20 @@
           border-bottom: 2px solid #eee;
           background-color: rgb(130, 226, 226);
         }
-        .pickup_lists{
+        .pickup_inside_show{
+          background-color: #f8f8f8;
+          display: flex;
+          justify-content: center;
           width: 780px;
           margin: 26px auto;
-          display: flex;
-          justify-content: space-between;
-          flex-wrap: wrap;
-          align-items: baseline;
-          .pickup_list{
-            width: 220px;
-            background-color: #fff;
-            font-size: 0;
-            margin-top: 5px;
-            border: 1px solid #eee;
-            .pickup_label{
-              .pickup_label:hover{
-                cursor: pointer;
-              }
-              .pickup_link{
-                color: #515151;
-                text-decoration: none;
-                .pickup_imge{
-                  width: 220px;
-                  height: 150px;
-                  object-fit: cover;
-                }
-                .pickup_body{
-                  color: #333;
-                  font-size: 16px;
-                  padding: 16px;
-                }
-              }
-            }
+          .pickup_lists_show{
+            width: calc(202px * 3);
+            display: flex;
+            justify-content: flex-start;
+            flex-wrap: wrap;
           }
         }
-       }
+      }
       .myBuy{
         margin-top: 40px;
         width: 100%;

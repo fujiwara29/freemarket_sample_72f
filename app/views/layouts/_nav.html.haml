@@ -2,7 +2,7 @@
   .navInner
     .mainHeader
       .mainHeaderIcon
-        =link_to image_tag("material/logo/logo.png",class: "mainHeaderIconLogo"),root_path
+        =link_to image_tag("material/logo/logo.png", class: "mainHeaderIconLogo"),root_path, data: {"turbolinks" => false}
       .searchBox
         = form_with url: items_searches_path, local: true, method: :get, class: "search-form"do |form|
           = form.text_field :keyword, placeholder: "キーワードから探す", class: "search-input"
@@ -15,28 +15,28 @@
         %li.search-navs__unit.category
 
         %li.category
-          = link_to "カテゴリー",categories_path, class: "nav-category"
+          = link_to "カテゴリー",categories_path, data: {"turbolinks" => false}, class: "nav-category"
           -# %p.parents_list
           -#   - @category_parent.each do |parent|
-          -#     = link_to "#{parent.name}", "#", class: "parent_category",id: "#{parent.id}"
+          -#     = link_to "#{parent.name}", "#", data: {"turbolinks" => false}, class: "parent_category",id: "#{parent.id}"
           -#     .children_list
           -#       - parent.children.each do |child|
-          -#         = link_to "#{child.name}", "#", class: "child_category",id: "#{child.id}"
+          -#         = link_to "#{child.name}", "#", data: {"turbolinks" => false}, class: "child_category",id: "#{child.id}"
           -#         .grand_children_list
           -#           - child.children.each do |grandchild|
-          -#             = link_to "#{grandchild.name}", "#", class: "grand_child_category",id: "#{grandchild.id}"
+          -#             = link_to "#{grandchild.name}", "#", data: {"turbolinks" => false}, class: "grand_child_category",id: "#{grandchild.id}"
         
         %li.brand
-          = link_to "ブランド",'#', class: "nav-brand"
+          = link_to "ブランド",'#', data: {"turbolinks" => false}, class: "nav-brand"
       - if user_signed_in?
         %ul.listsRight
           %li.login
-            = link_to "マイページ",user_path(current_user.id),class: "nav-btn"
+            = link_to "マイページ",user_path(current_user.id), data: {"turbolinks" => false},class: "nav-btn"
           %li.login
-            = link_to "ログアウト", destroy_user_session_path, method: :delete ,class: "nav-btn"
+            = link_to "ログアウト", destroy_user_session_path, method: :delete , data: {"turbolinks" => false},class: "nav-btn"
       - else
         %ul.listsRight
           %li.login
-            = link_to "ログイン", new_user_session_path,class: "nav-btn"
+            = link_to "ログイン", new_user_session_path, data: {"turbolinks" => false},class: "nav-btn"
           %li.sign_up
-            = link_to "新規会員登録", new_user_registration_path, class: "nav-btn"
+            = link_to "新規会員登録", new_user_registration_path, data: {"turbolinks" => false}, class: "nav-btn"

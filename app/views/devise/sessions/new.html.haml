@@ -2,14 +2,14 @@
   .log_in
     .menu
       %p.form_supplement アカウントをお持ちでない方はこちら
-      = link_to "sign_up", class: "a"do
+      = link_to "sign_up", class: "a", data: {"turbolinks" => false} do
         %h2.registrations_supplement 新規会員登録
     .log_in_form
-      = link_to user_facebook_omniauth_authorize_path, method: :post, class: "facebookbtn" do
+      = link_to user_facebook_omniauth_authorize_path, method: :post, data: {"turbolinks" => false}, class: "facebookbtn" do
         = icon('fab', 'facebook-square')
         %text<>
           Facebookでログイン
-      = link_to  user_google_oauth2_omniauth_authorize_path, method: :post, class: "googlebtn" do
+      = link_to  user_google_oauth2_omniauth_authorize_path, method: :post, data: {"turbolinks" => false}, class: "googlebtn" do
         = image_tag "google.jpg", size: "40x40",class: "google"
         %textgoogle<>
           Googleでログイン
