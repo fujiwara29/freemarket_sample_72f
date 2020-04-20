@@ -4,7 +4,6 @@
   width: 100%;
   display: flex;
   justify-content: center;
-  min-height: 60vh;
   .pickup_lists_search{
     width: 80%;
     max-width: 1210px;
@@ -14,5 +13,9 @@
     justify-content: flex-start;
     font-size: 0px;
     flex-wrap: wrap;
+    .enputy_block{
+      background-color: red;
+      height: 25vh;
+    }
   }
 }
