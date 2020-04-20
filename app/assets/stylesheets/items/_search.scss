@@ -5,13 +5,12 @@
   .pickup_lists{
     margin: 26px auto;
     display: flex;
-    justify-content: space-between;
     flex-wrap: wrap;
     align-items: baseline;
 
     .pickup_list{
       background-color: #fff;
-      margin-top: 5px;
+      margin: 9px;
       border: 1px solid #eee;
       .pickup_label{
         .pickup_label:hover{
