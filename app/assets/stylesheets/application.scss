@@ -9,7 +9,9 @@
 @import "modules/item-footer";
 @import "items/index";
 @import "items/show";
+@import "items/create";
 @import "devises/registration/new";
+@import "devises/registration/create_address";
 @import "orders/new";
 @import "items/new";
 @import "users/show";
@@ -18,4 +20,5 @@
 @import "cards/index";
 @import "category/index";
 @import "category/show";
+@import "orders/create";
 

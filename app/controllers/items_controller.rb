@@ -8,28 +8,26 @@ class ItemsController < ApplicationController
   def new
     @item = Item.new
     @item.images.build
-    
   end
 
   def create
-    @item = Item.new(item_params)
-    respond_to do |format|
-      if @item.save
-          params[:images][:image].each do |image|
-            @item.images.create(image: image, item_id: @item.id)
-          end
-        format.html{redirect_to root_path}
-      else
-        @item.images.build
-        format.html{render action: 'new'}
-      end
-    end
+    # @item = Item.new(item_params)
+    # respond_to do |format|
+    #   if @item.save
+    #       params[:images][:image].each do |image|
+    #         @item.images.create(image: image, item_id: @item.id)
+    #       end
+    #     format.html{redirect_to root_path}
+    #   else
+    #     @item.images.build
+    #     format.html{render action: 'new'}
+    #   end
+    # end
   end
 
   def show
     # @item = Item.find(params[:id])
     @item = Item.find(1)
-    
   end
 
   

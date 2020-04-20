@@ -1,0 +1,73 @@
+.create-address{
+  padding-top: 98px;
+  margin: auto;
+  background-color: #f5f5f5;
+}
+
+.a-container.clearfix{
+  display: flex;
+  margin: 40px auto 0;
+  padding-bottom: 40px;
+  width: 1020px;
+}
+
+.a-single-middle{
+  width: 700px;
+  height: 600px;
+  margin: 0 160px;
+  &__top{
+    background-color: #ffffff;
+    height: 50px;
+    margin-bottom: 3px;
+    .Member-registration-completed{
+      text-align: center;
+      font-size: 24px;
+      font-weight: bold;
+      line-height: 50px;
+      font-family: 'Source Sans Pro', Helvetica , Arial, '游ゴシック体', 'YuGothic', 'メイリオ', 'Meiryo', sans-serif;
+    }
+  }
+  &__inner{
+    background-color: #ffffff;
+    padding: 64px;
+  .orei{
+    padding-bottom: 40px;
+    height: 30px;
+    font-size: 16px;
+    font-weight: bold;
+    text-align: center;
+    font-family: 'Source Sans Pro', Helvetica , Arial, '游ゴシック体', 'YuGothic', 'メイリオ', 'Meiryo', sans-serif;
+  }
+  &__content{
+    cursor: pointer;
+    width: 320px;
+    background: #3ccace;
+    color: #fff;
+    margin: auto;
+    height: 45px;
+    font-size: 14px;
+    line-height: 45px;
+    margin-bottom: 40px;
+    text-align: center;
+    a {
+      text-decoration: none;
+      display: block;
+      color: #fff;
+      font-size: 14px;
+      font-weight: bold;
+    }
+  }
+}
+  .menu{
+    text-decoration: none ;
+    color: #ffffff;
+    width: 320px;
+    background: #3ccace;
+    color: #fff;
+    margin: auto;
+    height: 45px;
+    font-size: 14px;
+    line-height: 45px;
+    text-align:center;
+  }
+}
