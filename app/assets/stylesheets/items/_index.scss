@@ -269,9 +269,10 @@
       display: flex;
       justify-content: center;
       .pickup_lists{
+        width: 100%;
         margin: 26px auto;
         display: flex;
-        justify-content: center;
+        justify-content: flex-start;
         flex-wrap: wrap;
       }
     }
