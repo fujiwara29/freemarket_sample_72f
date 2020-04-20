@@ -19,9 +19,11 @@ $(function(){
                     <div class='item-img__content'>
                       <img src=${src}>
                     </div>
-                    <div class='item-img__btn'>
-                      <div class='item-img__btn--delete'>削除</div>
-                    </div>
+                    <label>
+                      <div class='item-img__btn'>
+                        <div class='item-img__btn--delete'>削除</div>
+                      </div>
+                    </label>
                   </div>`
                   
         container.before(html);
@@ -30,24 +32,28 @@ $(function(){
     });
   });
 
-
   $(document).on("click", '.item-img__btn--delete', function(){
-    var target_image = $(this).parent().parent()
-    var target_name = $(target_image).data('image')
+    
+    var d_id = $(this).attr('id')
+    var d_class = "." + d_id
+    var name = $(d_class).attr('name');
+    $('input:checkbox[name="' + name + '"]').prop('checked', true);
+
+    var destroy_image_block = $(this).parent().parent().parent()
+    var target_image = $(destroy_image_block).data('image')
     if(file_field.files.length==1){
       $('input[type=file]').val(null)
       image_box.clearData();
       console.log(image_box)
     }else{
       $.each(file_field.files, function(image,input){
-        if(input.name==target_name){
+        if(input.name==target_image){
           image_box.items.remove(image)
         }
       })
       file_field.files = image_box.files
     }
-
-    target_image.remove()
+    destroy_image_block.remove()
     var num = $('.item-img').length
     container.show()
     container.attr('class', `num-${num}`)

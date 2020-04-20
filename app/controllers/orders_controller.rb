@@ -5,7 +5,7 @@ class OrdersController < ApplicationController
     @item = Item.find(params[:format])
     @order = Order.new
     # @order = Order.find(params[:id])
-     @order = Order.find(1)
+    @order = Order.find(1)
   end
 
   def create

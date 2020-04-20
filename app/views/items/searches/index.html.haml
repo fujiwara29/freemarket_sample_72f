@@ -1,25 +1,10 @@
-%header.navHeader
-  .navInner
-    .mainHeader
-      .mainHeaderIcon
-        =link_to image_tag("material/logo/logo.png",class: "mainHeaderIconLogo"),root_path
-      .searchBox
-        = form_with url: items_searches_path, local: true, method: :get, class: "search-form"do |form|
-          = form.text_field :keyword, placeholder: "キーワードから探す", class: "search-input"
-          %label.search-label
-            = form.submit "" , class: "search-btn" 
-            = image_tag "material/icon/icon-search 1.png", class:"search-icon" 
-  .search
-    .pickup_lists
-      - @items.each do |item|
-        .pickup_list
-          %label.pickup_label
-            = link_to item_path(item.id), class:"pickup_link" ,data: {"turbolinks" => false} do
-              = image_tag item.images.first.image.url ,class:"pickup_imge"
-              .pickup_body
-                %p.pickup_body__name #{item.name}
-                .pickup_body__data
-                  %p.pickup_body__data__price #{item.price}円
-                  .pickup_body__data__like-box
-                %p.pickup_body__tax (税込)
+= render 'layouts/nav'
+.pickup_inside_search
+  .pickup_lists_search
+    - @items.each do |item|
+      = render partial: "items/item", locals: { item: item }
 
+
+= render 'layouts/banner'
+= render 'layouts/footer'
+= render 'layouts/sale-btn'

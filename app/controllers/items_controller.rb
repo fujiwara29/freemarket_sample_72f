@@ -1,12 +1,13 @@
 class ItemsController < ApplicationController
 
-  before_action :set_category, only: [:new, :create]
-  before_action :set_brand, only: [:new, :create]
-  before_action :set_item, only: [:show ,:edit ,:update, :destroy]
-
+  before_action :move_to_index, except: [:index, :show]
+  before_action :set_category, only: [:new, :create ,:edit ,:update]
+  before_action :set_brand, only: [:new, :create, :edit, :update]
+  before_action :set_item, only: [:show, :edit, :update, :destroy]
+  before_action :not_owner_move_to_index, only: :edit
 
   def index
-    @newitems = Item.last(3)
+    @newitems = Item.order("created_at DESC").limit(10)
   end
 
   def new
@@ -16,11 +17,11 @@ class ItemsController < ApplicationController
 
   def create
     @item = Item.new(item_params)
-    images = params[:images][:image]
+    imgs_params = params[:images][:image]
     respond_to do |format|
-      if @item.valid? && (images.length >= 1) && (images.length <= 10)
+      if @item.valid? && (imgs_params.length >= 1) && (imgs_params.length <= 10)
         @item.save
-        images.each do |image|
+        imgs_params.each do |image|
           @item.images.create(image: image, item_id: @item.id)
         end
         format.html{redirect_to root_path}
@@ -34,6 +35,49 @@ class ItemsController < ApplicationController
   def show
   end
 
+  def edit
+  end
+
+  def update
+    respond_to do |format|
+      # 編集した商品情報の更新
+      @item.update(item_params)
+      
+      # 画像を追加した場合の処理
+      if params[:images].nil?
+      else
+        imgs_params = params[:images][:image]
+        if (imgs_params.length >= 1) && (imgs_params.length <= 10)
+          imgs_params.each do |image|
+            Image.create(image: image, item_id: @item.id)
+          end
+        end
+      end
+      
+      #DBの画像が0になる場合は処理をしないようにする
+      db_image = Image.where(item_id: @item.id)
+      destroy_images_box = []
+      @item.images.each do |destroy_check_image|
+        if params[:item][:imag_destroy][:"#{destroy_check_image.id}"] == "1"
+          destroy_images_box << destroy_check_image
+        end
+      end
+      
+      # データベースのimage数と削除image数を比較
+      if db_image.length > destroy_images_box.length
+        # 既存の画像を削除した場合の処理
+        destroy_images_box.each do |destroy_image|
+          destroimage = Image.find_by(id: destroy_image.id)
+          destroimage.destroy
+        end
+      else
+        # image数が0になる場合の処理
+        format.html{redirect_to edit_item_path, notice: '画像は1枚以上登録してください！'}
+      end
+    format.html{redirect_to item_path}
+    end
+  end
+
   def destroy
     if @item.destroy
     else
@@ -41,17 +85,6 @@ class ItemsController < ApplicationController
     end
   end
 
-  def edit
-  end
-
-  def update
-    if @item.update(item_params)
-    else
-      flash.now[:alert] = '必須項目が入力されていません。'
-      redirect_to edit
-    end
-  end
-  
   private
   
   def set_item
@@ -83,6 +116,14 @@ class ItemsController < ApplicationController
       trading: "販売中",
       user_id: current_user.id
     )
+  end
+
+  def move_to_index
+    redirect_to action: :index unless user_signed_in?
+  end
+
+  def not_owner_move_to_index
+    redirect_to action: :index unless current_user.id == @item.user_id
   end
 
 end
