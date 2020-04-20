@@ -1,0 +1,13 @@
+.listing-complete
+  .l-container.clearfix
+    .l-single-middle
+      .l-single-middle__top
+        %p.the-listing-is-complete 出品が完了しました
+      .l-single-middle__inner
+        %p.description 出品した商品は「出品した商品」からいつでも見ることができます
+        .l-single-middle__inner__content1
+          = link_to "続けて出品する", "/items/new"
+        .l-single-middle__inner__content2
+          = link_to "出品した商品を見る", "/users/:id"
+        .l-single-middle__inner__regist
+          = link_to "マイページを見る", "/"
