@@ -13,19 +13,11 @@
               = current_user.nickname
       .mySell
         %p.title 出品した商品
-        .pickup_lists
-          - @newitems.each do |item|
-            - if user_signed_in? && current_user.id == item.user_id
-              .pickup_list
-                %label.pickup_label
-                  = link_to "/items/#{item.id}", data: {"turbolinks" => false},class:"pickup_link" do
-                    = image_tag item.images.first.image.url ,class:"pickup_imge"
-                    .pickup_body
-                      %p.pickup_body__name #{item.name}
-                      .pickup_body__data
-                        %p.pickup_body__data__price #{item.price}円
-                        .pickup_body__data__like-box
-                      %p.pickup_body__tax (税込)
+        .pickup_inside_show
+          .pickup_lists_show
+            -# ここから繰り返し
+            - @user_items.each do |item|
+              = render partial: "items/item", locals: { item: item }
 
       .myBuy
         .myBuy__head

@@ -1,6 +1,6 @@
 class UsersController < ApplicationController
   def show
-    @newitems = Item.all
+    @user_items = Item.where(user: params[:id])
   end
 
   def logout

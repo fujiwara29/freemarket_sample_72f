@@ -1,13 +1,13 @@
 %ul.myPage__menu__list
   %li.myPage__menu__list--myPage
-    = link_to "マイページ","#",class: "menu"
+    = link_to "マイページ","#", data: {"turbolinks" => false},class: "menu"
   %li.myPage__menu__list--profile
-    = link_to "プロフィール","#",class: "menu"
+    = link_to "プロフィール","#", data: {"turbolinks" => false},class: "menu"
   %li.myPage__menu__list--myInfo
-    = link_to "本人情報","#",class: "menu"
+    = link_to "本人情報","#", data: {"turbolinks" => false},class: "menu"
   %li.myPage__menu__list--sell
-    = link_to "出品する","#",class: "menu"
+    = link_to "出品する","#", data: {"turbolinks" => false},class: "menu"
   %li.myPage__menu__list--payInfo
-    = link_to "支払い方法","/card",class: "menu"
+    = link_to "支払い方法","/card", data: {"turbolinks" => false},class: "menu"
   %li.myPage__menu__list--signOut
-    = link_to "ログアウト", logout_users_path, class: "menu"
+    = link_to "ログアウト", logout_users_path, data: {"turbolinks" => false}, class: "menu"
