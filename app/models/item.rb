@@ -21,5 +21,7 @@ class Item < ApplicationRecord
   validates :user_id,         presence: true
   
   scope :name_like, ->(keyword) { where('name LIKE(?)', "%#{keyword}%" )}
+  scope :category_like, ->(keyword) { where('category_id LIKE(?)', "%#{keyword}%" )}
+
 
 end
