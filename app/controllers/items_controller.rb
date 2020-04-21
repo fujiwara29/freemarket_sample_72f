@@ -24,7 +24,7 @@ class ItemsController < ApplicationController
         imgs_params.each do |image|
           @item.images.create(image: image, item_id: @item.id)
         end
-        format.html{redirect_to root_path}
+        format.html{render action: 'create'}
       else
         @item.images.build
         format.html{render action: 'new'}
