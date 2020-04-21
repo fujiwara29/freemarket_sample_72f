@@ -6,8 +6,8 @@
       .l-single-middle__inner
         %p.description 出品した商品は「出品した商品」からいつでも見ることができます
         .l-single-middle__inner__content1
-          = link_to "続けて出品する", "/items/new"
+          = link_to "続けて出品する", new_item_path, data: {"turbolinks" => false}
         .l-single-middle__inner__content2
-          = link_to "出品した商品を見る", "/users/:id"
+          = link_to "出品した商品を見る", item_path(@item.id), data: {"turbolinks" => false}
         .l-single-middle__inner__regist
-          = link_to "マイページを見る", "/"
+          = link_to "マイページを見る", user_path(current_user.id), data: {"turbolinks" => false}
