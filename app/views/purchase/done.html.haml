@@ -1,9 +1,18 @@
-.purchase
-  .purchase__done
-    %h2 購入が完了しました！
-    %p
-      = "名前 ""#{@item.name}"
-    %br
-      = "¥""#{@item.price}""円"
-    %br
-    = link_to "トップページに戻る","/"
+.purchase-completed
+  .n-container.clearfix
+    .n-single-middle
+      .n-single-middle__top
+        %p 購入が完了しました！
+      .n-single-middle__top2
+        %p 購入が完了しました。出品者の発送通知をお待ちください。
+      .n-single-middle__inner
+        %p.namae
+        
+          = "名前 ""#{@item.name}"
+
+          %br
+          
+          = "¥""#{@item.price}""円"
+
+        .n-single-middle__inner__content
+          = link_to "トップページに戻る","/"
