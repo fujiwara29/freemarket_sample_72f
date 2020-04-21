@@ -151,20 +151,20 @@
   -# 出品ボタン
   .submit-btn
     = f.submit '出品する', class: 'submit-btn__sale'
-    = link_to '下書きに保存', "#", class: 'submit-btn__draft'
-    = link_to 'もどる', "#", class: 'submit-btn__return'
+    = link_to '下書きに保存', "#", data: {"turbolinks" => false}, class: 'submit-btn__draft'
+    = link_to 'もどる', "#", data: {"turbolinks" => false}, class: 'submit-btn__return'
   
   -# 注意書き
   .attention
     %p.attention__text
       禁止されている
-      = link_to '行為', '#', class:'attention__text--color'
+      = link_to '行為', '#', data: {"turbolinks" => false}, class:'attention__text--color'
       および
-      = link_to '出品物', '#', class:'attention__text--color'
+      = link_to '出品物', '#', data: {"turbolinks" => false}, class:'attention__text--color'
       を必ずご確認ください。
-      = link_to '偽ブランド品', '#', class:'attention__text--color'
+      = link_to '偽ブランド品', '#', data: {"turbolinks" => false}, class:'attention__text--color'
       や
-      = link_to '盗品物', '#', class:'attention__text--color'
+      = link_to '盗品物', '#', data: {"turbolinks" => false}, class:'attention__text--color'
       などの販売は犯罪であり、法律により処罰される可能性があります。また、出品をもちまして
-      = link_to '加盟店規約', '#', class:'attention__text--color'
+      = link_to '加盟店規約', '#', data: {"turbolinks" => false}, class:'attention__text--color'
       に同意したことになります。

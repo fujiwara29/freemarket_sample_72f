@@ -263,8 +263,13 @@
       }
     }
     .pickup_inside{
+      width: 80%;
+      max-width: 1210px;
+      margin: 0 auto;
+      display: flex;
+      justify-content: center;
       .pickup_lists{
-        width: 80%;
+        width: 100%;
         margin: 26px auto;
         display: flex;
         justify-content: flex-start;

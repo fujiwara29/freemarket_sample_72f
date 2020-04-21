@@ -1,9 +1,15 @@
 = render 'layouts/nav'
+
 .pickup_inside_search
   .pickup_lists_search
-    - @items.each do |item|
-      = render partial: "items/item", locals: { item: item }
-
+    - if @category_items.blank? && @items.present?
+      - @items.each do |item|
+        = render partial: "items/item", locals: { item: item }
+    - elsif @category_items.present?
+      - @category_items.each do |item|
+        = render partial: "items/item", locals: { item: item }
+    - else
+      .enputy_block
 
 = render 'layouts/banner'
 = render 'layouts/footer'

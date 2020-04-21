@@ -6,4 +6,4 @@
     .i-single-middle
       .i-single-middle__inner
         .i-single-middle__content
-          = link_to "ログアウト", destroy_user_session_path, method: :delete, class: "menu"
+          = link_to "ログアウト", destroy_user_session_path, method: :delete, data: {"turbolinks" => false}, class: "menu"

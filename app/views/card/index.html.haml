@@ -10,8 +10,8 @@
       .c-single-middle__inner
         %p.creditlist クレジットカード
         .c-single-middle__inner__content
-          = link_to "登録済クレジットカードを確認するor登録","/card/new", class: "menu"
+          = link_to "登録済クレジットカードを確認するor登録","/card/new", data: {"turbolinks" => false}, class: "menu"
 
         .c-single-middle__inner__regist
-          = link_to "支払い方法について ＞", "#", class: "cp-regist-p"
+          = link_to "支払い方法について ＞", "#", data: {"turbolinks" => false}, class: "cp-regist-p"
           %i.icon-arrow-right

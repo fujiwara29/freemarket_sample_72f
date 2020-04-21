@@ -5,13 +5,9 @@
   .bread
     %ul
       %li
-        = link_to 'FURIMA', '#'
+        = link_to 'FURIMA', '/', data: {"turbolinks" => false}
       %li
-        = link_to 'ベビー・キッズ', '#'
-      %li
-        = link_to 'ベビー服(男女兼用) ~95cm', '#' 
-      %li
-        = link_to 'アウター', '#' 
+        = link_to "#{@item.category.name}", '#', data: {"turbolinks" => false}
       %li
         = @item.name
 
@@ -56,7 +52,7 @@
                   %td
                     = @item.category.name
                     -# %br
-                    -# = link_to  @item.category.children.pluck(:name)[0], category_path(@item.id)
+                    -# = link_to  @item.category.children.pluck(:name)[0], category_path(@item.id), data: {"turbolinks" => false}
                     -# %br
                     -# = link_to @item.category.descendants.pluck(:name)[7], 
                     -# category_path(@item.id)
@@ -83,7 +79,7 @@
                 %tr
                   %th 発送料の地域
                   %td
-                    = link_to "#{@item.prefecture_code}", '#'
+                    = link_to "#{@item.prefecture_code}", '#', data: {"turbolinks" => false}
                 %tr
                   %th 発送日の目安
                   %td 
@@ -91,7 +87,7 @@
           .optionalArea
             %ul
               %li#likebtn.optionalBtn.likeBtn
-                = link_to '★お気に入り 0', '#'
+                = link_to '★お気に入り 0', '#', data: {"turbolinks" => false}
             %ul
               -# 商品の販売状態の確認
               - if @item.trading == "売り切れ"
@@ -100,11 +96,11 @@
                 -# 出品者のIDを確認
                 - if user_signed_in? && current_user.id != @item.user_id
                   .likebtn.option
-                    = link_to '購入に進む', pay_purchase_path(@item.id), class: 'buy'
+                    = link_to '購入に進む', pay_purchase_path(@item.id), data: {"turbolinks" => false}, class: 'buy'
                   .delete_option
                 - elsif user_signed_in? && current_user.id == @item.user_id
                   .pickup_body__user
-                    = link_to "この商品を削除する", item_path(@item.id), method: :delete, data:{ confirm: '削除しますか？' } ,class: "pickup_body__deletea"
+                    = link_to "この商品を削除する", item_path(@item.id), method: :delete, data:{ confirm: '削除しますか？' } , data: {"turbolinks" => false},class: "pickup_body__deletea"
                   .pickup_body__user
                     = link_to "この商品を編集する", edit_item_path(@item.id), data: {"turbolinks" => false} , class: "pickup_body__show"
 
@@ -118,11 +114,11 @@
               = form.submit "コメントする" , class: "search-btn"
       %ul.links
         %li.left
-          = link_to '前の商品へ', '#'
+          = link_to '前の商品へ', '#', data: {"turbolinks" => false}
         %li.right
-          = link_to '後ろの商品へ', '#'
+          = link_to '後ろの商品へ', '#', data: {"turbolinks" => false}
       .relatedItems
-        = link_to "#{@item.category.name} をもっと見る", '#'
+        = link_to "#{@item.category.name} をもっと見る", '#', data: {"turbolinks" => false}
 
 = render 'layouts/banner'
 = render 'layouts/footer'

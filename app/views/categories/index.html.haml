@@ -1,27 +1,16 @@
 = render 'layouts/nav'
 
 .wrapperb
-  .category-index  
-    .category-index__name 
+  .category-index
+    .category-index__name
       %h2 カテゴリー一覧
+      %h2= link_to "新規投稿商品一覧", items_searches_path, data: {"turbolinks" => false}, class:"new_items_search"
+
 
     .category-index__list
       - @category_parent.each do |parent|
-        = link_to "#{parent.name}", category_path(parent.id), class: "parent_category",id: "#{parent.id}"
+        = link_to "#{parent.name}", items_searches_path("#{parent.id}"), data: {"turbolinks" => false} ,class: "category_btn"
 
-    -# .category-index__name 
-    -#   %h2 レディース
-    -# .category-index__list-tag 
-    -#   - @category_parent.each do |parent|
-    -#     - parent.children.each do |child|
-    -#       = link_to "#{child.name}",category_path(child.id), class: "child_category",id: "#{child.id}"
-    -# .category-index__list-tag__a
-    -#   .list  
-    -#   - @category_parent.each do |parent|
-    -#     - parent.children.each do |child|
-    -#       - child.children.each do |grandchild|
-    -#         = link_to "#{grandchild.name}",category_path(grandchild.id),class:"grandchild_category",id: "#{grandchild.id}"
--# あとで使います
-
--# = render 'layouts/banner'
+= render 'layouts/banner'
 = render 'layouts/footer'
+= render 'layouts/sale-btn'

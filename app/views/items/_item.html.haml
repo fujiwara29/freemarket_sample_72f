@@ -1,6 +1,6 @@
 .pickup_list
   %label.pickup_label
-    = link_to "/items/#{item.id}", data: {"turbolinks" => false} ,class:"pickup_link" do
+    = link_to "/items/#{item.id}", data: {"turbolinks" => false},class:"pickup_link" do
       - if item.trading == "販売中"
         = image_tag item.images.first.image.url ,class:"pickup_imge"
       - else item.trading == "売り切れ"
