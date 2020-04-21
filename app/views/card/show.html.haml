@@ -10,6 +10,6 @@
     = exp_month + " / " + exp_year
     = form_tag(delete_card_index_path, method: :post, id: 'charge-form',  name: "inputForm") do
       %input{ type: "hidden", name: "card_id", value: "" }
-      .card_index__form--button
+      .card_index_form-button
         %button 削除する
-        = link_to "マイページに戻る",user_path(current_user.id), data: {"turbolinks" => false}
+        = link_to "マイページに戻る",user_path(current_user.id), data: {"turbolinks" => false},class:"card_index_mypage_button"

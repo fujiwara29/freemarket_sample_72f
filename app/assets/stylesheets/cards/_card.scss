@@ -1,11 +1,13 @@
 #charge-form{
-  padding-top: 98px;
+  padding-top: 40px;
   max-width: 500px;
   margin: 0 auto;
   .card_info_input{
     padding-top: 50px;
     padding-bottom: 50px;
     font-size: 25px;
+    display: flex;
+    justify-content: center;
   }
   .expiration_date{
     padding-top: 50px;
@@ -43,25 +45,43 @@
   }
 }
 .card_index{
-  padding-top: 98px;
   max-width: 500px;
   margin: 0 auto;
   &__form{
-    line-height: 5;
+    line-height: 2;
     padding-top: 100px;
     font-weight: 600;
     &--info{
       font-size: 25px;
     }
   }
-  .card_index__form--button{
+  .card_index_form-button{
+    margin: 0 auto;
     padding-bottom: 50px;
+    display: flex;
+    justify-content: center;
+    flex-flow: column;
   }
   button{
     height: 50px;
     width: 70%;
+    font-size: 24px;
+    margin: 0 auto 20px;
     background-color: #3CCACE;
     color: white;
     font-weight: 600;
   }
+  .card_index_mypage_button{
+    height: 50px;
+    width: 70%;
+    font-size: 24px;
+    margin: 0 auto;
+    background-color: #3CCACE;
+    color: white;
+    font-weight: 600;
+    text-decoration: none;
+    display: flex;
+    justify-content: center;
+  }
+
 }

@@ -1,3 +1,10 @@
+.sale
+
+  -# ヘッダー
+  .header
+    =link_to root_path, data: {"turbolinks" => false},class:"header-link" do
+      = image_tag "material/logo/logo.png" ,class:"header-image"
+
 .credit-container
   .c-container.clearfix
     .side_bar
@@ -14,3 +21,7 @@
         .c-single-middle__inner__regist
           = link_to "支払い方法について ＞", "#", data: {"turbolinks" => false}, class: "cp-regist-p"
           %i.icon-arrow-right
+
+= render 'layouts/banner'
+= render 'layouts/footer'
+= render 'layouts/sale-btn'
