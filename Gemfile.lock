@@ -403,7 +403,7 @@ DEPENDENCIES
   ancestry
   bootsnap (>= 1.1.0)
   byebug
-  capistrano (>= 3.12.1)
+  capistrano
   capistrano-bundler
   capistrano-rails
   capistrano-rbenv

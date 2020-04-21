@@ -46,7 +46,7 @@ group :development, :test do
   gem 'rails-controller-testing' # コントローラーのテスト用
   gem 'capybara', '>= 2.15' # 統合テスト用
 
-  gem 'capistrano', '>= 3.12.1' # デプロイ関連
+  gem 'capistrano' # デプロイ関連
   gem 'capistrano-rbenv' # デプロイ関連
   gem 'capistrano-bundler' # デプロイ関連
   gem 'capistrano-rails' # デプロイ関連
