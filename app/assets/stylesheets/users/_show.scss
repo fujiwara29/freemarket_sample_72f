@@ -22,12 +22,14 @@
         align-items: center;
         background-image: url("material/pict/bg-appBanner-pict.jpg");
         background-size: 100%;
-        .myMain__head{
-          &__head__view{
-            height: 60px;
-            width: 60px;
-            margin: 0 auto;
-            border-radius: 30px;
+        &__head{
+          &__view{
+            display: flex;
+            justify-content: center;
+            img{
+              display: flex;
+              justify-content: center;
+            }
           }
           &__name{
             height: 20px;

@@ -1,16 +1,17 @@
 = render 'layouts/nav'
 .myPage
   .myPage__wrapper
-    .sideMenu
-      = render 'users/side'
+    - if current_user.id == @user.id
+      .sideMenu
+        = render 'users/side'
     .myMain
       .myMain__contents
-        .myMain__head
-          .myMain__head__view
+        .myMain__contents__head
+          .myMain__contents__head__view
             = image_tag 'material/icon/member_photo_noimage_thumb.png', alt: 'image', height: '60px', width: '60px', class: 'photo'
-          .myMain__head__name
+          .myMain__contents__head__name
             %p
-              = current_user.nickname
+              = @user.nickname
       .mySell
         %p.title 出品した商品
         .pickup_inside_show
