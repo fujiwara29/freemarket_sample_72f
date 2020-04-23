@@ -118,10 +118,8 @@
         %li.right
           = link_to '後ろの商品へ', '#', data: {"turbolinks" => false}
       .relatedItems
-        = link_to "#{@item.category.name} をもっと見る", '#', data: {"turbolinks" => false}
+        = link_to "#{@item.category.name} をもっと見る", items_searches_path("#{@item.category.id}"), data: {"turbolinks" => false}
 
 = render 'layouts/banner'
 = render 'layouts/footer'
 = render 'layouts/sale-btn'
-
-= @item.category.name
