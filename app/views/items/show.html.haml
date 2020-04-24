@@ -22,16 +22,30 @@
           .itemBox__body
             %ul
               %li.image-main
-                - @item.images.each_with_index do |image,index|
-                  -if index == 0
-                    =image_tag image.image.url, class:"item-img-big"
-                  -else
-                %ul.imaga
+                -# 商品の販売状態の確認
+                - if @item.trading == "売り切れ"
+                  .sold_out_box S O L D O U T
                   - @item.images.each_with_index do |image,index|
-                    -if index != 0
-                      %li.image-small
-                        =image_tag image.image.url,class:"item-img-small"
+                    -if index == 0
+                      =image_tag image.image.url, class:"item-img-big_sold_out"
                     -else
+                  %ul.imaga
+                    - @item.images.each_with_index do |image,index|
+                      -if index != 0
+                        %li.image-small
+                          =image_tag image.image.url,class:"item-img-small_sold_out"
+                      -else
+                - else @item.trading == "販売中"
+                  - @item.images.each_with_index do |image,index|
+                    -if index == 0
+                      =image_tag image.image.url, class:"item-img-big"
+                    -else
+                  %ul.imaga
+                    - @item.images.each_with_index do |image,index|
+                      -if index != -1
+                        %li.image-small
+                          =image_tag image.image.url,class:"item-img-small"
+                      -else
           .itemBox__price
             %span ¥  #{@item.price}
             .itemBox__price-detail

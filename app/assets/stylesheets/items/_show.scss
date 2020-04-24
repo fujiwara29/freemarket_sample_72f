@@ -83,6 +83,33 @@
                 .item-img-small:hover{
                   opacity: 0.5;
                 }
+                .item-img-big_sold_out{
+                  height: 350px;
+                  opacity: 50%;
+                  filter:brightness(50%);
+                  object-fit: cover;
+                }
+                .item-img-small_sold_out{
+                  height: 90px;
+                  margin: 5px 5px 0;
+                  opacity: 50%;
+                  filter:brightness(50%);
+                }
+                .item-img-small_sold_out:hover{
+                  opacity: 0.5;
+                }
+                .sold_out_box{
+                  color: #fff;
+                  font-size: 26px;
+                  font-weight: bold;
+                  background-color: rgb(230, 46, 29);
+                  width: 100%;
+                  height: 60px;
+                  line-height: 60px;
+                  margin-bottom: 16px;
+                  display: flex;
+                  justify-content: center;
+                }
               }
             }
           }
