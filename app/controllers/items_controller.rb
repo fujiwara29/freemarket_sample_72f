@@ -4,7 +4,7 @@ class ItemsController < ApplicationController
   before_action :set_category, only: [:new, :create ,:edit ,:update]
   before_action :set_brand, only: [:new, :create, :edit, :update]
   before_action :set_item, only: [:show, :edit, :update, :destroy]
-  # before_action :not_owner_move_to_index, only: :edit
+  before_action :not_owner_move_to_index, only: :edit
 
   def index
     @newitems = Item.order("created_at DESC").limit(10)

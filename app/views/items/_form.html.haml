@@ -20,7 +20,7 @@
         必須
     .item-int__form
       = f.text_area :introduction, {class: "item-int__form__area", placeholder: "商品の説明（必須 1,000文字以内）\n（色、素材、重さ、定価、注意点など）\n\n例）2010年頃に1万円で購入したジャケットです。ライトグレーで傷はありません。あわせやすいのでおすすめです。",maxlength: '1000', required:"required" }
-      .item-int__form__count 0/1000
+      -# .item-int__form__count 0/1000
 .border
 -# 商品の詳細
 .item-box
@@ -40,15 +40,15 @@
             %i.fas.fa-chevron-down.item-category__form__body__label__box__icon
 
   -# ブランド
-  .item-brand
-    .item-brand__top
-      .item-brand__top__title
-        ブランド
-      .optional
-        任意
-    .item-brand__form
-      .item-brand__form__body
-        = f.select :brand_id, options_for_select(@brand.map{|c|[c[:name], c[:id]]}), {include_blank:"例）Dior"}, {class: "item-brand__form__body__select"}
+  -# .item-brand
+  -#   .item-brand__top
+  -#     .item-brand__top__title
+  -#       ブランド
+  -#     .optional
+  -#       任意
+  -#   .item-brand__form
+  -#     .item-brand__form__body
+  -#       = f.select :brand_id, options_for_select(@brand.map{|c|[c[:name], c[:id]]}), {include_blank:"例）Dior"}, {class: "item-brand__form__body__select"}
   
   -# 商品の状態
   .item-condition
@@ -145,7 +145,7 @@
       .item-Sales__text__title
         販売利益
     .item-Sales__charge-calc
-      .item-Sales__charge-calc__data ¥ 0
+      .item-Sales__charge-calc__data —
   
   
   -# 出品ボタン

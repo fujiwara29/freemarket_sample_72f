@@ -31,7 +31,7 @@
                     -else
                   %ul.imaga
                     - @item.images.each_with_index do |image,index|
-                      -if index != 0
+                      -if index != -1
                         %li.image-small
                           =image_tag image.image.url,class:"item-img-small_sold_out"
                       -else
