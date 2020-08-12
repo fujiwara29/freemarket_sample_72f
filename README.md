@@ -154,5 +154,4 @@
 - belongs_to: user
 - belongs_to: item
 ----------
-# 接続先情報
-## 本番環境IPアドレス:	http://18.177.62.193
+
